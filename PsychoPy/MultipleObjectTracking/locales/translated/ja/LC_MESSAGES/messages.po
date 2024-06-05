@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "続行するには任意のキーを押してください"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "参加者各位"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "これから行われるテストの所要時間は約{number_duration_minutes}分です。 テストは複数のトライアルに分割されており、トライアルの間には短い休憩をとることができます。 最初に5回の練習トライアルがあります。 以下の例でタスクの内容を説明します。"
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "各トライアルの開始時に、画面上に8つの円が表示されます。 そのうち4つは繰り返し赤く点滅します。 円が動いている間、それらの点滅している円の動きを追って、 円が停止したらそれらをマウスでクリックし選択してください。"
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "4つのうち、{numcorrect}つが正解です"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "ご質問がございましたら、テスト担当者に今すぐお問い合わせください。"
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- 開始するには任意のキーを押してください --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "観察された追跡能力"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "終了するには任意のキーを押してください"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "練習"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "テストの開始"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "{numblocks}ブロック中{curblock}つのブロック"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "テストの終了"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "テスト担当者に連絡してください"

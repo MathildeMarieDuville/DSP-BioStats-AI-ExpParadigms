@@ -1,0 +1,6 @@
+subject;set;nBlocksTotal;age;sex;handedness;visionImpairment;block;trial;nObjects;nTargets;o1marked;o2marked;o3marked;o4marked;o5marked;o6marked;o7marked;o8marked;sumCorrect;fps;monitorScalingFa
+Participant01-5t;1;1;10;Male;Right;No;0;0;4;1;1.0;0.0;0.0;0.0;;;;;1.0;60;1.0
+Participant01-5t;1;1;10;Male;Right;No;0;1;4;1;1.0;0.0;0.0;0.0;;;;;1.0;60;1.0
+Participant01-5t;1;1;10;Male;Right;No;0;2;4;1;1.0;0.0;0.0;0.0;;;;;1.0;60;1.0
+Participant01-5t;1;1;10;Male;Right;No;0;3;4;1;0.0;1.0;0.0;0.0;;;;;1.0;60;1.0
+Participant01-5t;1;1;10;Male;Right;No;0;4;4;1;0.0;1.0;0.0;0.0;;;;;1.0;60;1.0

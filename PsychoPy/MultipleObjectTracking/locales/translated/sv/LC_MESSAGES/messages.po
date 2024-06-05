@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "Tryck på en knapp för att fortsätta"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "Kära deltagare,"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "Följande test kommer ta cirka {number_duration_minutes} minuter. Testet är indelat i flera försök och däremellan kan du ta små pauser. Först är det dock fem övningsförsök. Följande exempel förklarar din uppgift."
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "I början av varje test visas åtta skivor på skärmen. Fyra av dem blinkar upprepade gånger rött. Din uppgift är att följa dessa skivor under hela deras rörelsefas och välja dem med ett musklick när de stannar."
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "{numcorrect} utav 4 rätt"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "Om du har några frågor ska du vända dig till testledaren nu."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- Tryck på en knapp för att börja --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "Observerad spårningskapacitet"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "Tryck på en knapp för att avsluta"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "Övning"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "Testets början"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "Del {curblock} av {numblocks}"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "Slutet på testet"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "Kontakta testledaren"

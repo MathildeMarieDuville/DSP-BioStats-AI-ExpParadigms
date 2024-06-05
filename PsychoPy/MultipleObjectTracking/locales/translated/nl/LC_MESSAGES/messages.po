@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "Druk op een willekeurige toets om verder te gaan"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "Beste deelnemer,"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "De volgende test duurt ongeveer {number_duration_minutes} minuten. De test is onderverdeeld in verschillende proeven waartussen je korte pauzes kunt nemen. In eerste instantie zijn er vijf oefenproeven. Het volgende voorbeeld laat zien wat je taak is."
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "Aan het begin van elke proef verschijnen er acht schijven op het scherm. Vier daarvan knipperen rood. Jouw taak is om deze schijven te volgen tijdens alle fasen van hun beweging en ze te selecteren met een muisklik op het moment dat ze tot stilstand komen."
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "{numcorrect} van de 4 goed"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "Mocht je nog vragen hebben, stel ze dan nu aan de testleider."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- Druk op een willekeurige toets om te beginnen --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "Waargenomen Volgvermogen"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "Druk op een willekeurige toets om te stoppen"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "Oefenen"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "Begin van de test"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "Blok {curblock} of {numblocks}"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "Einde van de test"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "Neem ajb contact op met de testleider"

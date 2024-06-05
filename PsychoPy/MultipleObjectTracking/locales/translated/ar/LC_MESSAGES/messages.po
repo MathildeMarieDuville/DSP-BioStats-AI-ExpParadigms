@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "اضغط على أي مفتاح للمتابعة"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "عزيزي المشارك،"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "سيستغرق الاختبار التالي حوالي {number_duration_minutes} دقائق. الاختبار مقسم إلى عدة محاولات يمكنك أخذ استراحات قصيرة بينها. إلا أنك ستحتاج في البداية إلى خوض عدة محاولات تدريبية. سيوضح لك المثال التالي مهمتك."
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "في بداية كل محاولة، ستظهر ثمانية أقراص على الشاشة. ثم تومض أربعة أقراص منها باللون الأحمر بشكل متكرر. ومهمتك هي متابعة تلك الأقراص أثناء حركتها، وبعد أن تتوقف قم باختيارها عن طريق النقر عليها بالماوس."
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "اختياراتك الصحيحة: {numcorrect} من 4"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "إذا كانت لديك اي أسئلة، فيُرجى منك توجيهها للمسؤول عن الاختبار الآن."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- اضغط على أي مفتاح للبدء --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "قدرة التتبع الملاحظة"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "اضغط على أي مفتاح للإنهاء"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "التدريب"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "بدء الاختبار"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "المجموعة {curblock} من {numblocks}"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "نهاية الاختبار"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "يُرجى التواصل مع المسؤول عن الاختبار"

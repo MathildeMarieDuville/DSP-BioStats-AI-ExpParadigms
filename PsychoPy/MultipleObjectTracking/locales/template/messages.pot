@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2021-03-31 15:45-0600\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+
+#: ../../MOTTest.py:428 ../../MOTTest.py:500
+msgid "Press any key to continue"
+msgstr ""
+
+#: ../../MOTTest.py:447
+msgid "Dear participant,"
+msgstr ""
+
+#: ../../MOTTest.py:449
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr ""
+
+#: ../../MOTTest.py:451
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr ""
+
+#: ../../MOTTest.py:486
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr ""
+
+#: ../../MOTTest.py:491
+msgid "-- Press any key to start --"
+msgstr ""
+
+#: ../../MOTTest.py:514
+msgid "Observed Tracking Capacity"
+msgstr ""
+
+#: ../../MOTTest.py:514
+msgid "Press any key to quit"
+msgstr ""
+
+#: ../../MOTTest.py:599
+msgid "Block {curblock} of {numblocks}"
+msgstr ""
+
+#: ../../MOTTest.py:619
+msgid "End of the test"
+msgstr ""
+
+#: ../../MOTTest.py:619
+msgid "Please contact the test administrator"
+msgstr ""
+

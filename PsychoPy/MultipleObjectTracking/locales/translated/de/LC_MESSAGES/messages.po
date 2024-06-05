@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "Weiter mit beliebiger Taste"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "Liebe(r) Teilnehmer(in),"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "der folgende Test wird ca. {number_duration_minutes} Minuten dauern. Der Test ist in mehrere Durchgänge unterteilt, zwischen denen du kurze Pausen machen kannst. Zunächst kommen jedoch fünf Durchgänge zur Übung. Deine Aufgabe dabei soll dir das nachfolgende Beispiel erläutern."
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "Zu Beginn jedes Durchgangs erscheinen acht Scheiben auf dem Bildschirm. Vier davon blinken mehrfach rot auf. Deine Aufgabe besteht darin, diese Scheiben durch eine Bewegungsphase zu verfolgen und an deren Ende mit der Maus wieder auszuwählen."
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "{numcorrect} von 4 richtig"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "Solltest du noch Fragen haben, dann wende dich bitte jetzt an die Testleitung."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- Start des Tests mit beliebiger Taste --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "Beobachtete Trackingkapazität"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "Beenden mit beliebiger Taste"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "Übung"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "Beginn des Tests"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "Block {curblock} von {numblocks}"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "Ende des Tests"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "Bitte an die Testleitung wenden"

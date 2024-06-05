@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "जारी रखने के ल‍िए कोई भी कुँजी दबाएं"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "प्रिय प्रतिभागी,"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "आगामी टेस्ट लगभग {number_duration_minutes} मिनट लगेंगे। टेस्ट को अनेक ट्रायल में बाँटा गया है जिनके बीच में आप छोटे ब्रेक ले सकते हैं। शुरूआत में, हालाँकि‍ पाँच अभ्यास ट्रायल हैं। निम्नलिखित उदाहरण आपके कार्य को स्पष्ट करता है।"
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "प्रत्येक ट्रायल के आरंभ में स्क्रीन पर चार गोले दिखाई देते हैं। उनमें से चार बार-बार लाल रंग में चमकते हैं। आपका कार्य उन गोलों को उनके संपूर्ण गति करने के दौरान पीछा करना और जब वे रूक जाएं तो एक माउस क्लिक के साथ चुनाव करना है।"
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "4 में से {numcorrect} सही"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "यदि आपका कोई प्रश्न है तो कृपया अभी टेस्ट संचालक पर जाएं."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- आरंभ करने के लिए कोई भी कुँजी दबाएं --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "देखी गई ट्रेकिंग क्षमता"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "छोड़ने के ल‍िए कोई भी कुँजी दबाएं"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "अभ्यास"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "टेस्ट का आरंभ"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "{numblocks} के {curblock} ब्लॉक"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "टेस्ट समाप्त"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "कृपया टेस्ट संचालक से संपर्क करें"

@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "Appuyez sur n'importe quelle touche pour continuer"
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "Cher (e) participant (e),"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "Le test suivant durera environ {number_duration_minutes} minutes. Le test est scindé en plusieurs essais entre lesquels vous pourrez prendre de courtes pauses. Au début, cependant, vous aurez droit à cinq essais pratiques. L'exemple suivant est une explication du travail qui est attendu de vous."
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "Au début de chaque essai, huit disques apparaissent sur l'écran. Quatre d'entre eux clignotent en rouge. Votre tâche consiste à suivre ces disques tout au long de leur phase de mouvement et de les sélectionner d’un clic de souris lorsqu’ils arrêtent de clignoter."
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "{numcorrect} sur 4 corrects"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "Si vous avez des questions, adressez-vous à l'administrateur du test."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- Appuyez sur n'importe quelle touche pour commencer --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "Capacité de suivi observée"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "Appuyez sur n'importe quelle touche pour quitter"
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "Pratique"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "Commencer le test"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "Bloc {curblock} sur {numblocks}"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "Fin du test"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "Veuillez contacter votre administrateur de test"

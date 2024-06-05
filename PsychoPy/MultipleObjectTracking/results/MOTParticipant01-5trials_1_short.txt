@@ -1,0 +1,2 @@
+subID;avTargetsCorrect;capacity
+Participant01-5t;1.0;1.0

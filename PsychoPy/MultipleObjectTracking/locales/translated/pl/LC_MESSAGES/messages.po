@@ -1,0 +1,62 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr "Project-Id-Version: PACKAGE VERSION\nPOT-Creation-Date: 2020-03-11 09:24+0100\nPO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\nLast-Translator: FULL NAME <EMAIL@ADDRESS>\nLanguage-Team: LANGUAGE <LL@li.org>\nMIME-Version: 1.0\nContent-Type: text/plain; charset=utf-8\nContent-Transfer-Encoding: 8bit\nGenerated-By: pygettext.py 1.5\n"
+
+#: ../../MOTTest.py:403 ../../MOTTest.py:475
+msgid "Press any key to continue"
+msgstr "Naciśnij dowolny klawisz, aby kontynuować."
+
+#: ../../MOTTest.py:422
+msgid "Dear participant,"
+msgstr "Drogi Uczestniku/Droga Uczestniczko,"
+
+#: ../../MOTTest.py:424
+msgid "The following test will take approximately {number_duration_minutes} minutes. The test is divided into several trials between which you may take short breaks. At first, however, there are five practice trials. The following example explains your task."
+msgstr "niniejsze badanie potrwa ok. {number_duration_minutes} minut. Jest ono podzielone na kilka prób, pomiędzy którymi możesz robić sobie krótkie przerwy. Na początek jednak prosimy Cię o odbycie pięciu prób ćwiczeniowych. Następujący przykład wyjaśni Ci, co będzie Twoim zadaniem."
+
+#: ../../MOTTest.py:426
+msgid "At the beginning of every trial, eight discs appear on the screen. Four of them repeatedly flash red. Your task is to follow these discs throughout their phase of movement and to select them with a mouse click when they come to a stop."
+msgstr "Na początku każdej próby na ekranie pojawi się osiem dysków. Cztery z nich będą migać na czerwono. Twoim zadaniem jest podążanie za nimi, w trakcie kiedy się poruszają, i zaznaczenie poprzez kliknięcie na nich myszą w momencie, gdy się zatrzymają."
+
+#: ../../MOTTest.py:456 ../../MOTTest.py:569 ../../MOTTest.py:589
+msgid "{numcorrect} out of 4 correct"
+msgstr "{numcorrect} z 4 prawidłowych"
+
+#: ../../MOTTest.py:461
+msgid "If you should have any questions please turn to the test conductor now."
+msgstr "Jeśli masz jakiekolwiek pytania, możesz zadać je teraz osobie przeprowadzającej badanie."
+
+#: ../../MOTTest.py:466
+msgid "-- Press any key to start --"
+msgstr "-- Naciśnij dowolny klawisz, aby rozpocząć. --"
+
+#: ../../MOTTest.py:489
+msgid "Observed Tracking Capacity"
+msgstr "Zmierzona zdolność do śledzenia wzrokiem"
+
+#: ../../MOTTest.py:489
+msgid "Press any key to quit"
+msgstr "Naciśnij dowolny klawisz, aby wyjść."
+
+#: ../../MOTTest.py:564
+msgid "Practice"
+msgstr "Ćwiczenie"
+
+#: ../../MOTTest.py:572
+msgid "Start of the test"
+msgstr "Początek badania"
+
+#: ../../MOTTest.py:574
+msgid "Block {curblock} of {numblocks}"
+msgstr "Blok {curblock} z {numblocks}"
+
+#: ../../MOTTest.py:594
+msgid "End of the test"
+msgstr "Koniec badania"
+
+#: ../../MOTTest.py:594
+msgid "Please contact the test administrator"
+msgstr "Zwróć się do osoby przeprowadzającej badanie."
