@@ -1,0 +1,490 @@
+---
+title: "Analysis of covariances (ANCOVA)"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+author: Mathilde Marie Duville
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+# Description
+
+The ANCOVA may be used to (A) compare means on an outcome between more than 2 groups, considering the effect of one or more variables (covariates), or (B) assess whether the linear relationship between the outcome and the covariate(s) is different between groups. 
+
+# Notice
+
+* This code is purely demonstrative. That is, data are not necessarily adequate for the analysis (e.g., a parametric test is applied when parametricity cannot be validated). Therefore, both data and outputs are not relevant and are not shared.
+
+* Only parametric tests are presented here. If your data do not meet the assumptions for parametricity, a robust ANCOVA may be applied. See WRS2 packWeight: https://cran.r-project.org/web/packages/WRS2/index.html
+
+
+# One-way ANCOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("One-way-ANCOVA-groups.xlsx")
+```
+
+## *ANCOVA as a comparison between more than 2 groups, considering the effect of the covariate on the outcome.* 
+
+The covariate is the Temperature, the 0utcome is the score, and the qualitative factor is "Type".
+
+### Homogeneity of regression slopes
+
+No significant interaction between the covariate (Temperature) and the qualitative variable (Type)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(rstatix)
+data %>% anova_test(Score ~ Type*Temperature)
+```
+
+### Normality of residuals 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod <- lm(Score ~ Temperature + Type, data = data)
+mod.metrics <- augment(mod)
+head(mod.metrics, 3)
+
+# p>0.05
+shapiro_test(mod.metrics$.resid)
+```
+
+### Homogeneity of residuals' variances
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# p>0.05
+mod.metrics %>% levene_test(.resid ~ Type)
+
+```
+
+### ANCOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#Results from the lm function may also be considered (mod)
+
+mod2 <- data %>% anova_test(Score ~ Temperature + Type)
+get_anova_table(mod2)
+Anova(mod)
+```
+
+### Post-hoc comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Option 1
+# Also outputs the means of predicted values for every group, after considering the effect of the covariate
+
+library(emmeans)
+pwc <- emmeans(mod, specs=pairwise~Type)
+pwc
+
+cont <- summary(pwc$contrasts)
+cont$HolmPval <- p.adjust(cont$p.value, method = "holm") 
+
+for (x in seq(from = 1, to = nrow(cont), by = 1)) 
+  if (cont$HolmPval[x] < 0.001){
+    cont$p.adj.signif[x] <- "***"
+    
+    } else if  (cont$HolmPval[x] < 0.01) {
+      cont$p.adj.signif[x] <- "**"  
+    } else if  (cont$HolmPval[x] < 0.05) {
+      cont$p.adj.signif[x] <- "*" 
+    } else {
+      cont$p.adj.signif[x] <- "NS" }
+
+cont
+
+# Option 2
+
+pwc2 <- data %>% 
+  emmeans_test(Score ~ Type, covariate = Temperature,
+    p.adjust.method = "holm")
+pwc2
+
+#Outputs the means of predicted values for every group, after considering the effect of the covariate
+
+get_emmeans(pwc2)
+
+# plot
+
+# Option 1
+library(ggplot2)
+emmip(mod,  ~ Type, CIs=TRUE, linearg=NULL) + 
+    geom_jitter(aes(x = Type, 
+                    y = Score, 
+                    colour = Type),
+              data = data, pch = 10, width = 0.1)+
+     labs(y = "Estimated marginal mean (Score)", y = "Score")+
+    theme_bw()+
+    theme(legend.position = "none") 
+
+
+# Option 2
+pwc2 <- pwc2 %>% add_xy_position(x = "Type", fun = "mean_se")
+
+library(ggpubr)
+ggline(get_emmeans(pwc2), x = "Type", y = "emmean") +
+  geom_errorbar(aes(ymin = conf.low, ymax = conf.high), width = 0.2) + 
+  stat_pvalue_manual(pwc2, hide.ns = TRUE, tip.length = FALSE) +
+  labs(subtitle = get_test_label(mod2, detailed = TRUE),
+    caption = get_pwc_label(pwc2), y = "Estimated marginal mean (Score)")
+
+```
+
+## *ANCOVA as a linear regression*
+
+### Differences as regards slopes
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("One-way-ANCOVA-regression.xlsx")
+```
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Adjust the full model
+mod <- lm(Score~Temperature + Type +  Temperature + Type:Temperature,
+              data = data) 
+
+# plot
+library(ggplot2)
+ggplot(data, aes(y=Score, x=Temperature, colour=Type))+
+    geom_point()+ geom_smooth(method="lm") 
+```
+
+#### Estimates of slopes and intercepts
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(broom)
+tidy(summary(mod)) 
+```
+
+* "Intercept" : intercept of the reference group (here, Apple). i.e., when temperature is 0, the score is *Intercept* for Apple.
+
+* Temperature: slope of the relationship between score and temperature for the group of reference.
+i.e., the score increases by *Temperature* every degree.
+
+* TypeBanana: difference between intercepts between Apple and Banana. i.e., the predicted score at temperature = O of Banana is *Intercept+TypeBanana*
+
+* TypeOrange: difference between intercepts between Apple and Orange
+
+* Temperature:TypeBanana: difference between slopes of Apple and Banana. The slope of Banana is *Temperature+Temperature:TypeBanana*
+
+* Temperature:TypeOrange: difference between slopes of Apple and Orange.
+
+#### Output for the interaction 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+Anova(mod)
+```
+
+If the p-value of the interaction (Type:Temperature) is significant it means that the slope of the relationship between score and temperature may depend on the group (Apple, Orange or Banana).
+
+### Differences as regards intercepts
+
+#### Adjust the model with identical slopes (in case of non-significant p-value for slope differences only)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod2 <- lm(Score ~ Temperature + Type, data=data) 
+
+# Estimates of slopes and intercepts
+tidy(summary(mod2))
+
+# Plot as if identical slopes
+library(moderndive)
+ggplot(data, aes(x=Temperature, y=Score, colour=Type))+
+    geom_point()+ geom_parallel_slopes() 
+```
+
+#### Adjust the model with only one regression line (for all of the groups of Type)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod3 <-  lm(Score~Temperature,data=data)
+
+# Estimates of slope and intercept
+tidy(summary(mod3))
+
+# Plot
+ggplot(data, aes(x=Temperature, y=Score))+
+    geom_point(aes(colour=Type))+ geom_smooth(method="lm")
+```
+
+#### Compare adjustments 
+
+##### Different slopes (case of significant p-value for slopes differences)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+anova(mod, mod3)
+```
+
+##### Similar slopes (case of non-significant p-value for slopes differences)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+anova(mod2, mod3)
+```
+
+If the p-value is significant, it means that there is a difference as regards intercepts between groups. 
+
+
+# Two-way ANCOVA
+
+## *ANCOVA as a comparison between more than 2 groups, considering the effect of the covariate on the outcome.* 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("Two-way-ANCOVA.xlsx")
+```
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(tidyverse)
+data %>%
+  group_by(Colour, Category) %>%
+  get_summary_stats(score, type = "mean_sd")
+
+bxp <- ggboxplot(
+  data, x = "Colour", y = "score",
+  color = "Category", palette = "jco"
+)
+bxp
+
+
+# plot
+library(ggplot2)
+p <- ggplot(data, aes(y=score, x=Weight, colour=Category))+
+    geom_point()+ geom_smooth(method="lm") 
+p + facet_grid(. ~ Colour) + theme_classic() 
+```
+
+### Homogeneity of regression slopes
+
+No significant interaction between the covariate (Weight) and the qualitative variables (Coulour and Category)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Option 1
+data %>%
+  anova_test(
+    score ~ Weight + Colour + Category + 
+     Colour*Category + Weight*Colour +
+     Weight*Category + Weight*Category*Colour)
+
+# Option 2
+data %>%
+  unite(col = "group", Colour, Category) %>%
+  anova_test(score ~ group*Weight)
+
+```
+
+### Normality of residuals
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+
+mod <- lm(score ~ Weight + Colour*Category, data = data)
+
+mod.metrics <- augment(mod)
+head(mod.metrics, 3)
+
+# p>0.05
+shapiro_test(mod.metrics$.resid)
+
+```
+
+### Homogeneity of residuals' variances
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# p>0.05
+mod.metrics %>% levene_test(.resid ~ Colour*Category)
+
+```
+
+### ANCOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+#Results from the lm function may also be considered (mod)
+
+mod2 <- data %>% anova_test(score ~ Weight + Colour*Category)
+get_anova_table(mod2)
+Anova(mod)
+```
+
+### Post-hoc comparisons
+
+#### Case 01: The objective of the study is narrowed by a previous hypothesis.
+
+The effect of one factor on the outcome depends on the other factor. The objective of the study is narrowed by a previous hypothesis.
+
+##### Simple main effect
+Effect of one factor at each modality of the other factor. Choose according to the objective of the study. Only if general effect is significant. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Main effect of Category at each level of Colour 
+mod <- data %>%
+  group_by(Colour) %>%
+  anova_test(score ~ Weight + Category)
+
+# Adjust the p-values
+mod$HolmPval <- p.adjust(mod$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(mod), by = 1)) 
+  if (mod$HolmPval[x] < 0.001){
+    mod$p.adj.signif[x] <- "***"
+    
+    } else if  (mod$HolmPval[x] < 0.01) {
+      mod$p.adj.signif[x] <- "**"  
+    } else if  (mod$HolmPval[x] < 0.05) {
+      mod$p.adj.signif[x] <- "*" 
+    } else {
+      mod$p.adj.signif[x] <- "NS" }
+
+mod
+
+```
+
+##### Pairwise comparisons
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+pwc <- data %>% 
+  group_by(Colour) %>%
+  emmeans_test(
+    score ~ Category, covariate = Weight,
+    p.adjust.method = "Holm")
+pwc
+```
+
+#### Notice
+
+* In case of non-significant interaction, the effect of one factor on the outcome does not depend on the other factor. You may proceed with 2-by-2 comparisons within each level of significant factors, according to the hypothesis if relevant. Please refer to the file named "ANOVA" for more details, and adjust the code accordingly for the ANCOVA.
+
+* In case of exploratory analysis, and significance of both factors from the general model, post-hoc analyses (simple main effect and pairwise comparisons) may be repeated with the other factor. However, the p-values must be corrected for multiple testing (two times the number of tests). 
+
+## *ANCOVA as a linear regression*
+
+### Differences as regards slopes
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("Two-way-ANCOVA.xlsx")
+```
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Adjust the full model
+mod <- lm(score~Weight + Colour*Category + Weight + Colour:Weight +
+            Category:Weight, data = data) 
+
+# Plot
+p <- ggplot(data, aes(y=score, x=Weight, colour=Colour))+
+    geom_point()+ geom_smooth(method="lm") 
+p <- p + facet_grid(. ~ Category) + theme_classic() 
+p <- p + scale_color_manual(values=c("blue", "red"))
+p
+
+p <- ggplot(data, aes(y=score, x=Weight, colour=Category))+
+    geom_point()+ geom_smooth(method="lm") 
+p + facet_grid(. ~ Colour) + theme_classic() 
+
+```
+
+#### Estimates of slopes and intercepts
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(broom)
+tidy(summary(mod)) 
+```
+
+#### Output for the interaction 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+Anova(mod)
+```
+
+If the p-value of the interaction (Colour:Weight and Category:Weight) is significant it means that the slope of the relationship between score and Weight may depend on the Colour or the Category.
+
+### Differences as regards intercepts
+
+#### Adjust the model with identical slopes (in case of non-significant p-value for slope differences only)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod2 <- lm(score~Weight + Colour*Category, data = data) 
+
+# Estimates of slopes and intercepts
+tidy(summary(mod2))
+
+# Plot as if identical slopes
+library(moderndive)
+p <- ggplot(data, aes(x=Weight, y=score, colour=Colour))+
+    geom_point()+ geom_parallel_slopes() 
+p <- p + facet_grid(. ~ Category) + theme_classic() 
+p <- p + scale_color_manual(values=c("blue", "red"))
+p
+
+p <- ggplot(data, aes(x=Weight, y=score, colour=Category))+
+    geom_point()+ geom_parallel_slopes() 
+p + facet_grid(. ~ Colour) + theme_classic() 
+
+```
+
+#### Adjust the model with only one regression line (for all of the groups)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod3 <-  lm(score~Weight,data=data)
+
+# Estimates of slope and intercept
+tidy(summary(mod3))
+
+# Plot
+p <- ggplot(data, aes(x=Weight, y=score))+
+    geom_point(aes(colour=Colour))+ geom_smooth(method="lm")
+p <- p + facet_grid(. ~ Category) + theme_classic() 
+p <- p + scale_color_manual(values=c("blue", "red"))
+p
+
+p <- ggplot(data, aes(x=Weight, y=score))+
+    geom_point(aes(colour=Category))+ geom_smooth(method="lm")
+p + facet_grid(. ~ Colour) + theme_classic()
+```
+
+#### Compare adjustments 
+
+##### Different slopes (case of significant p-value for slopes differences)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+anova(mod, mod3)
+```
+
+##### Similar slopes (case of non-significant p-value for slopes differences)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+anova(mod2, mod3)
+```
+
+If the p-value is significant, it means that there is a difference as regards intercepts between groups. 
+
+
+# Ultimate Notice
+
+This code may further be adapted to three-way ANCOVA and mixed models (with within-id factors). You may refer to the present document complemented with the documentation on ANOVA provided in the file named "ANOVA" to infer the code. 
+
+
+

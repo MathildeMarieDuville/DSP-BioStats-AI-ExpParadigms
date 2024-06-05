@@ -1,0 +1,224 @@
+---
+title: "Two-group comparison"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+author: Mathilde Marie Duville
+---
+
+```{r setup, include=FALSE, include=FALSE,warning=FALSE, message=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Description
+This code is a proposal for comparing two groups.
+
+The following methodology is suggested (you can click on the image to zoom in.): 
+
+[![](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\Two-Group.png)](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\Two-Group.png)
+    
+# Notice
+This code is purely demonstrative. That is, data are not necessarily adequate for the analysis (e.g., a parametric test is applied when parametricity cannot be validated). Therefore, both data and outputs are not relevant and are not shared. 
+
+# Data retrieval 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+library(tidyverse)
+library(readxl)
+data <- read_excel("2-group-comparison.xlsx")
+
+data %>%
+  filter(Type %in% c("A", "B")) %>%
+  ggplot(aes(x=Type, y=Column1, fill=Type, colour=Type)) +
+  geom_boxplot(alpha=0.25, outlier.alpha=0) +
+  geom_jitter(fill="black")+
+  stat_summary(fun=mean, colour="white", geom="point", shape=18, size=5)
+
+boxplot(as.numeric(data$Column1)[1:60],
+            as.numeric(data$Column1)[61:120],
+            names = c("A", "B"), 
+            ylab = "Column 1", 
+            xlab = "Type")
+
+# Density
+data %>%
+  filter(Type %in% c("A", "B")) %>%
+  ggplot(aes(Column1, fill=Type, colour=Type)) +
+  geom_density(alpha=0.25)+
+  geom_rug()
+```
+
+# Unpaired Samples
+## *Normality* 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+A <- data %>%
+  filter(Type=="A")
+shapiro.test(A$Column1)
+
+qqnorm(A$Column1)
+qqline(A$Column1)
+
+B <- data %>%
+  filter(Type=="B")
+shapiro.test(B$Column1)
+
+qqnorm(B$Column1)
+qqline(B$Column1)
+```
+
+## *Asymmetry*
+
+"skew.2SE" must be > 1 to highlight a significant asymmetry.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(pastecs)
+
+stat.desc(A$Column1, norm=TRUE)
+stat.desc(B$Column1, norm=TRUE)
+```
+
+## *Outliers*
+### Value
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+boxplot.stats(A$Column1)$out
+boxplot.stats(B$Column1)$out
+```
+
+### Index
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+which(A$Column1 %in% boxplot.stats(A$Column1)$out)
+which(B$Column1 %in% boxplot.stats(B$Column1)$out)
+```
+
+## *Equality of variances*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+var.test(A$Column1, B$Column1)
+
+#OR 
+
+data2 <- data %>%
+  filter(Type %in% c("A", "B"))
+var.test(data2$Column1 ~ data2$Type)
+```
+
+## *Student test*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#bilateral
+t.test(data2$Column1~data2$Type, var.equal=TRUE)
+
+#unilateral A<B 
+t.test(data2$Column1~data2$Type, var.equal=TRUE,  alternative="less")
+
+#unilateral A>B 
+t.test(data2$Column1~data2$Type, var.equal=TRUE,  alternative="greater")
+```
+
+## *Welch*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#bilateral
+t.test(data2$Column1~data2$Type)
+t.test(A$Column1, B$Column1)
+
+#unilateral A<B 
+t.test(A$Column1, B$Column1, alternative="less")
+
+#unilateral A>B 
+t.test(A$Column1, B$Column1, alternative="greater")
+
+```
+
+## *Wilcoxon*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#Bilateral
+wilcox.test(data2$Column1~data2$Type)
+
+#unilateral A<B 
+wilcox.test(A$Column1, B$Column1, alternative="less")
+
+#unilateral A>B 
+wilcox.test(A$Column1, B$Column1, alternative="greater")
+```
+
+# Paired Samples
+## *Normality* 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(dplyr)
+data3 <- select(data2, Column1, Type) %>%
+  group_by(Type) %>%
+  mutate(row = row_number()) %>%
+  tidyr::pivot_wider(names_from = Type, values_from = Column1) %>%
+  select(-row) %>%
+  mutate(diff=A-B)
+
+shapiro.test(data3$diff)
+qqnorm(data3$diff)
+qqline(data3$diff)
+
+
+```
+
+## *Asymmetry*
+
+"skew.2SE" must be > 1 to highlight a significant asymmetry.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(pastecs)
+
+stat.desc(data3$diff, norm=TRUE)
+```
+
+## *Outliers*
+### Value
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+boxplot.stats(data3$diff)$out
+```
+
+### Index
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+which(data3$diff %in% boxplot.stats(data3$diff)$out)
+```
+
+## *Student test*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#bilateral
+t.test(data3$A, data3$B, paired=TRUE)
+
+#unilateral A<B 
+t.test(data3$A, data3$B, alternative="less", paired=TRUE)
+
+#unilateral A>B 
+t.test(data3$A, data3$B, alternative="greater", paired=TRUE)
+
+```
+
+## *Wilcoxon*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#bilateral
+wilcox.test(data3$A, data3$B, paired=TRUE)
+
+#unilateral A<B 
+wilcox.test(data3$A, data3$B, alternative="less", paired=TRUE)
+
+#unilateral A>B 
+wilcox.test(data3$A, data3$B, alternative="greater", paired=TRUE)
+```

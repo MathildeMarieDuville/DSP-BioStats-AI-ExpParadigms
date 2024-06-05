@@ -1,0 +1,877 @@
+---
+title: "Regression modelling"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+author: Mathilde Marie Duville
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE, include=FALSE,warning=FALSE, message=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Description
+
+In this document, the methodology for simple and multiple regressions are presented. Regression modelling is also led beyond linearity, so that polynomial models are included. Both parametric and non-parametric approaches are available.
+
+# Notice
+
+This code is purely demonstrative. That is, data are not necessarily adequate for the analysis (e.g., a parametric test is applied when parametricity cannot be validated). Therefore, both data and outputs are not relevant and are not shared.
+
+# Simple linear regression 
+
+The aim is to assess the linear regression between 2 continuous variables. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("SimpleLinearRegression.xlsx")
+
+```
+
+## Visualization and linearity hypothesis
+
+NOTICE: Graphs may not be representative of the adequate conditions for linearity. Codes are purely demonstrative to highlight the methodology.
+
+* The scatterplot help to visualize the linear relationship between both variables. The solid line represents the linear regression curve obtained by the least squares method. The dotted curve represents a non-parametric smoothing, here by the loess method to outline the general tendency of the relationship. The blue area represent its 95% confidence interval. Linearly may be accepted when the linear regression curve lies within the confidence interval of the non-parameric smoothing curve.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+scatterplot(Weight~Length, data=data)
+```
+
+* The “residual versus fitted values” plot should me homegeneous (horizontal red curve around 0). It would mean that whenever fitted values increases, residuals globally remain uniformally distributed around 0. Therefore, the linear regression would be appropriate for the data.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod <- lm(Weight~Length, data=data) 
+plot(mod,1)
+```
+
+## Independence of residuals 
+
+NOTICE: Residuals should not be correlated with each other.
+
+Graphs may not be representative of the adequate conditions for absence of autocorrelation of residuals. Codes are purely demonstrative to highlight the methodology.
+
+Horizontal dotted lines are confidence intervals of correlation coefficient = 0. Vertical lines represent correlation coefficients between every residual and its n+x residual (lag=x). Vertical lines should not be higher (or lower) than horizontal lines.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# p>0.05 on Durbin Watson test
+durbinWatsonTest(mod) #Lag = 1
+acf(residuals(mod), main="mod")
+
+```
+
+## Normality of residuals 
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals. Codes are purely demonstrative to highlight the methodology. Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# p>0.05
+shapiro.test(residuals(mod))
+plot(mod,2)
+```
+
+## Homogeneity of residuals 
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneously distributed residuals. Codes are purely demonstrative to highlight the methodology.
+
+The red curve is a local regression line, that should approximate horizontality. If horizontal, it shows that residuals tend to be distributed homogeneously around fitted values. Therefore, the homogeneity of residuals should be validated.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Breush-Pagan: p>0.05
+ncvTest(mod)
+plot(mod, 3)
+```
+
+## Outliers
+
+NOTICE: Plots from the “influenceIndexPlot” function represent:
+
+* Cook’s distance (i.e., change in regression coefficients when the value is not considered in the model. More the distance is high, more this value is considered influential).
+
+* Studentized residuals
+
+* Bonferroni’s p-values (p<0.05)
+
+* Hat’s values (<0.05)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+#p>0.05 adjusted by Bonferroni method (plot 3)
+outlierTest(mod)
+influenceIndexPlot(mod)
+```
+
+Whenever an influential value is detected, the regression may be run, however, a sensitivity analysis may complement it. That is, the model should be performed again without those values, and coefficients may be compared. For instance, here, values of indexes 121 and 154 have been highlighted as outliers by Cook’s distance and hat’s values. The model is run again without those values and coefficients are compared with the main model:
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+modbis <- lm(Weight~Length, data=data[-c(151,154),])
+compareCoefs(mod,modbis)
+```
+
+## Parametric regression fit 
+
+When the residuals are normally distributed, the median should approximate 0 (indicated within the "Residuals" section of the output). Besides, the absolute values of the 1st and 3rd quartiles should be similar.  
+
+Within the "Coefficients" section: 
+* The "Intercept" row refers to the intercept of the regression curve. 
+* The second row refers to the slope.
+* The "Estimate" column indicates the parameters
+* The "Std. Error" indicates their standard error
+* The "t value" indicates the test statistic
+* The "Pr(>|t|)" indicates the valor of p for equality of coefficients to 0.
+* Residual standard error, degrees of freedom, R squared and F-statistic are also mentioned. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+summary(mod)
+
+# Confidence interval
+confint(mod)
+```
+
+## Predictions
+
+A confidence interval represents low and high thresholds of values. This interval has x (e.g., 95%) probability to contain the true value.
+
+A prediction interval is an interval of values that have a x (e.g., 95%) probability of containing the true value.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+dataPred <- data.frame(Length=c(5.6, 1.2, 8.3))
+predict(mod, newdata=dataPred)
+
+#Prediction and confidence intervals (95%)
+predict(mod, newdata=dataPred, interval="prediction")
+predict(mod, newdata=dataPred, interval="confidence")
+
+```
+
+## Regression components
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Residuals
+residuals(mod)
+
+# Fitted
+fitted(mod)
+
+# Variance-Covariance matrix
+vcov(mod)
+
+```
+
+## Pearson's coefficient 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+pearson <- cor.test(data$Length, data$Weight, method = "pearson")
+pearson
+```
+
+## Final plot
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(ggplot2)
+
+dataWithPred <-cbind(data, predict(mod, interval="prediction"))
+head(dataWithPred)
+summ<-summary(mod)
+
+pval<-summ[["coefficients"]][2,4]
+
+if (pval < 0.001){
+  p.signif <- "***"
+  } else if  (pval < 0.01) {
+    p.signif <- "**"  
+  } else if  (pval < 0.05) {
+    p.signif <- "*" 
+  } else {
+    p.signif <- "NS" }
+
+pvalPearson<-pearson[["p.value"]]
+
+if (pvalPearson < 0.001){
+  p.signifPearson <- "***"
+  } else if  (pval < 0.01) {
+    p.signifPearson <- "**"  
+  } else if  (pval < 0.05) {
+    p.signifPearson <- "*" 
+  } else {
+    p.signifPearson <- "NS" }
+    
+ggplot(dataWithPred, aes(y=Weight, x=Length))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm", fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Length") + theme_classic() +
+  annotate("text", x = 3, y = 15, label = paste("Weight = ", round(mod[["coefficients"]][1], digits = 2),
+                                                " + ", round(mod[["coefficients"]][2], digits = 2), 
+                                                " Length, ", "pval ~ ", p.signif))+
+  annotate("text", x = 3, y = 14, label = paste("Pearson's correlation: " , 
+                                                round(pearson[["estimate"]], digits = 2),  ",",
+                                                " pval ~ ", p.signifPearson))
+           
+           
+```
+
+## When parametric assumptions are not met 
+
+### Spearman's and Kendall's coefficients
+
+When linearity is not met, the monotonic relation between 2 variables may be assessed. If positive, both variables fluctuates towards the same direction. If negative, variables are fluctuating towards opposite directions. Spearman's and Kendall's coefficients are in range [-1;1]. There are non-parametric approaches although variables must be independent (no auto-correlation of residuals). 
+
+Also, data may be transformed to reach linearity (e.g., log transformation). 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+Spearman <- cor.test(data$Length, data$Weight, method = "spearman")
+Spearman
+
+Kendall <- cor.test(data$Length, data$Weight, method = "kendall")
+Kendall
+```
+
+### When residuals are auto-correlated
+
+The correlation of residuals should be added to the model. That is, a variance-covariance matrix can be added.
+
+The Akaike Inferior Criteria (AIC) represents how much information gets lost when estimating the model. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Create a variable of dependence between under-study variables
+data$id <- 1:nrow(data)
+  
+library(nlme)
+mod2 <- gls(Weight~Length, data=data, correlation=corAR1(form=~id),na.action=na.omit) 
+#summary(mod2)
+
+# Compare the quality of both models with the Akaike Inferior Criteria (AIC: how much information gets lost through estimation; residuals).
+
+modbis <- gls(Weight~Length, data=data,na.action=na.omit)
+
+AIC(modbis,mod2)
+
+# Compare coefficients
+summary(mod2)
+summary(mod)
+
+```
+
+### Permutation tests
+
+Permutation test may be applied only under the validation of independence of residuals (no need to validate normality nor homogeneity). 
+Note: these are the same conditions as Spearman's and Kendall's correlation coefficients' estimation. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(lmPerm)
+set.seed(123)
+mod3 <- lmp(Weight~Length, data=data)
+summary(mod2)
+
+# Compare with the parametric approach
+summary(mod)
+```
+
+### Sandwich estimators of variance-covariance matrix
+
+When the homogeneity of variance is not met, the standard error of the slope may be underestimated. Therefore, the test statistic and the p-value may be biased (over-estimated). 
+Sandwich estimators are a more robust approach to estimate standard errors. 
+
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+
+# variance-covariance matrix 
+vcov(mod)
+
+# variance-covariance matrix with a sandwich estimator
+hccm(mod)
+
+# Coefficients when the heterogeneity of variances is considered in the model
+library(lmtest)
+coeftest(mod, vcov = hccm) 
+
+# Compare with modelling that assumes the homogeneity of variances
+summary(mod)
+```
+
+# Multiple linear regression 
+
+The aim is to assess the linear regression between 1 outcome variable and multiple continuous variables.
+
+Note that the relation estimated between the response variable and one of the predictive variables is adjusted to the effect of all other variables on the outcome. That is, the modelling teases apart the individual effects of each independent variable on the dependent variable. 
+
+However, if independent variables are related, it is impossible to hold one variable constant while modulating the other. This situation happens in case of high multicollinearity.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("MultipleLinearRegression.xlsx")
+
+```
+
+## Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(ggplot2)
+
+ggplot(data, aes(x=Length,y=Weight, fill=Size))+
+  geom_point(size=4, shape=21)+
+  scale_fill_gradient2(low="green", mid="yellow",high="red", midpoint=mean(data$Size)) 
+
+```
+
+## 2-by-2 relations between variables 
+
+Corralation coefficients are Pearson's
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(GGally)
+ggpairs(data)
+
+```
+
+## Linearity
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+scatterplotMatrix(data) 
+```
+
+## Parametric regression fit
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod4 <- lm(Weight~., data=data) 
+summary(mod4)
+
+# Slopes, confidence interval at 95% and p-values
+library(finalfit)
+data %>%
+  lmmulti("Weight", c("Length", "Size"))  %>%  fit2df()
+```
+
+## Multicollinearity between variables
+
+Multicollinearity inflates the variance of the affected variables. The Variance Inflation Factor (VIF) may be calculated for every variable. For VIF calculation, each independent variable is regressed on all other independent variables. It indicates how much each variable is being explained by the other. 
+
+Note: variables with high multicollinearity may be removed from the model. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(performance)
+check_collinearity(mod4)
+```
+
+## Normality of residuals 
+
+NOTICE: Graphs may not be representative of the adequate conditions for normally distributed data. Codes are purely demonstrative to highlight the methodology. Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+check_normality(mod4) #p>0.05 on Shapiro-Wilk test
+plot(mod4,2)
+```
+
+## Linearity of residuals 
+
+NOTICE: Graphs may not be representative of the adequate conditions for linearity. Codes are purely demonstrative to highlight the methodology.
+
+The “residual versus fitted values” plot should be homogeneous (horizontal red curve around 0). It would mean that whenever fitted values increases, residuals globally remain uniformly distributed around 0. Therefore, the linear regression would be appropriate for the data.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod4,1)
+```
+
+## Homogeneity of residuals 
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneously distributed residuals. Codes are purely demonstrative to highlight the methodology.
+
+The red curve is a local regression line, that should approximate horizontality. If horizontal, it shows that residuals tend to be distributed homogeneously around fitted values. Therefore, the homogeneity of residuals should be validated.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+check_heteroscedasticity(mod4) # Breush-Pagan: p>0.05
+plot(mod4,3)
+```
+
+## Outliers
+
+Whenever an influential value is detected, the regression may be run, however, a sensitivity analysis may complement it. That is, the model should be performed again without those values, and coefficients may be compared. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+influenceIndexPlot(mod4) 
+check_outliers(mod4)
+outlierTest(mod4)
+```
+
+## Check model: summary
+
+NOTICE: Graphs may not be representative of the adequate conditions for parametricity. Codes are purely demonstrative to highlight the methodology.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+check_model(mod4)
+```
+
+## Ridge regression
+
+In case of high collinearity between variables, a Ridge regression may be applied. 
+Higher bias is added to independent variables that explain least the dependent variable. Adding different amount of bias reduces the multicollinearity between variables.
+
+In comparison, when Lasso regression is used, parameters of variables that predict less the dependent variables are cancelled out (slope=0). Also, components decomposition methods (e.g., Partial Least Squares, Principal Component Analysis) result in variables that are linear combinations of the original variables and are difficult to interpret.
+
+### Influential values
+
+Bivariate boxplots (i.e., two-dimensional analogue of boxplots). They are robust measures represented by a pair of ellipses. The "interior" once contains 50% of the data, and the "exterior" one outlines extreme values that may be troublesome. Beside, robust regression curves of outcome on predictor and predictor on outcome are represented. Their intersection is the location estimator. An acute angle would be smaller the larger absolute value of correlation and a large angle would be larger the smaller absolute value of correlation. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(MVA)
+par(mfrow = c(1, 2))
+bvbox(cbind(as.matrix(data$Length), as.matrix(data$Weight)),
+      mtitle = "", xlab ="Length", ylab ="Weight")
+bvbox(cbind(as.matrix(data$Size), as.matrix(data$Weight)),
+      mtitle = "", xlab ="Size", ylab ="Weight")
+
+```
+
+### Optimal value of the penalty parameter (K)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(lmridge)
+
+#lambda = seq(0, 0.1, by=0.0001)
+#Lambda (K in the function) is the penalty parameter 
+lambda = seq(0, 10, by=0.01)
+mod.lmridge <- lmridge(Weight~., data=data, K = lambda)
+
+# Find the optimal value of K by Cross-validation and Generalized cross-validation
+
+cv.plot(mod.lmridge, abline = TRUE)
+
+
+#Trade-off between bias, variance and Mean Square Error (MSE) of the linear ridge regression against vector or scalar value of biasing parameter K
+
+#bias.plot(mod.lmridge, abline = TRUE) 
+```
+
+### Ridge regression
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod.lmridge_optim <- lmridge(Weight~., data=data, K = 0.02)
+
+summary(mod.lmridge_optim)
+
+```
+
+### Ridge components 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Hat matrix
+hat_matrix <- hatr(mod.lmridge_optim)
+hat_matrix
+
+# Akaike and Bayesian Information Criteria 
+infocr(mod.lmridge_optim)
+
+# k estimation according to different methods 
+kest(mod.lmridge)
+
+# Means of predictors
+mod.lmridge_optim$xm
+
+# Scaled matrix of predictors
+mod.lmridge_optim$xs
+
+# Response variable 
+mod.lmridge_optim$y
+
+# Actual data used
+mod.lmridge_optim$mf
+
+# Coeff
+mod.lmridge_optim$coef
+
+# Ridge predicted values
+dataPred <- data.frame(Length=c(5.6, 1.2, 8.3), Size=c(2.5, 6.3, 1.8))
+predict(mod.lmridge_optim, newdata=dataPred)
+
+# Ridge residuals
+residuals(mod.lmridge_optim)
+
+# Ridge VIF values
+vif(mod.lmridge_optim)
+
+# Ridge Var-Cov matrix
+vcov(mod.lmridge_optim)
+
+# Ridge fitted values
+fitted(mod.lmridge_optim)
+
+# Ridge statistics 1 
+rstats1(mod.lmridge_optim)
+
+# Ridge statistics 2
+rstats2(mod.lmridge_optim)
+
+# Predicted residual sum of squares (PRESS)
+press(mod.lmridge_optim)
+```
+
+# Polynomial regression 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("PolynomialRegression.xlsx")
+
+```
+
+## Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+p <- ggplot(data, aes(x=Size, y=Weight)) +
+                 geom_point(alpha=0.55, color="black") + 
+                 theme_minimal() 
+p
+
+```
+
+## Adjust a linear model for comparison
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod5 <- lm(Weight~Size, data=data)
+summ<-summary(mod5)
+summ
+
+#library(car)
+#scatterplot(Weight~Size, data=data)
+
+dataWithPred <-cbind(data, predict(mod5, interval="prediction"))
+head(dataWithPred)
+
+library(ggplot2)
+ggplot(dataWithPred, aes(y=Weight, x=Size))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm", fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Size") + theme_classic()
+
+
+# Independence of residuals; p>0.05 on Durbin Watson test
+durbinWatsonTest(mod5)
+
+# Normality of residuals; p>0.05 on Shapiro test
+shapiro.test(residuals(mod5))
+
+# Homogeneity of residuals; Breush-Pagan: p>0.05
+ncvTest(mod5)
+
+par(mfrow=c(2,2))
+plot(mod5) 
+
+```
+
+## Polynomial modelling
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# mod6 <- lm(Weight~Size+I(Size^2)+I(Size^3), data=data)
+mod6 <- lm(Weight~poly(Size,3, raw=TRUE), data=data)
+summ2 <- summary(mod6)
+summ2
+
+# Independence of residuals; p>0.05 on Durbin Watson test
+durbinWatsonTest(mod6)
+
+# Normality of residuals; p>0.05 on Shapiro test
+shapiro.test(residuals(mod6))
+
+# Homogeneity of residuals; Breush-Pagan: p>0.05
+ncvTest(mod6)
+
+#par(mfrow=c(2,2))
+#plot(mod6) 
+
+Anova(mod6) #To display the residuals sum of squares
+
+anova(mod5, mod6) #F test to compare linear and polynomial tests
+
+dataWithPred2 <-cbind(data, predict(mod6, interval="prediction"))
+head(dataWithPred2)
+
+pval<-summ2[["coefficients"]][4,4]
+
+if (pval < 0.001){
+  p.signif <- "***"
+  } else if  (pval < 0.01) {
+    p.signif <- "**"  
+  } else if  (pval < 0.05) {
+    p.signif <- "*" 
+  } else {
+    p.signif <- "NS" }
+
+    
+library(ggpubr)
+p1<-ggplot(dataWithPred2, aes(y=Weight, x=Size))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm",formula=y~x+I(x^2)+I(x^2), fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Size") + theme_classic()+
+  annotate("text", x = 25, y = 41, label = paste("Weight = ", round(mod6[["coefficients"]][1], digits = 2), " + ", "(", round(mod6[["coefficients"]][2], digits = 4), ")", " Size, ", "+ (", round(mod6[["coefficients"]][3], digits = 4), ")", " Size^2, ", "+ (", round(mod6[["coefficients"]][4], digits = 4), ")", " Size^3, ")) +
+  annotate("text", x = 8, y = 37, label = paste("pval ~ ", p.signif))
+
+pval<-summ[["coefficients"]][2,4]
+
+if (pval < 0.001){
+  p.signif <- "***"
+  } else if  (pval < 0.01) {
+    p.signif <- "**"  
+  } else if  (pval < 0.05) {
+    p.signif <- "*" 
+  } else {
+    p.signif <- "NS" }
+
+p2<-ggplot(dataWithPred, aes(y=Weight, x=Size))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm", fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Size") + theme_classic() +
+  annotate("text", x = 25, y = 41, label = paste("Weight = ", round(mod5[["coefficients"]][1], digits = 2), " + ", round(mod5[["coefficients"]][2], digits = 2), " Size, ", "pval ~ ", p.signif))
+                                                
+ggarrange(p2, p1,labels = c("A", "B"),ncol = 1, nrow = 2)   
+
+# Mean Square Error computed by repeated 10-fold cross-validation
+
+library(caret)
+
+trainMod6 <- trainControl(method = "repeatedcv", number = 10, repeats = 10)      
+  
+mod7 <- train(Weight~poly(Size,3, raw=TRUE), data=data,
+                   method = "lm", trControl = trainMod6)
+    
+#RMSE
+mod7$results[2]   
+
+#R-squared
+mod7$results[3]    
+
+```
+
+## Piecewise regression 
+
+Linear models are fitted betwwen knots.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Fitted (predictions by the model between each knot)
+
+mod.pred1 <- predict(lm(Weight~Size, data = data[data$Size<5,]))
+mod.pred2 <- predict(lm(Weight~Size, data = data[data$Size >=5 & data$Size<10,]))
+mod.pred3 <- predict(lm(Weight~Size, data = data[data$Size>=10 & data$Size<20,]))
+mod.pred4 <- predict(lm(Weight~Size, data = data[data$Size>=20 & data$Size<30,]))
+mod.pred5 <- predict(lm(Weight~Size, data = data[data$Size>=30 & data$Size<40,]))
+mod.pred6 <- predict(lm(Weight~Size, data = data[data$Size>=40,]))
+
+
+pPiecewise <- p + geom_line(data=data[data$Size<5,], aes(y = mod.pred1, x=Size), linewidth = 1, col="red") +
+  geom_line(data=data[data$Size >=5 & data$Size<10,], aes(y = mod.pred2, x=Size), linewidth = 1, col="red") +
+  geom_line(data=data[data$Size>=10 & data$Size<20,], aes(y = mod.pred3, x=Size), linewidth = 1, col="red") +
+  geom_line(data=data[data$Size>=20 & data$Size<30,], aes(y = mod.pred4, x=Size), linewidth = 1, col="red") +
+  geom_line(data=data[data$Size>=30 & data$Size<40,], aes(y = mod.pred5, x=Size), linewidth = 1, col="red") +
+  geom_line(data=data[data$Size>=40,], aes(y = mod.pred6, x=Size), linewidth = 1, col="red")
+pPiecewise
+
+```
+
+Fit a continuous curve
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod.predTot <- predict(lm(Weight~Size + I((Size-5)*(Size>=5)) +
+                      I((Size-10)*(Size >= 10)) +
+                      I((Size-20)*(Size >= 20)) +
+                      I((Size-30)*(Size >= 30)) +
+                      I((Size-40)*(Size >= 40)), data = data))
+
+pPieceWiseCont <- p +  geom_line(data=data, aes(y =mod.predTot, x=Size), linewidth = 1, col="red") 
+pPieceWiseCont
+
+```
+
+An alternative would be to fit polynomials between each knot (e.g., cubic)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod.predTotCubic <- predict(lm(Weight~Size + I(Size^2) + I(Size^3) +
+                          I((Size-5)*(Size>=5)) + I((Size-5)^2*(Size>=5)) + I((Size-5)^3*(Size>=5)) +  I((Size-10)*(Size >= 10)) + I((Size-10)^2*(Size>=10)) + I((Size-10)^3*(Size>=10)) + I((Size-20)*(Size >= 20)) + I((Size-20)^2*(Size>=20)) + I((Size-20)^3*(Size>=20)) + I((Size-30)*(Size >= 30)) + I((Size-30)^2*(Size>=30)) + I((Size-30)^3*(Size>=30)) + I((Size-40)*(Size >= 40)) + I((Size-40)^2*(Size>=40)) + I((Size-40)^3*(Size>=40)), data = data))
+
+
+pPieceWiseContCub <- p +  geom_line(data=data, aes(y=mod.predTotCubic, x=Size), linewidth = 1, col="red") 
+pPieceWiseContCub
+
+```
+
+## Polynomial splines
+
+Adding a truncated power basis function to each knot would enhance the smoothness of the curve. A cubic spline is fitted: 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(splines)
+
+modCubSplines <- lm(Weight ~ bs(Size, df=8, degree=3), data=data) #df=8 establishes 5 knots at suitable quantiles of the "Size" variable
+summ3 <- summary(modCubSplines)
+
+# location of the knots
+attr(bs(data$Size, df=8), "knots")
+
+# plot predictions
+pCubicSpline <- p +  geom_line(data=data, aes(y=predict(modCubSplines), x=Size), linewidth = 1, col="red") + annotate("text", x = 25, y = 41, label = paste("Cubic Spline"))
+pCubicSpline
+```
+
+Complete plot
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+dataWithPred3 <-cbind(data, predict(modCubSplines , interval="prediction"))
+head(dataWithPred3)
+  
+library(ggpubr)
+p3<-ggplot(dataWithPred3, aes(y=Weight, x=Size))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm",formula=y~bs(x,df=8,degree=3), fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Size") + theme_classic()+
+  annotate("text", x = 25, y = 41, label = paste("Cubic Spline")) 
+```
+
+To avoid high variance at extremities (outer ranges) of the predictor variables, natural splines may be used. They are constrained to be linear at the boundaries (before the first knot and after the last one). Estimates are more stable at the extremities.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(splines)
+
+modNatCubSplines <- lm(Weight ~ ns(Size, df=6), data=data) #df=6 establishes 5 knots at suitable quantiles of the "Size" variable
+summ6 <- summary(modNatCubSplines)
+summ6
+
+# location of the knots
+attr(ns(data$Size, df=6), "knots")
+
+# plot predictions
+pNatCubicSpline <- p +  geom_line(data=data, aes(y=predict(modNatCubSplines), x=Size), linewidth = 1, col="red") + annotate("text", x = 25, y = 41, label = paste("Natural Cubic Spline"))
+pNatCubicSpline
+```
+
+Complete plot
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+dataWithPred4 <-cbind(data, predict(modNatCubSplines , interval="prediction"))
+head(dataWithPred4)
+  
+library(ggpubr)
+p4<-ggplot(dataWithPred4, aes(y=Weight, x=Size))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm",formula=y~ns(x,df=6), fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Size") + theme_classic()+
+  annotate("text", x = 25, y = 41, label = paste("Natural Cubic Spline")) 
+
+ggarrange(p3, p4,labels = c("A", "B"),ncol = 1, nrow = 2)   
+
+```
+
+## Choosing the number of knots
+
+Repeated cross-validation for RMSE with natural cubic splines.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(caret)
+set.seed(123)
+
+trainModNatCubSplines <- trainControl(method = "repeatedcv", number = 10, repeats = 10)
+
+# Fit a spline with df = x
+
+spline.fun <- function(x) {
+  spline.formula <- as.formula(paste("Weight ~ ns(Size, df=",x, ")" ))
+  modNatCubSplinesx <- train(spline.formula, data = data, method = "lm",
+                           trControl = trainModNatCubSplines)
+  RMSE.cv = modNatCubSplinesx$results[2] #RMSE 
+}
+  
+#RMSE
+RMSE_tot <- as.data.frame(as.numeric(t(sapply(2:51, spline.fun)))) #df in range [2-51] : 1 to 50 knots
+colnames(RMSE_tot) <- "RMSE"
+
+minRMSE <-as.data.frame(min(RMSE_tot))
+colnames(minRMSE) <- "min_RMSE"
+
+ggplot(RMSE_tot, aes(y=RMSE, x=2:51)) + 
+  geom_point() + 
+  geom_point(data=minRMSE, aes(y=min_RMSE, x=which(RMSE_tot$RMSE == min(RMSE_tot$RMSE))+1),
+             pch=21, fill=NA, size=4, colour="red", stroke=2)  +
+  ylab("RMSE")+ xlab("Degrees of freedom") + theme_classic()+
+  annotate("text", x = which(RMSE_tot$RMSE == min(RMSE_tot$RMSE))+1 , 
+           y = minRMSE$min_RMSE+0.015, label = paste("df =", which(RMSE_tot$RMSE == min(RMSE_tot$RMSE))))
+
+```
+
+Plot for df=5
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+modNatCubSplinesdf5 <- lm(Weight ~ ns(Size, df=5), data=data)
+summ7 <- summary(modNatCubSplinesdf5)
+summ7
+
+# location of the knots
+attr(ns(data$Size, df=5), "knots")
+
+dataWithPred5 <-cbind(data, predict(modNatCubSplinesdf5 , interval="prediction"))
+head(dataWithPred5)
+
+p5 <-ggplot(dataWithPred5, aes(y=Weight, x=Size))+
+  geom_point()+
+  geom_smooth(colour="red", method="lm",formula=y~ns(x,df=5), fill="blue") + #95% confidence interval
+  geom_line(aes(y=lwr), color = "black", linetype = "dashed")+  #95% prediction interval
+  geom_line(aes(y=upr), color = "black", linetype = "dashed")+    
+  ylab("Weight")+ xlab("Size") + theme_classic()+
+  annotate("text", x = 25, y = 41, label = paste("Natural Cubic Spline, df = 5, RMSE =",
+                                                 round(min(RMSE_tot$RMSE), digits=2)))
+p5
+```
+
+## Smoothing splines
+
+The goal is to find the function f that minimizes the following expression: 
+
+[![](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\01-Codes\SmoothingSplinesEquation.png)](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\01-Codes\SmoothingSplinesEquation.png)
+
+The first term (before addition simbol) is the loss function, and the second term (after the addition symbol) is the penalty term that help avoiding over fitting the model to the data. Lambda is in range [0 +infinity]. When lambda is the highest, the degree of freedom of the smoothing spline is equal to the number of samples. Increasing lambda would decrease the degree of freedom to a minimum of 2 (1 knot).
+
+To choose the optimized value of lambda, cross-validation may be applied. Leave-one-out cross-validation would not increase significantly the computational cost and is therefore recommended.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(splines)
+set.seed(123)
+modSmoothingSpline <- smooth.spline(data$Size, data$Weight, cv=TRUE) # ordinary leave-one-out (TRUE) or ‘generalized’ cross-validation (GCV) when FALSE
+
+p5 <- ggplot() +
+  geom_point(data = data, aes(y=Weight, x=Size)) +
+  geom_line(aes(x = modSmoothingSpline$x, y = modSmoothingSpline$y,colour="red"), linewidth=2.2) +ylab("Weight")+ xlab("Size") + theme_classic() + theme(legend.position = "none") + annotate("text", x = 25, y = 41, label = paste("Smoothing Spline, lambda =", round(modSmoothingSpline[["lambda"]], digits=3)))
+p5
+
+```
+

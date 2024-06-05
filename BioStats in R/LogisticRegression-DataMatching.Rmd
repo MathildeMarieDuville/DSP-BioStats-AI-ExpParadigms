@@ -1,0 +1,420 @@
+---
+title: "Logistic regression and data matching"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+author: Mathilde Marie Duville
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+```{r setup, include=FALSE, include=FALSE,warning=FALSE, message=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Description
+
+Here, logistic regression and data matching, in which logistic regression is applied are presented. Corresponding codes in R are detailed. 
+
+# Logistic Regression 
+
+Logistic regression may be used to assess the relationship between a binary (e.g., yes/no, true/false) and one or various categorical (e.g., gender) or continuous (e.g., Size) variables. Therefore, contrary to linear regression, logistic regression tries to predict a discrete variable instead of a continuous one. 
+
+However, logistic regression not only may predict the class of a sample, but also assess the **probability** of belonging to it. Indeed, a sigmoid function, which *ordinate (y)* is in range [0 1], is used to regress the dependent variable on the independent one. The regression function may be expressed by the following equation: 
+
+[![](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\LogisticRegression.png)](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\LogisticRegression.png)
+
+where *n* is the index of independent variables *X* and betas are the coefficients.
+
+To relate the probability of belonging to a class to the linear combination between independent variables, a logit transformation may be applied:
+
+[![](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\LogisticRegression2.png)](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\LogisticRegression2.png)
+
+The odd ratio (OR; $OR = \frac{P}{1-P}$) assesses the relationship between the outcome (e.g., Yes or No) and the independent variable. Coefficients *betas* are logs of *ORs*.  Coefficients should be under the "Estimate" column of the output of the *glm* model. Therefore, $OR = exp(coefficient)= exp(log(OR))$.
+
+The odd is the proportionality relationship between two complementary probabilities (e.g., $P(presence)/P(absence)$). If we are interested in assessing the OR between 2 groups (e.g., Old versus Young), then $OR = \frac{\frac{P(presenceOld)}{P(absenceOld)}}{\frac{P(presenceYoung)}{P(absenceYoung)}}$. Let's say that this OR is 2, then, it would mean that the odd of presence is twice for "Old" than for "Young". 
+
+Whenever the coefficient (estimate) has a negative value, OR<1. In this case, the odd of presence **decreases** with the increase of the independent value. Contrary, whenever the coefficient (estimate) has a positive value, OR>1. In this case, the odd of presence **increases** with the increase of the independent value. Whenever OR=1, there is no relationship between the independent variable and the outcome. 
+
+In those cases when the independent variable is **categorical**; for instance, we are interested in the probability of inclusion (Yes or No) according to gender (Old or Young): 
+
+* if the frequency of presence is unusual (e.g., P(Yes)<10%), then the OR may be interpreted as a relative risk. That is, if OR=2 (Old versus Young), then, we could state that being old increases the risk of presence by 2. The significance of this relationship may only be assessed by the p-value. 
+
+* in any other cases, the OR **may not** be interpreted as a relative risk. Only the tendency (i.e., increase or decrease with the category) may be inferred. 
+
+Whenever the independent variable is continuous, the OR **may not** be interpreted as a relative risk. Only the tendency (i.e., increase or decrease with the increase or decrease of the independent variable) may be inferred. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("LogisticRegression.xlsx")
+
+# 1=included, 0=not included
+library(ggplot2)
+ggplot(data, aes(x= Score , y=Included)) +   
+geom_point() + ylab("Inclusion (1=included, 0=not included)")+
+  xlab("Score") + theme_classic()
+
+```
+
+## Visualization (one continuous independent variable)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Order scores
+data <- data[order(data$Score),] 
+
+# Groups of 250 samples each
+data$Group <- rep(1:4, each= 250)
+
+# Average score for each group
+meanGroups <- aggregate(data[,"Score"], list(data$Group), mean)
+colnames(meanGroups) <- c("Group","Average_Score")
+
+# Mean probability of being included per group
+probInc <- aggregate(data[, "Included"], list(data$Group), mean)
+colnames(probInc) <- c("Group","Average_Prob")
+
+# Logit model
+# Maximum Likelihood Estimator to optimize the coefficients
+modLR <- glm(Included ~ Score, data = data, family = "binomial")
+summary(modLR)
+
+p<-plot(data$Score, data$Included, col = adjustcolor(factor(data$Group), alpha.f= 1), pch=23,
+     cex = 0.5, xlab="Score", ylab="Inclusion (1=included, 0=not included)")
+legend("topleft", legend=levels(factor(data$Group)), col= adjustcolor(levels(factor(data$Group)), alpha.f= 1), pch=23, title = "Groups")
+
+p<-p+points(meanGroups$Average_Score, probInc$Average_Prob, 
+            col = adjustcolor(levels(factor(data$Group)), alpha.f= 1), lwd = 4, pch = 23) #Averages
+p<-p+text(x = 6, y = 0.8,labels = c("Circles represent the averages \n of the four groups of samples"))
+
+# Logit s-shaped curve
+# type = "response" outputs the probabilities without the logit transformation (P(Y = 1|X))
+curve(predict(modLR, data.frame(Score = x), type = "response"), 
+      lty = 1, lwd = 2, col = "blue", add = TRUE)
+
+```
+
+The log likelihood, is the logarithm of the probability of observing the true values of Y (i.e., the likelihood function). It is an index of the accuracy of the model. The lower log likelihood, the more accurate. 
+
+The Akaike Inferior Criteria (AIC) is an index of how much information got lost through modelling (i.e., the residuals). The lower AIC, the more accurate modelling.
+
+```{r, include=T, warning=FALSE, message=FALSE}
+library(stargazer)
+stargazer(modLR, type = "text", digits = 3)
+```
+
+## Example with a continuous and a categorical independent variables
+
+The goal is to assess whether 2 variables (Score and Category) are significantly related to the outcome "inclusion". 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+dataMLR <- read_excel("MultipleLogisticRegression.xlsx")
+library(dplyr)
+dataMLR <- dataMLR %>% mutate(Category_YO = ifelse(Category == "1","Old", "Young"))  %>%
+  mutate(Included_YN = ifelse(Included == "1","Yes", "No"))
+
+
+p2<-ggplot(dataMLR , aes(Category_YO, fill=Included_YN)) + 
+   geom_bar(position="fill", col="black")        + 
+   scale_fill_manual(values=c("red","blue")) + labs(x="", y="Odds of apparition", fill="Inclusion")+  ggtitle("Relationship between category and inclusion") + theme_classic()
+
+p3<- ggplot(dataMLR, aes(x=Score, y=Included)) + geom_point() + 
+  ylab("Inclusion \n (1=included, 0=not included)")+ xlab("Score") + theme_classic() +
+  ggtitle("Relationship between score and inclusion")
+
+# p4<- ggplot(dataMLR, aes(x=Score, y=Category)) + geom_point() +
+#   ylab("Category \n (1=Old, 0=Young)")+ xlab("Score") + theme_classic() +
+#   ggtitle("Relationship between score and category")
+
+library(ggpubr)
+ggarrange(p2, p3, labels = c("A", "B"),ncol = 1, nrow = 2)   
+
+```
+
+It seems that samples in the "Old" category tend to be included, and at higher scores higher probability of being included. 
+
+### Modelling 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+modLR2 <- glm(Included ~ Score + Category_YO, data = dataMLR, family = "binomial")
+summary(modLR2) 
+```
+
+### Number of samples 
+
+The number of samples should be at least 10 times the number of parameters (here, 3). We should have at least 300 samples in each group.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+table(dataMLR$Included)
+```
+
+### Overdispersion 
+
+The dispersion may be computed as $\frac{ResidualDeviance}{DegreesOfFreedom}$. Overdispersion should be detected whenever this ratio is above 1 (not strictly). The quasi binomial distribution should be considered in case of overdispersion. In case of values around one, a sensitivity analysis should be run with a quasibinomial distribution to compare results.
+
+In case of overdispersion, the parameters' standard error may be underestimated leading to biased (lower) p-values.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+summ <- summary(modLR2)
+Disp <- summ[["deviance"]]/summ[["df.residual"]]
+Disp
+```
+
+### Individual effect of independent variables
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+summ
+
+library(car)
+Anova(modLR2) 
+#Anova(modLR2, test="F") #In case of overdispersion
+
+OR_Score <-exp(coef(modLR2)[2])
+OR_Score
+
+OR_Category <-exp(coef(modLR2)[3])
+OR_Category
+```
+
+We can see that the coefficient for the "Score" variable is positive. Therefore, the higher the score, the more the probability of being included increases and this effect is significant (p<0.05). 
+
+"Category_YOYoung" means that results are expressed for "Young" as regards "Old". The  coefficient for "Category" is negative. Therefore, being young is a protective factor of being included. The OR is <1: the more probable of being young, the lesser the odds of being included. This effect is significant (p<0.05). 
+
+The individual effects of independent variables are both significant. 
+
+# Data matching 
+
+The goal is to approximate a perfect randomization to control trials so that statistical estimates are not biased by any omitted variable. Here, groups should be randomized as regards the "age" variable. The goal is to select samples within both groups so that they are perfectly randomized as regards the variable of interest (groups do not differ).
+
+Data matching is based on **propensity scores**, which index the *propensity* (or *likelihood*) that a particular sample exists within the overall data (i.e., both groups), based on a variable of interest. Propensity scores will help to find samples that are similar on the variable of interest, so that they are all equally likely to exist, and differences between between groups may not come from this variable. 
+
+In practice, the **propensity score** would be the *probability* of being part of a reference group (hereafter called the "treatment group" in contrast with the "control group"), based on the age variable. By matching samples from both groups based on the propensity score, an unbalanced design is reached. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+dataRaw <- read_excel("Matching.xlsx")
+
+library(dplyr)
+data <- dataRaw %>%
+  select(-c(id, idGr, Gender))
+
+dataw <- data %>%
+  group_by(Group) %>%
+  mutate(row = row_number())%>%
+  tidyr::pivot_wider(names_from = Group, values_from = Age) %>%
+  select(-row)
+```
+
+## Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+boxplot(as.numeric(dataw$Group1),
+        as.numeric(dataw$Group2),
+        names = c("Group1", "Group2"), 
+        ylab = "Age (years)", 
+        xlab = "Group")
+
+plot(y = dataRaw$idGr[1:table(data$Group)[1]] , x = dataw$Group1[1:table(data$Group)[1]],
+     pch = 16, col = 2, xlab =  "Age", ylab = "Participant Number", xlim=c(6,13), ylim=c(0,40)) 
+par(new = TRUE)  
+plot(y = dataRaw$idGr[(table(data$Group)[1]+1):nrow(dataRaw)], x = dataw$Group2, 
+     pch = 17, col = 5, xlab = " ", ylab = " ", xlim=c(6,13), ylim=c(0,40))
+legend("topleft", legend = c("Group 1", "Group 2"), col =  c(2,5), pch = c(16, 17))
+
+ggplot(dataRaw, aes(x =  Age, fill = Group)) +
+  geom_density(position="identity", alpha=0.6) +
+  scale_fill_brewer(palette="Dark2") +
+  ggtitle("Density plot of Age, by group")+
+  scale_x_continuous(name = "Age",
+                     breaks = seq(0, 20, 5),
+                     limits=c(0,20))+
+  scale_y_continuous(name = "Density") +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        text = element_text(size = 12)) +
+  guides(fill=guide_legend(title=NULL))+ 
+  scale_fill_discrete(labels=c("Group 1", "Group 2")) + theme_classic()
+
+```
+
+## Propensity scores by logistic regression
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(MatchIt)
+
+# Define group 1 as the reference (1) and group 2 as the control (0)
+dataRaw$GroupDigit <- c(rep(1,table(data$Group)[1]), 
+                        rep(0, (nrow(dataRaw)-table(data$Group)[1])))
+
+# Logistic regression modelling
+modLR = glm(GroupDigit ~ Age, data = dataRaw, family = "binomial")
+summary(modLR)
+
+library(stargazer)
+stargazer(modLR, type = "text", digits = 3)
+
+#Number of observations
+table(dataRaw$Group)
+
+#Overdispersion
+summ <- summary(modLR)
+Disp <- summ[["deviance"]]/summ[["df.residual"]]
+Disp
+
+#Compare with a quaibinomial modelling for sensitivity analysis
+modLR2 <- glm(GroupDigit ~ Age, data = dataRaw, family = "quasibinomial")
+summary(modLR2) 
+summ
+
+#Individual effect of age
+library(car)
+Anova(modLR2) 
+#Anova(modLR2, test="F") #In case of overdispersion
+
+OR_Age <-exp(coef(modLR2)[2])
+OR_Age
+
+#Propensity scores
+# type = "response" outputs the probabilities without the logit transformation (P(Y = 1|X))
+dataRaw$prop_score <- predict(modLR, newdata=dataRaw, type = "response")
+
+summary(dataRaw$prop_score)
+
+palette(c("dodgerblue1","darkred"))
+par(mar = c(5, 4, 4, 4) + 1) 
+plot(1:nrow(dataRaw), dataRaw$prop_score, 
+     col = dataRaw$GroupDigit+1, 
+     lwd = 3, ylab = "Predicted probabilities \n of being part of Group 1", xlab = "Participant number", xaxt = "n")
+
+axis(1, at=1:nrow(dataRaw))
+
+e <- 1:nrow(dataRaw)
+for (i in 1:nrow(dataRaw)){
+  segments(e[i], 0, e[i], dataRaw$prop_score[i], lty = 2, col = "gray70")}
+
+legend(40.5,0.8, legend = c("Group 1", "Group 2"), col =  c(2,1), lwd = 3, cex=0.8, 
+       bg="transparent")
+```
+
+## Overview of prediction accuracy 
+
+Complements the outputs of the logistic regression
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+dataRaw$TrainingPrediction <- ifelse(dataRaw$prop_score >.5, 1, 0)
+
+library(tidyr)
+
+# Confusion matrix
+dataRaw %>% count(TrainingPrediction, GroupDigit) %>% spread(GroupDigit, n)
+
+# % of correct predictions
+dataRaw %>% summarize(score = mean(TrainingPrediction == GroupDigit))
+```
+
+## Matching
+
+Several methods may be used to match the samples of one group with the ones of the other group. Please see *vignette("matching-methods")* for a detailed documentation. The choice of the method relies on the goal of the analysis and the specificity of the dataset. A brief summary of the methods are detailed hereunder: 
+
+
+* One-to-one or one-to-many: in the one-to-one method, every sample in the treatment group is paired with a unique sample in the control group, whereas it may be paired with several samples of the control group using the one-to-many methodology.
+
+* Greedy versus optimal: in a greedy process, matching is started from a random observation. In a one-to-one scenario, the results will be affected. In a optimal process, matches are chosen to optimize an overall criterion (e.g., the sum of the absolute distances between propensity scores within pairs).
+
+* Nearest neighbor: each sample is matched with the sample of the control group that has the closest propensity score. A *Caliper distance* can be defined, that is the maximum distance allowed to pair two samples. In case of a one-to-one methodology, the order in which the samples are considered will influence the outputs as once paired, samples are not available anymore. A common methodology is to start with the sample of highest propensity score and follow in descending order. Also, random ordering multiple times until the optimized matching is reached (i.e., greedy process) may be another solution.
+
+* Full matching: every sample of both the treatment and the control groups are assigned to a subclass that may contain one sample from the treatment group and one or several samples from the control, or one control and one or various treatment samples. It can be optimized by minimizing the sum of absolute within-subclass distances. 
+
+* Exact matching: only samples with the same values (of the variable of interest, here "age") are paired together. Few or no samples may remain in the matched sample.
+
+Please also refer to :*vignette("estimating-effects")*, *vignette("matching-methods")*, and *vignette("assessing-balance")*
+
+```{r, include=T, warning=FALSE, message=FALSE}
+
+# Optimal replacement - one-to-one
+m1 = matchit(dataRaw$GroupDigit ~ dataRaw$Age, family = "binomial",
+             method = "optimal", replace = FALSE, #without replacement --> one-to-one
+             data = dataRaw)
+m1
+summary(m1, interactions = TRUE,  improvement = TRUE)
+
+# plot(m1, type = "jitter", interactive = FALSE)
+# plot(m1, type = "density", interactive = FALSE,
+#       which.xs = ~dataRaw$Age)
+# plot(m1, type = "qq", interactive = FALSE,
+#       which.xs = ~dataRaw$Age)
+# plot(m1, type = "ecdf", interactive = FALSE,
+#       which.xs = ~dataRaw$Age)
+
+# plot(summary(m1, interactions = TRUE,  improvement = TRUE))
+```
+
+“Std. Mean. Diff.” is the standardized mean difference of age between Group 1 and Group 2. “Var. Ratio” is the ratio of the variance of age in Group 1 to that in Group 2. “Mean eCDF” and “Max eCDF” are respectively the average and maximum distance between the empirical cumulative distribution function of the age variable across groups.
+
+```{r, include=T, warning=FALSE, message=FALSE}
+m1data = match.data(m1)
+
+m1data <- arrange(m1data, subclass)
+m1data <- m1data %>% select(-distance, -weights, -id, -idGr, -Gender, -GroupDigit)
+
+#Add within-pair distances as regards propensity scores
+m1data$WithinPairDistance <- rep("NA", nrow(m1data))
+for (x in seq(from = 1, to = nrow(m1data), by = 2)) {
+  m1data$WithinPairDistance[x] <- 
+    abs(as.numeric(m1data$prop_score[x])-as.numeric(m1data$prop_score[x+1]))}
+
+head(m1data)
+```
+
+## After-matching visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+MatchedPlot <- m1data %>% select(- c(prop_score, TrainingPrediction, 
+                                     subclass, WithinPairDistance))
+
+datawm1 <- MatchedPlot %>%
+  group_by(Group) %>%
+  mutate(row = row_number())%>%
+  tidyr::pivot_wider(names_from = Group, values_from = Age) %>%
+  select(-row)
+
+
+boxplot(as.numeric(datawm1$Group1),
+        as.numeric(datawm1$Group2),
+        names = c("Group1", "Group2"), 
+        ylab = "Age (years)", 
+        xlab = "Group")
+
+MatchedPlot <- arrange(MatchedPlot, Group)
+MatchedPlot$idGr <- rep(1:nrow(datawm1), ncol(datawm1))
+
+plot(y = MatchedPlot$idGr[1:nrow(datawm1)] , x = datawm1$Group1[1:nrow(datawm1)],
+     pch = 16, col = 2, xlab =  "Age", ylab = "Participant Number", 
+     xlim=c(7,13), ylim=c(0,20)) 
+par(new = TRUE)  
+plot(y = MatchedPlot$idGr[(nrow(datawm1)+1):nrow(MatchedPlot)], x = datawm1$Group2, 
+     pch = 17, col = 5, xlab = " ", ylab = " ", xlim=c(7,13), ylim=c(0,20))
+legend("topleft", legend = c("Group 1", "Group 2"), col =  c(2,5), pch = c(16, 17),
+       cex=0.9)
+
+ggplot(MatchedPlot, aes(x =  Age, fill = Group)) +
+  geom_density(position="identity", alpha=0.6) +
+  scale_fill_brewer(palette="Dark2") +
+  ggtitle("Density plot of Age, by group")+
+  scale_x_continuous(name = "Age",
+                     breaks = seq(0, 20, 5),
+                     limits=c(0,20))+
+  scale_y_continuous(name = "Density") +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        text = element_text(size = 12)) +
+  guides(fill=guide_legend(title=NULL))+ 
+  scale_fill_discrete(labels=c("Group 1", "Group 2")) + theme_classic()
+
+```
+
+## Ultimate notice 
+
+A two-group comparison (Student, Welch or Wilcoxon test) should be applied on the matched sample to confirm the absence of difference between groups as regards "age". Please refer to the "Two-group comparison" document for a detailed explanation, and corresponding codes.

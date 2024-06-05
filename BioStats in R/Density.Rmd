@@ -1,0 +1,395 @@
+---
+title: "Density functions"
+output:
+  html_document:
+    toc: true
+    toc_depth: 3
+author: Mathilde Marie Duville
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+```{r setup, include=FALSE, include=FALSE,warning=FALSE, message=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Description
+
+Here, R codes for probability density functions are presented in case of both discrete and continuous variables.
+
+* Discrete variables: Probability Mass Function (PMF)
+
+* Continuous variables: Probability Density Function (PDF)
+
+* Discrete or continuous: Cumulative Distribution Function (CDF)
+
+The dataset contains a sample (n=40) and a subgroup of it (n=17) that will be presented. 
+
+# Discrete variable
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+ADOS <- read_excel("Density_Discrete.xlsx", sheet = "Sample")
+```
+
+## Probability mass function (PMF)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+Social <- ADOS$`Calibrated Score Social Affect`
+
+PMF_social <- hist(x = Social, plot = TRUE, freq = FALSE,
+                   breaks = 0:10, main = "PMF of Calibrated Scores - Social Affect",
+                   xlab = "Calibrated Scores of Social Affect",
+                   cex.lab=1, cex.axis=1, cex.main=1, cex.sub=1)
+
+text(PMF_social$mids,PMF_social$density,labels=PMF_social$density, adj=c(0.5, -0.5), cex=0.65)
+```
+
+## Histogram
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+Count_social <- hist(x = Social, plot = TRUE, freq = TRUE,
+                   breaks = 0:10, main = "Histogram of Calibrated Scores - Social Affect", 
+                   xlab = "Calibrated Scores of Social Affect", 
+                   ylab = "Count", cex.lab=1, cex.axis=1, cex.main=1, cex.sub=1)
+
+text(Count_social$mids,Count_social$counts,labels=Count_social$density, adj=c(0.5, -0.5),
+     cex=0.65)
+text(1.2,5.5,labels= "Numbers above the bars \n represent the \n probability of apparition", adj=c(0.5, -0.5), cex=0.8)
+```
+
+## Cumulative Distribution Function (CDF)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+CUM <- ecdf(Social)
+# summary(CUM)
+cumY <- CUM(knots(CUM))
+
+library(ggplot2)
+Social_df <- data.frame(Social)
+cum2 <- ggplot(Social_df, aes(Social)) + stat_ecdf(geom = "step",)+
+  labs(title="Empirical Cumulative \n Density Function",
+       y = "F(Calibrated Scores for Social Affect)", 
+       x="Calibrated Scores for Social Affect")+
+      scale_y_continuous(n.breaks=20) +
+      scale_x_continuous(n.breaks=10) +
+      annotate(geom="text", x=2:10, y=cumY+0.02, label=cumY,
+              color="black", size=3.5) +
+      theme_classic()
+
+cum2
+```
+
+## SubGroup (17 samples) on PMF of the entire sample
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+subGroup_17 <- read_excel("Density_Discrete.xlsx", sheet = "17subGroup")
+
+f_subGroup_17 <- PMF_social[["density"]][subGroup_17$`Calibrated Score Social Affect`]
+f_subGroup_17
+summary(f_subGroup_17)
+sd(f_subGroup_17)
+
+library(ggplot2)
+
+p <- ggplot(data.frame(f_subGroup_17), aes(x=f_subGroup_17)) + 
+  geom_histogram(binwidth=0.01, alpha = 0.7) + theme_classic() +
+  scale_x_continuous(name ="Probability of apparition \n within the entire sample \n based on Social Calibrated Score", breaks = sort(unique(f_subGroup_17))) +
+  ylab("Number of children of subGroup")
+p
+
+Social_17<-subGroup_17$`Calibrated Score Social Affect`
+
+Count_social_subGroup17 <- hist(x = Social_17, plot = FALSE, breaks = 0:10)
+
+c1 <- rgb(173,216,230,max = 255, alpha = 80, names = "lt.blue")
+c2 <- rgb(255,192,203, max = 255, alpha = 80, names = "lt.pink")
+
+plot(Count_social, col = c1, ylab = "Count", xlab = 
+       "Calibrated Social Affect Score", main = "Social Affect")
+
+plot(Count_social_subGroup17, col = c2, ylab = "Count", xlab = 
+       "Calibrated Social Affect Score", main = "Social Affect", 
+        add = TRUE)
+
+legend(6.2, 8, legend=c("Entire sample (n=40)", "17 subGroup"), fill = c(c1, c2), cex=0.75)
+
+text(Count_social$mids,(Count_social$counts),
+     labels=Count_social$density, adj=c(0.5, -0.5), col = "blue", cex=0.65)
+text(Count_social_subGroup17$mids,(Count_social_subGroup17$counts)-0.5,
+     labels=round(Count_social_subGroup17$density,2), adj=c(0.5, -0.5),
+     col = "red", cex=0.65)
+
+text(2,7,labels= "Labels represent the \n probability of apparition ", adj=c(0.5, -0.5), cex=0.8)
+```
+
+## Sample without subGroup
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+subGroup_NO17_ID <- read_excel("Density_Discrete.xlsx", sheet = "NO17subGroupID")
+
+Social_subGroup_NO17 <- Social[as.numeric(subGroup_NO17_ID$ID)]
+
+PMF_Social_subGroup_NO17 <- hist(x = Social_subGroup_NO17, 
+                            plot = TRUE, freq = TRUE,
+                   breaks = 0:10, 
+                   main = "PMF of Calibrated Scores - Social Affect without subGroup",
+                   xlab = "Calibrated Scores of Social Affect", ylab = "Count",
+                   cex.lab=1, cex.axis=1, cex.main=1, cex.sub=1)
+
+text(PMF_Social_subGroup_NO17$mids,PMF_Social_subGroup_NO17$counts,
+     labels=round(PMF_Social_subGroup_NO17$density,2), adj=c(0.5, -0.5), cex=0.65)
+text(2,4,labels= "Numbers above the bars \n represent the \n probability of apparition",
+     adj=c(0.5, -0.5), cex=0.8)
+```
+
+## Probability of the subGroup to appear within the remaining sample
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+f_subGroup_17_no17 <- PMF_Social_subGroup_NO17[["density"]][Social_17]
+f_subGroup_17_no17
+summary(f_subGroup_17_no17)
+sd(f_subGroup_17_no17)
+
+p2 <- ggplot(round(data.frame(f_subGroup_17_no17),2), aes(x=f_subGroup_17_no17)) + 
+  geom_histogram(binwidth=0.01, alpha = 0.7) + theme_classic() +
+  scale_x_continuous(name ="Probability of apparition \n within sample without subGroup \n based on Social Calibrated Score", 
+                     breaks = sort(unique(round(f_subGroup_17_no17,2)))) +
+  ylab("Number of children of subGroup") +
+  scale_y_continuous(breaks = 0:17)
+p2
+
+Count_social_subGroup_NO17 <- hist(x = Social_subGroup_NO17, plot = FALSE, breaks = 0:10)
+Count_social_subGroup17 <- hist(x = Social_17, plot = FALSE, breaks = 0:10)
+
+plot(Count_social_subGroup_NO17, col = c1, ylab = "Count", xlab = 
+       "Calibrated Social Affect Score", main = "Social Affect")
+
+plot(Count_social_subGroup17, col = c2, ylab = "Count", xlab = 
+       "Calibrated Social Affect Score", main = "Social Affect", add = TRUE)
+
+legend(0, 5, legend=c("Sample without \n 17 subGroup (n=23)", "17 subGroup"), 
+       fill = c(c1, c2), cex=0.75)
+
+text(Count_social_subGroup_NO17$mids,(Count_social_subGroup_NO17$counts),
+     labels=round(Count_social_subGroup_NO17$density,2),
+     adj=c(0.5, -0.5), col = "blue", cex=0.65)
+text(Count_social_subGroup17$mids,(Count_social_subGroup17$counts)-0.5,
+     labels=round(Count_social_subGroup17$density,2), adj=c(0.5, -0.5),
+     col = "red", cex=0.65)
+
+text(8,4.5,labels= "Labels represent the \n probability of apparition ", adj=c(0.5, -0.5), cex=0.8)
+
+```
+
+## Boxplot
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+p3 <- ggplot(Social_df, aes(x = 0, y=Social)) + 
+  geom_boxplot(alpha=0.3, outlier.colour="blue", outlier.shape=2,
+               outlier.size=4)+ 
+  stat_summary(fun = mean, geom="point", shape=23, size=4,
+              position = position_dodge(width=0.75))+ 
+  #geom_jitter(shape=16, position=position_jitter(0.2))+
+  # geom_dotplot(binaxis='y', stackdir='center', dotsize=0.7) +
+  geom_dotplot(data = data.frame(Social_17), aes(x = 0, y=Social_17),
+               binaxis='y', stackdir='center', dotsize=0.7) +
+  scale_y_continuous(breaks = 2:10) +
+  ylab("Calibrated Score for Social Affect")+
+  theme_classic() +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+  annotate("text", 0.23,9.5,
+           label = "Dots are from the subgroup
+           \n The boxplot represents \n the entire sample \n
+           The empty diamond represents the mean",cex=3.5)
+             
+p3
+
+```
+
+# Continuous variable
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+library(readxl)
+Age <- read_excel("Density_Continuous.xlsx", sheet = "Sample")
+```
+
+## Probability Density Function (PDF)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+Age_C <- Age$AgeC
+max(Age_C)
+min(Age_C)
+library("EnvStats")
+PDF_Age <- epdfPlot(Age_C, main = "PDF of Age", xlab = "Age (years)",
+                    ylab = "Density")
+
+# ggplot(data.frame(Age_C), aes(x = Age_C)) +
+#   geom_density(position="identity", alpha=0.6) +
+#   scale_fill_brewer(palette="Dark2") +
+#   ggtitle("Density plot of Age")+
+#   scale_x_continuous(name = "Age", breaks = 4:14)+
+#   scale_y_continuous(name = "Density") +
+#   theme(plot.title = element_text(size = 14, face = "bold"),
+#         text = element_text(size = 12)) + theme_classic()
+```
+
+## Cumulative Distribution Function (CDF)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+CUM <- ecdf(Age_C)
+summary(CUM)
+# plot(CUM)
+
+cumY <- CUM(knots(CUM))
+
+library(ggplot2)
+Age_df <- data.frame(Age_C)
+cum2 <- ggplot(Age_df, aes(Age_C)) + stat_ecdf(geom = "step",)+
+  labs(title="Empirical Cumulative \n Density Function",
+       y = "F(Age)", x="Age")+
+  scale_y_continuous(n.breaks=10) +
+  scale_x_continuous(n.breaks=7) 
+
+plot(cum2)
+```
+
+## SubGroup (17 samples) on PMF of the entire sample
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+subGroup_17 <- read_excel("Density_Continuous.xlsx", sheet = "17subGroup")
+Age_17 <- subGroup_17$Age
+
+subGroup_ID17 <- read_excel("Density_Continuous.xlsx", sheet = "17subGroupID")
+
+library(desc)
+library(DescTools)
+e <- PDF_Age[["x"]]
+idx = c(0,0)
+for (x in seq(from = 1, to = length(Age_17), by = 1)) {
+  print(Age_17[x])
+  idx[x] <- as.numeric(which.min(abs(e - Age_17[x])))}
+
+# Probability of 17 subGroup 
+f_subGroup_17 <- PDF_Age[["f.x"]][idx]
+f_subGroup_17
+summary(f_subGroup_17)
+sd(f_subGroup_17)
+
+p <- ggplot(data.frame(f_subGroup_17), aes(x=round(f_subGroup_17,2))) + 
+  geom_histogram(binwidth=0.005, alpha = 0.7) + theme_classic() +
+  scale_x_continuous(name ="Probability of apparition \n within the entire sample \n based on Age",
+                     breaks = round(sort(unique(f_subGroup_17)),2)) +
+  ylab("Number of children of subGroup")
+p
+
+# require(gridExtra)
+# d1 <- ggplot(data.frame(Age_C), aes(x = Age_C)) +
+#   geom_density(position="identity", alpha=0.6) +
+#   scale_fill_brewer(palette="Dark2") +
+#   ggtitle("Density plot of Age - entire sample")+
+#   scale_x_continuous(name = "Age", breaks = 4:14)+
+#   scale_y_continuous(name = "Density") +
+#   theme(plot.title = element_text(size = 14, face = "bold"),
+#         text = element_text(size = 12))
+# 
+# d2 <- ggplot(subGroup_17, aes(x = Age)) +
+#   geom_density(position="identity", alpha=0.6) +
+#   scale_fill_brewer(palette="Dark2") +
+#   ggtitle("Density plot of Age - subGroup")+
+#   scale_x_continuous(name = "Age", breaks = 4:14)+
+#   scale_y_continuous(name = "Density") +
+#   theme(plot.title = element_text(size = 14, face = "bold"),
+#         text = element_text(size = 12))
+# 
+# grid.arrange(d1, d2, nrow=1)
+
+data <- data.frame(c(Age_C, subGroup_17$Age))
+colnames(data) <- "Age"
+data$Group <- c(rep("Entire_sample", length(Age_C)),rep("SubGroup", nrow(subGroup_17)))
+
+ggplot(data, aes(x =  Age, fill = Group)) +
+  geom_density(position="identity", alpha=0.6) +
+  scale_fill_brewer(palette="Dark2") +
+  ggtitle("Density plot of Age, by group")+
+  scale_x_continuous(name = "Age",
+                     breaks = seq(0, 20, 5),
+                     limits=c(0,20))+
+  scale_y_continuous(name = "Density") +
+  theme(plot.title = element_text(size = 14, face = "bold"),
+        text = element_text(size = 12)) +
+  guides(fill=guide_legend(title=NULL))+ 
+  scale_fill_discrete(labels=c("Entire sample", "Subgroup")) + theme_classic()
+```
+
+## Sample without subGroup
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+subGroup_NO17_ID <- read_excel("Density_Continuous.xlsx", sheet = "NO17subGroupID")
+Age_subGroup_NO17 <- Age_C[as.numeric(subGroup_NO17_ID$ID)]
+
+PDF_Age_NO17 <- epdfPlot(Age_subGroup_NO17, main = "PDF of Age without subGroup", xlab = "Age (years)", ylab = "Density", xlim=c(4,15), ylim=c(0,0.23))
+
+```
+
+## Probability of the subGroup to appear within the remaining sample
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# PDF_subGroup_17 <- epdfPlot(subGroup_17$Age, main = "PDF of Age 17 subGroup", xlab = "Age (years)", ylab = "Density",xlim=c(4,15), ylim=c(0,0.23))
+
+e_NO17 <- PDF_Age_NO17[["x"]]
+idx = c(0,0)
+for (x in seq(from = 1, to = length(Age_17), by = 1)) {
+  print(Age_17[x])
+  idx[x] <- as.numeric(which.min(abs(e_NO17 - Age_17[x])))}
+
+f_subGroup_17_NO17 <- PDF_Age_NO17[["f.x"]][idx]
+f_subGroup_17_NO17
+summary(f_subGroup_17)
+sd(f_subGroup_17)
+
+p3 <- ggplot(data.frame(f_subGroup_17_NO17), aes(x=round(f_subGroup_17_NO17,2))) + 
+  geom_histogram(binwidth=0.005, alpha = 0.7) + theme_classic() +
+  scale_x_continuous(name ="Probability of apparition \n within the remaining sample \n based on Age",
+                     breaks = round(sort(unique(f_subGroup_17)),2)) +
+  ylab("Number of children of subGroup")
+p3
+
+```
+
+## Boxplot
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+p2 <- ggplot(Age_df, aes(x = 0, y=Age_C)) + 
+  geom_boxplot(alpha=0.3, outlier.colour="blue", outlier.shape=2,
+               outlier.size=4)+ 
+  stat_summary(fun = mean, geom="point", shape=23, size=4,
+               position = position_dodge(width=0.75))+ 
+  geom_dotplot(data = data.frame(Age_17), aes(x = 0, y=Age_17),
+               binaxis='y', stackdir='center', dotsize=0.7) +
+  scale_y_continuous(breaks = 4:13) +
+  ylab("Age (Years)")+
+  theme_classic() +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank()) +
+  annotate("text", 0.23,12,
+           label = "Dots are from the 17 subGroup
+           \n The boxplot represents \n the entire sample\n
+           The empty diamond represents the mean",cex=3.5)
+p2
+
+```
+

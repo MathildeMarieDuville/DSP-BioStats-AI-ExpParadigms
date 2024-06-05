@@ -1,0 +1,1761 @@
+---
+title: "Comparing multiple groups (Analysis of variance)"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+author: Mathilde Marie Duville
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+
+```{r setup, include=FALSE, include=FALSE,warning=FALSE, message=FALSE, results='hide'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Description
+Here, a methodology, and corresponding R codes are presented for one- two- and three-way ANOVAs with and without repeated measures. Scenarios with more than 3 factors are discouraged because of the subsequent complex interpretation. Therefore, up to 3-way ANOVAs are detailed.
+
+A diagram of the proposed methodology is presented below. You can click on the image to zoom in. 
+
+[![](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\ANOVA.png)](C:\Users\mathi\OneDrive\Documents\Job\GitHub\BioStats%20in%20R\ANOVA.png)
+
+# Notice
+
+This code is purely demonstrative.
+That is, data are not necessarily adequate for the analysis (e.g., a parametric test is applied when parametricity cannot be validated).
+Therefore, both data and outputs are not relevant and are not shared.
+
+# One-way ANOVA
+
+## *Independent, homogeneous, and normally distributed residuals*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+rm(list = ls())
+library(readxl)
+data <- read_excel("One-way-ANOVA.xlsx")
+
+```
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(tidyverse)
+
+dataw <- data %>%
+  group_by(Type) %>%
+  mutate(row = row_number()) %>%
+  tidyr::pivot_wider(names_from = Type, 
+                     values_from = Column1) 
+
+p <- boxplot(as.numeric(dataw$`Apple`),
+              as.numeric(dataw$`Orange`),
+              as.numeric(dataw$`Banana`),
+              names = c("Apple", "Orange", "Banana"), 
+              ylab = "Column1", 
+              xlab = "Type")
+```
+
+#### Summary statistics
+
+n: the number of samples; <br> min: minimum; <br> max: maximum; <br> median: median; <br> mean: mean; <br> q1, q3: the first and the third quartile, respectively; <br> iqr: interquartile range; <br> mad: median absolute deviation; <br> sd: standard deviation of the mean; <br> se: standard error of the mean; <br> ci: 95 percent confidence interval of the mean.
+<br>
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(rstatix)
+data %>%
+  group_by(Type) %>%
+  get_summary_stats(Column1, type = "full")
+
+```
+
+#### ANOVA : different functions, same results
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+data$Type <- as.factor(data$Type)
+
+lm1 <- lm(Column1~Type, data=data) 
+aov1 <- aov(Column1~Type, data=data) 
+anova <- data %>% anova_test(Column1~Type) #ges = generalized eta squared (effect size)
+# https://cran.r-project.org/web/packages/effectsize/vignettes/anovaES.html
+
+library(car)
+Anova(lm1)
+summary(aov1)
+anova
+```
+
+#### Confirm independence of residuals (p>0.05): non-repeated measures
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+durbinWatsonTest(lm1)  
+```
+
+#### Normality of residuals
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Dots of residuals must approximately fall along the reference line.
+plot(lm1,2) 
+library(ggpubr)
+ggqqplot(residuals(lm1))
+
+# Shapiro (p>0.05)
+shapiro.test(residuals(lm1))
+```
+
+#### Homogneity of variances
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+The dispersion must be similar across groups to validate homogeneity of variances.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Dispersion must be similar across groups.
+plot(lm1,3) 
+
+# Bartlett (p>0.05)
+bartlett.test(residuals(lm1)~data$Type)
+
+# Levene (p>0.05)
+leveneTest(residuals(lm1)~data$Type)
+
+# Fligner (p>0.05)
+fligner.test(residuals(lm1)~data$Type)
+```
+
+#### Post-hoc comparisons: adjust the p-value to the number of comparisons correcting for multiple comparisons
+
+##### Compare to one control group (e.g., Banana)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Dunnett
+# Define Banana as the reference
+data$Type <- relevel(data$Type, ref="Banana")
+# Check (must be the first)
+levels(data$Type) 
+# Do Anova again with Banana as the reference (should not change the results)
+lm2 <- lm(Column1~Type, data=data) 
+Anova(lm2)
+Anova(lm1)
+# 2-by-2 comparisons to reference
+library(multcomp)
+mc_dunnett <- glht(lm2, linfct=mcp(Type="Dunnett")) 
+summary(mc_dunnett)
+```
+
+##### All 2-by-2 comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Tukey
+mc_tukey <- glht(lm2, linfct=mcp(Type="Tukey")) 
+summary(mc_tukey)
+
+# Visualization: box plots with p-values
+pwc <- data %>% tukey_hsd(Column1 ~ Type)
+
+pwc <- pwc %>% add_xy_position(x = "Type")
+ggboxplot(data, x = "Type", y = "Column1") +
+  stat_pvalue_manual(pwc, hide.ns = TRUE) +
+  labs(subtitle = get_test_label(anova, detailed = TRUE),
+    caption = get_pwc_label(pwc))
+
+```
+
+## *Independent, non-homogeneous, and normally distributed residuals*
+
+### Welch one-way ANOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+anova2 <- data %>% welch_anova_test(Column1 ~ Type)
+anova2
+```
+
+### Pairwise comparisons (Games-Howell)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+pwc2 <- data %>% games_howell_test(Column1 ~ Type)
+pwc2
+
+# Visualization: box plots with p-values
+pwc2 <- pwc2 %>% add_xy_position(x = "Type")
+ggboxplot(data, x = "Type", y = "Column1") +
+  stat_pvalue_manual(pwc2, hide.ns = TRUE) +
+  labs(subtitle = get_test_label(anova2, detailed = TRUE),
+    caption = get_pwc_label(pwc2))
+```
+
+Notice: in case of comparison to a reference, pairwise t-tests may be applied, with no assumption of equal variances and correction for multiple comparisons (e.g., Bonferroni).
+
+##### Compare to one control group (e.g., Banana)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+pwc3 <- data %>% 
+  pairwise_t_test(
+    Column1 ~ Type, pool.sd = FALSE,
+    p.adjust.method = "none")
+pwc3
+
+#Define the reference
+reference <- "Banana"; i <- 0; pwc4 <- data.frame(.y. = character(),
+                                                  group1 = character(),
+                                                  group2 = character(),
+                                                  n1 = numeric(),
+                                                  n2 = numeric(),
+                                                  statistic = numeric(),
+                                                  df = numeric(),
+                                                  p = numeric(),
+                                                  p.adj = numeric(),
+                                                  p.adj.signif = character()) 
+
+#Select the p-values of interest (comparisons with reference)
+
+for (x in seq(from = 1, to = nrow(pwc3), by = 1)) {
+  T1 <- pwc3$group1[x];  T2 <- pwc3$group2[x]
+  
+  if (T1[1] == reference | T2[1] == reference) { 
+    print(c("################## comparison = ", x, "contains ", reference)); 
+    i <- i+1;
+    #pwc4[i,]$group1[] <- pwc3$group1[x];
+    pwc4[i,] <- pwc3[x,];
+  }
+}
+
+# Adjust the p-values
+pwc4$HolmPval <- p.adjust(pwc4$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pwc4), by = 1)) 
+  if (pwc4$HolmPval[x] < 0.001){
+    pwc4$p.adj.signif[x] <- "***"
+    
+    } else if  (pwc4$HolmPval[x] < 0.01) {
+      pwc4$p.adj.signif[x] <- "**"  
+    } else if  (pwc4$HolmPval[x] < 0.05) {
+      pwc4$p.adj.signif[x] <- "*" 
+    } else {
+      pwc4$p.adj.signif[x] <- "NS" }
+
+pwc4
+```
+
+## *Independent, homogeneity and/or normality of residuals violated*
+
+#### Kruskal-Wallis
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Kruskall-Wallis test 
+kruskal.test(Column1 ~ Type, data=data)
+```
+
+#### Post-hoc comparisons : Wilcoxon tests
+
+##### Compare to one control group (e.g., Banana)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Dunnett's procedure
+# All 2-by-2 comparisons without adjusting the p-value
+
+pp_all <- pairwise.wilcox.test(data$Column1, data$Type,p.adjust.method ="none" )
+pp_all
+
+# Select the p-values of interest (comparisons with reference)
+
+pval <- data.frame(pp_all[["p.value"]])
+
+
+for (x in seq(from = 1, to = ncol(pval)-1, by = 1)) {
+  cols <- c(colnames(pval)[x], colnames(pval)[x+1])
+  rows <- c(rownames(pval)[x], rownames(pval)[x+1])
+}
+
+
+reference <- "Banana"; i <- 0; pdunn <- data.frame(group1 = character(),
+                                                  group2 = character(),
+                                                  p = numeric(),
+                                                  p.adj = numeric(),
+                                                  p.adj.signif = character()) 
+
+
+pdunn[1,1:ncol(pval)] <- cols; pdunn[2,1:ncol(pval)] <- c(cols[1], rows[2])
+#pdunn[3,1:ncol(pval)] <- rows
+
+pdunn[1,3] <- pval[1,1]; pdunn[2,3] <- pval[2,1]; #pdunn[3,3] <- pval[2,2]
+
+#Adjust the p-values
+
+pdunn$p.adj <- p.adjust(pdunn$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pdunn), by = 1)) 
+  if (pdunn$p.adj[x] < 0.001){
+    pdunn$p.adj.signif[x] <- "***"
+    } else if  (pdunn$p.adj[x] < 0.01) {
+      pdunn$p.adj.signif[x] <- "**"  
+    } else if  (pdunn$p.adj[x] < 0.05) {
+      pdunn$p.adj.signif[x] <- "*" 
+    } else {
+      pdunn$p.adj.signif[x] <- "NS" }
+
+pdunn
+
+```
+
+##### 2-by-2 comparisons with correction for multiple testing
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+pp <- pairwise.wilcox.test(data$Column1, data$Type,p.adjust.method ="holm" )
+pp
+
+```
+
+## *Repeated measures, residuals normally distributed*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+data <- read_excel("One-way-ANOVA-repeated.xlsx")
+```
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Rearrange the data (long format)
+dataL <- data %>%
+  gather(key = "time", value = "score", t1, t2, t3, t4) %>%
+  convert_as_factor(id, time)
+head(dataL, 3)
+
+# Visualization
+p1 <- ggplot(dataL, aes(x=time, y=score, colour=id)) + 
+  geom_point()+
+  geom_line(aes(group=id))+
+  scale_y_continuous(breaks = seq(1, 5, 3))+
+  theme_classic() 
+p1 + theme(legend.position = "none")
+
+p2 <- ggplot(dataL, aes(x=time, y=score, colour=id)) + 
+  geom_point()+
+  geom_line(aes(group=id))+
+  facet_wrap(~id)+
+  scale_y_continuous(breaks = seq(1, 5, 3))+
+  theme_classic() 
+p2 + theme(legend.position = "none")
+
+p3 <- boxplot(as.numeric(data$t1),
+             as.numeric(data$t2),
+             as.numeric(data$t3),
+             as.numeric(data$t4),
+             names = c("t1", "t2", "t3", "t4"), 
+             ylab = "Response", 
+             xlab = "Time")
+
+# Summary statistics
+dataL %>%
+  group_by(time) %>%
+  get_summary_stats(score, type = "full")
+
+```
+
+### Confirm dependence of residuals (p\<0.05): repeated measures
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+lm3 <- lm(score~time, data=dataL)
+durbinWatsonTest(lm3)  
+```
+
+### Sphericity (homogeneity of variances and covariances): Mauchly's test (p\>0.05)
+
+Notice: whenever p<0.05, a sphericity correction must be applied.
+<br> Outputs of "ezANOVA" include the Greenhouse-Geisser & Huynh-Feldt epsilon values, and corresponding corrected p-values.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(ez)
+mod1 <- ezANOVA(dv=score,
+                within=time,
+                wid=id,
+                data=dataL)
+mod1
+
+# plot
+ezPlot(dataL,
+       dv = score,
+       within=time,
+       wid=id,
+       x=.(time))
+```
+
+### Normality of residuals (p>0.05 on Shapiro test)
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(lmerTest)
+
+mod_rep <- lmerTest::lmer(score~time+(1|id), data=dataL)
+shapiro.test(residuals(mod_rep))
+qqPlot(residuals(mod_rep))
+
+```
+
+### Table of variances
+
+Notice: This output allows to highlight:
+
+-   Factorial Sum of Squares (FSS) : Part of the total dispersion (SST) explained by the factor of interest (here, Time)
+
+-   Error Sum of Squares (ESS_01) : Part of the total dispersion (SST) explained by the random factor (here, id)
+
+-   Error Sum of Squares (ESS_02): Part of the SST explained by the residuals
+
+-   Inter-id and residual variances
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod1_aov <- aov(score~time+Error(id/time), data=dataL)
+summary(mod1_aov) 
+
+# The summary function allow to obtain the inter-group and residual variances (in the "Random effect section")
+summary(mod_rep)
+```
+
+### ANOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+res.aov <- anova_test(data = dataL, dv = score, wid = id, within = time)
+get_anova_table(res.aov)
+
+# Or
+# Anova(mod_rep)
+
+```
+
+### Post-hoc comparisons
+
+#### Comparison to a reference: Dunett procedure
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Define time3 as the reference
+dataL$time <- relevel(dataL$time, ref="t3")
+# Check (must be the first)
+levels(dataL$time ) 
+
+# Do Anova again with time 3 as the reference (should not change the results)
+mod_rep2 <- lmerTest::lmer(score~time+(1|id), data=dataL)
+Anova(mod_rep2)
+Anova(mod_rep)
+
+# 2-by-2 comparisons to reference
+mc_dunnett <- glht(mod_rep2,linfct=mcp(time="Dunnett") )
+summary(mc_dunnett)
+```
+
+#### All 2-by-2 comparisons: Tukey Procedure
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(multcomp)
+mc_tukey <- glht(mod_rep,linfct=mcp(time="Tukey") )
+summary(mc_tukey)
+```
+
+## *Repeated measures, normality of residuals violated*
+
+### Friedman test
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+friedman.test(score ~ time | id, data=dataL)
+
+# Or 
+dataL %>% friedman_test(score ~ time |id)
+```
+
+### Effect size: Kendall's W
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# 0.1 - < 0.3 (small effect), 0.3 - < 0.5 (moderate effect) and >= 0.5 (large effect). 
+dataL %>% friedman_effsize(score ~ time |id)
+```
+
+### Post-hoc comparisons
+
+#### Comparison to a reference
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Conover test
+
+library(PMCMRplus)
+data <- data %>% 
+  dplyr::select(-id) %>%
+  as.matrix() 
+rownames(data) <- 1:nrow(data)
+
+all_pval <- frdAllPairsConoverTest(data,p.adjust = "none")
+all_pval
+
+# reference: t3 
+
+pval2 <- data.frame(all_pval[["p.value"]])
+
+for (x in seq(from = 1, to = ncol(pval2)-2, by = 1)) {
+  cols2 <- c(colnames(pval2)[x], colnames(pval2)[x+1], colnames(pval2)[x+2])
+  rows2 <- c(rownames(pval2)[x], rownames(pval2)[x+1], rownames(pval2)[x+2])
+}
+
+
+reference <- "t3"; pdunn2 <- data.frame(group1 = character(),
+                                        group2 = character(),
+                                        p = numeric(),
+                                        p.adj = numeric(),
+                                        p.adj.signif = character()) 
+
+
+pdunn2[1,1:2] <- cols2[2:3]; pdunn2[2,1:2] <- c(cols2[1], cols2[3])
+pdunn2[3,1:2] <- rows2[3:2];
+
+pdunn2[1,3] <- pval2[2,2]; pdunn2[2,3] <- pval2[2,1]; pdunn2[3,3] <- pval2[3,3]
+
+#Adjust the p-values
+
+pdunn2$p.adj <- p.adjust(pdunn2$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pdunn2), by = 1)) 
+  if (pdunn2$p.adj[x] < 0.001){
+    pdunn2$p.adj.signif[x] <- "***"
+    } else if  (pdunn2$p.adj[x] < 0.01) {
+      pdunn2$p.adj.signif[x] <- "**"  
+    } else if  (pdunn2$p.adj[x] < 0.05) {
+      pdunn2$p.adj.signif[x] <- "*" 
+    } else {
+      pdunn2$p.adj.signif[x] <- "NS" }
+
+pdunn2
+
+```
+
+#### All 2-by-2 comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+frdAllPairsConoverTest(data,p.adjust = "holm")#Insert the method for p-adjustment that best suits your data
+```
+
+#### Alternative: sign test
+
+NOTICE: may also be applied with Dunnett's procedure.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+pwc5 <- dataL %>%
+  sign_test(score ~ time, p.adjust.method = "holm")#Insert the method for p-adjustment that best suits your data
+pwc5
+```
+
+# Two-way ANOVA
+
+## *Independent, homogeneous, and normally distributed residuals*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+library(readxl)
+data <- read_excel("Two-way-ANOVA.xlsx")
+```
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(tidyverse)
+data %>%
+  group_by(Colour, Category) %>%
+  get_summary_stats(score, type = "mean_sd")
+
+bxp <- ggboxplot(data, x = "Colour", y = "score",
+  color = "Category", palette = "jco")
+bxp
+```
+
+### ANOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+mod1 <- lm(score~Colour * Category, 
+           contrasts=list(Colour=contr.sum, Category=contr.sum), 
+           data=data) 
+library(car)
+Anova(mod1, type=3)
+
+# Anova with generalized eta squared 
+# option 1 (and Levene's test (homogeneity of variances)
+library(ez)
+mod <- ezANOVA(dv=score,
+               between = .(Colour, Category),
+               wid= id,
+               data=data)
+mod
+
+# option 2
+res.aov <- data %>% anova_test(score ~ Colour * Category)
+res.aov
+```
+
+### Confirm independence of residuals (p>0.05): non-repeated measures
+
+NOTICE: Graphs may not be representative of the adequate conditions for independence of residuals.
+Codes are purely demonstrative to highlight the methodology.
+Residuals must be centered around 0: they do not depend on the group (cross-modality)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod1,1) 
+
+durbinWatsonTest(mod1)  
+```
+
+### Normality of residuals (p>0.05 on Shapiro test)
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod1,2) 
+library(ggpubr)
+ggqqplot(residuals(mod1))
+
+shapiro.test(residuals(mod1)) 
+```
+
+### Homogneity of variance
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneously distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+The dispersion must be similar across groups (cross-modality) to validate homogeneity of variances.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod1,3) 
+
+# grp --> cross modality
+data$grp <- interaction(data$Colour, data$Category, sep="_")
+
+# Bartlett (p>0.05)
+bartlett.test(residuals(mod1)~data$grp)
+
+# Levene (p>0.05)
+leveneTest(residuals(mod1)~data$grp)
+
+# Fligner (p>0.05)
+fligner.test(residuals(mod1)~data$grp)
+
+```
+
+### Graphs summary
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+par(mfrow=c(2,2)) 
+plot(mod1) 
+```
+
+### Post-hoc comparisons
+
+#### Case 01: Significant interaction
+
+The effect of one factor on the outcome depends on the other factor.
+The objective of the study is narrowed by a previous hypothesis.
+
+##### Simple main effect
+
+Effect of one factor at each modality of the other factor.
+Choose according to the objective of the study.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Category effect at each levels of Colour.
+# Use the error of the main model
+
+data %>%
+  group_by(Colour) %>%
+  anova_test(score ~ Category, error = mod1)
+```
+
+##### Pairwise comparisons
+
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(emmeans)
+pwc <- data %>% 
+  group_by(Colour) %>%
+  emmeans_test(score ~ Category, p.adjust.method = "bonferroni") 
+pwc
+
+# pwc <- data %>%
+#   group_by(Category) %>%
+#   emmeans_test(score ~ Colour, p.adjust.method = "bonferroni")
+# pwc
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor.
+The objective of the study is narrowed by a previous hypothesis.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Check the main effect of each factor
+res.aov
+```
+
+##### 2-by-2 comparisons within each level of significant factors, according to the hypothesis if relevant
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Option 1
+data %>%
+  pairwise_t_test(
+    score ~ Category, 
+    p.adjust.method = "bonferroni"
+  )
+
+# Option 2
+data %>% 
+  emmeans_test(
+    score ~ Category, p.adjust.method = "bonferroni",
+    model = mod1
+  )
+
+# Plot 
+pwc <- pwc %>% add_xy_position(x = "Colour")
+bxp +
+  stat_pvalue_manual(pwc) +
+  labs(
+    subtitle = get_test_label(res.aov, detailed = TRUE),
+    caption = get_pwc_label(pwc)
+  )
+```
+
+### Exploratory analysis
+
+#### Case 01: Significant interaction
+
+The effect of one factor on the outcome depends on the other factor.
+The objective of the study is exploratory.
+
+##### Simple main effect on the grp variable
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod_grp <- lm(score~grp, data=data)
+Anova(mod_grp, type=3)
+```
+
+##### All possible pairwise comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(multcomp)
+mc_tukey <- glht(mod_grp, linfct=mcp(grp="Tukey")) 
+summary(mc_tukey) 
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor.
+The objective of the study is exploratory.
+
+##### Run the model without the interaction
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+data$Colour <- as.factor(data$Colour); data$Category <- as.factor(data$Category)
+mod3 <- lm(score~Colour + Category, data=data)
+Anova(mod3)  
+```
+
+##### 2-by-2 comparisons within each level of significant factors
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Category is significant
+# Pairwise comparisons, independently of Colour
+pwc6 <- glht(mod3, mcp(Category = "Tukey"))$linfct
+pwc6
+summary(glht(mod3, linfct = pwc6))
+```
+
+## *Independent residuals, homogeneity and/or normality violated*
+
+### Aligned rank transform (non-parametric approach)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+library(ARTool)
+
+data$Colour <- as.factor(data$Colour); 
+data$Colour <- factor(data$Colour, levels=c("blue", "red"))
+data$Category <- as.factor(data$Category)
+data$Category <- factor(data$Category, levels=c("small", "medium", "large"))
+
+m <- art(score~Colour * Category, data=data)
+
+# Ensure that aligned rank transform is appropriate: 
+# Sums of aligned responses and F values of ANOVAs on aligned responses not of interest should all be ~0.
+summary(m)
+
+# Confirm by anova of aligned data (F values should be ~0)
+anova(m, response="aligned")
+```
+
+### Anova on the ART responses
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+anova(m)
+```
+
+### Post-hoc comparisons
+
+#### Case 01: Significant interaction
+
+The effect of one factor on the outcome depends on the other factor.
+The objective of the study is narrowed by a previous hypothesis.
+
+##### Simple main effect
+
+Effect of one factor at each modality of the other factor.
+Choose according to the objective of the study.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Category effect at each levels of Colour.
+# Use the error of the main model
+
+contrast(emmeans(artlm.con(m, "Colour"), pairwise ~ Colour, interaction = TRUE))
+
+```
+
+##### Pairwise comparisons
+
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(emmeans)
+contrast(emmeans(artlm.con(m, "Colour:Category"), pairwise ~ ColourCategory, interaction = TRUE))
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor.
+The objective of the study is narrowed by a previous hypothesis.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Check the main effect of each factor
+anova(m)
+```
+
+##### 2-by-2 comparisons within each level of significant factors, according to the hypothesis if relevant
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Category is significant
+# Pairwise comparisons, independently of Colour
+art.con(m, "Category", interaction = FALSE)
+```
+
+### Exploratory analysis
+
+#### Case 01: Significant interaction
+
+The effect of one factor on the outcome depends on the other factor.
+The objective of the study is exploratory.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# All possible pairwise comparisons
+art.con(m, "Colour:Category")
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor.
+The objective of the study is exploratory.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Check the main effect of each factor
+anova(m)
+```
+
+##### 2-by-2 comparisons within each level of significant factors
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Category is significant
+# Pairwise comparisons, independently of Colour
+art.con(m, "Category", interaction = FALSE)
+
+```
+
+## *Repeated measures, parametricity validated: one between-id and one within-id (mixed model)*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+data <- read_excel("Two-way-ANOVA-repeated-mixed.xlsx")
+```
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+dataL <- data %>%
+  gather(key = "Time", value = "score", t1, t2, t3) %>%
+  convert_as_factor(id, Time)
+
+# Random rows of the data
+dataL %>% sample_n_by(Colour, Time, size = 1)
+
+# Basic statistics
+dataL %>%
+  group_by(Time, Colour) %>%
+  get_summary_stats(score, type = "mean_sd")
+
+
+p1 <- ggplot(dataL, aes(x=Time, y=score, colour=Colour)) + 
+  geom_point()+
+  geom_line(aes(group=id))+
+  scale_y_continuous(breaks = seq(1, 5, 3))+
+  theme_classic() 
+p1
+
+library(ez)
+p <- ezPlot(data=dataL,  dv=.(score), 
+            wid=.(id), within = Time, between = Colour, 
+            x=.(Time), split=.(Colour))+
+  theme_classic() +
+  theme(axis.text = element_text(color = "black", size = 15)) +
+  ylab('score') + xlab('time') +
+  theme(axis.title.y = element_text(color = "black", size = 15, face = "bold")) +
+  theme(axis.title.x = element_text(color = "black", size = 15, face = "bold"))
+p <- p + scale_color_manual(values=c("blue", "red", "yellow"))
+p
+
+```
+
+### Confirm dependence of residuals (p<0.05): repeated measures
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+mod2 <- lm(score~Colour * Time, 
+           contrasts=list(Colour=contr.sum, Time=contr.sum), data=dataL) 
+durbinWatsonTest(mod2)  
+```
+
+### Normality of residuals (p>0.05 on Shapiro test)
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+lmer1 <- lmerTest::lmer(score ~ Colour*Time + (1|id),
+                        contrasts=list(Colour=contr.sum, Time=contr.sum), 
+                        data=dataL)
+Anova(lmer1, type=3)
+shapiro.test(residuals(lmer1))
+qqPlot(residuals(lmer1))
+```
+
+### Homogeneity of variances of the between-id factor (here, Colour)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+dataL$Colour <- as.factor(dataL$Colour); dataL$Time <- as.factor(dataL$Time); 
+
+# Levene (p>0.05)
+dataL %>%
+  group_by(Time) %>%
+  levene_test(score ~ Colour)
+```
+
+### Homogeneity of covariances of the between-id factor (here, Colour)
+
+Notice: if homogeneity of covariances is violated, separate repeated-measure ANOVAs may be considered, the interpretation of the interaction may be omitted, or a non-parametric approach may be applied. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Box’s M-test (p>0.001. the test is highly sensitive)
+
+box_m(dataL[, "score", drop = FALSE], dataL$Colour)
+```
+
+### Sphericity (homogeneity of variances and covariances): Mauchly's test (p>0.05)
+
+Notice: sphericity is always confirmed for effects with 2 levels.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(ez)
+mod <- ezANOVA(dv=score,
+               within = Time,
+               between = Colour, 
+               wid= id,
+               data=dataL)
+mod
+```
+
+### Two-way mixed ANOVA
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+#Note: The ezANOVA function may also be interpreted
+
+res.aov <- anova_test(data = dataL, dv = score, wid = id,
+  between = Colour, within = Time)
+get_anova_table(res.aov)
+
+library(effectsize)
+cohens_f(lmer1)
+
+```
+
+### Post-hoc comparisons
+#### Case 01: Significant interaction 
+
+The effect of one factor on the outcome depends on the other factor. The objective of the study is narrowed by a previous hypothesis.
+
+##### Simple main effect 
+
+Effect of one factor at each modality of the other factor. Choose according to the objective of the study.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Effect of Time at each Colour
+
+dataL %>%
+  group_by(Colour) %>%
+  anova_test(dv = score, wid = id, within = Time) %>%
+  get_anova_table() %>%
+  adjust_pvalue(method = "holm")
+```
+
+##### Pairwise comparisons 
+
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Pairwise comparisons time points
+pwc7 <- dataL %>%
+  group_by(Colour) %>%
+  pairwise_t_test(score ~ Time, p.adjust.method = "holm")
+pwc7
+
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor. The objective of the study is narrowed by a previous hypothesis.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+res.aov
+```
+
+##### 2-by-2 comparisons within each level of significant factors, according to the hypothesis if relevant
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Option 1
+dataL %>%
+  pairwise_t_test(score ~ Time, paired = TRUE, 
+    p.adjust.method = "holm")
+
+# Option 2
+pwc8 <- dataL %>% 
+   emmeans_test(score ~ Time,
+   p.adjust.method = "holm", 
+   model = mod2)
+
+pwc8 
+
+
+# Plot 
+pvals <-  signif(mod$ANOVA$p, digits = 3);
+pvalColour <- paste("Main Colour effect: p-value =", pvals[1]) 
+pvalTime <- paste("Main Time effect: p-value =", pvals[2]) 
+pvalInt <- paste("Main Colour:Time effect: p-value =", pvals[3]) 
+
+Fvals<-  signif(mod$ANOVA$F, digits = 3);
+
+DFn <- mod$ANOVA$DFn
+DFd <- mod$ANOVA$DFd
+etasquare <- signif(mod$ANOVA$ges, digits = 2)
+
+resultColour <-  paste(pvalColour, ", F(",DFn[1], ",", DFd[1],") =" ,+
+                    Fvals[1], ",", "\U03B7", "\U00B2 =", etasquare[1])
+resultTime <-  paste(pvalTime, ", F(",DFn[2], ",", DFd[2],") =" ,+
+                    Fvals[2], ",", "\U03B7", "\U00B2 =", etasquare[2])
+resultInt <-  paste(pvalInt, ", F(",DFn[3], ",", DFd[3],") =" ,+
+                    Fvals[3], ",", "\U03B7", "\U00B2 =", etasquare[3])
+
+resultColour; resultTime; resultInt
+
+ColourText <- data.frame(
+  group1 = "t1", group2 = "t2", group3 = "Tt3",
+  label = resultColour,
+  y.position = 5.5,  x.position = 2)
+
+TimeText <- data.frame(
+  group1 = "t1", group2 = "t2", group3 = "Tt3",
+  label = resultTime,
+  y.position = 5.25,  x.position = 2)
+
+IntText <- data.frame(
+  group1 = "t1", group2 = "t2", group3 = "Tt3",
+  label = resultInt,
+  y.position = 5,  x.position = 2.05)
+
+
+p1 <- p + stat_pvalue_manual(ColourText,
+                             label = "label",label.size = 3, 
+                             y.position = "y.position", 
+                             x  = "x.position", 
+                             remove.bracket = TRUE) 
+
+p1 <- p1 + stat_pvalue_manual(TimeText,
+                             label = "label",label.size = 3, 
+                             y.position = "y.position", 
+                             x  = "x.position", 
+                             remove.bracket = TRUE) 
+
+p1 <- p1 + stat_pvalue_manual(IntText,
+                             label = "label",label.size = 3, 
+                             y.position = "y.position", 
+                             x  = "x.position", 
+                             remove.bracket = TRUE) 
+
+pvals <- pwc8$p.adj
+
+pval <- pvals[1]
+if(pval < 0.001) {
+  pval <- "***"
+}
+
+if (pval < 0.01 & pval > 0.001){
+  pval <- "**"
+}
+
+if (pval < 0.05 & pval > 0.01){
+  pval <- "*"
+}
+
+if (pval > 0.05){
+  pval <- "not signif."
+}
+
+t1t2Text <- data.frame(
+  group1 = "t1", group2 = "t2", group3 = "t3",
+  label = pval, y.position = 4.5)
+
+if(pval == "not signif.") { 
+  size <- 2 } else {size <- 3}
+
+p2 <- p1 + stat_pvalue_manual(t1t2Text,
+                             xmin = "group1", xmax = "group2",
+                             label = "label", label.size = size, 
+                             y.position = "y.position", remove.bracket = FALSE) 
+
+pval <- pvals[2]
+if(pval < 0.001) {
+  pval <- "***"
+}
+
+if (pval < 0.01 & pval > 0.001){
+  pval <- "**"
+}
+
+if (pval < 0.05 & pval > 0.01){
+  pval <- "*"
+}
+
+if (pval > 0.05){
+  pval <- "not signif."
+}
+
+t1t3Text <- data.frame(
+  group1 = "t1", group2 = "t2", group3 = "t3",
+  label = pval, y.position = 4.7)
+
+if(pval == "not signif.") { 
+  size <- 2 } else {size <- 3}
+
+p2 <- p2 + stat_pvalue_manual(t1t3Text,
+                             xmin = "group1", xmax = "group3",
+                             label = "label", label.size = size, 
+                             y.position = "y.position", remove.bracket = FALSE) 
+pval <- pvals[3]
+if(pval < 0.001) {
+  pval <- "***"
+}
+pval
+if (pval < 0.01 & pval > 0.001){
+  pval <- "**"
+}
+pval
+if (pval < 0.05 & pval > 0.01){
+  pval <- "*"
+}
+pval
+if (pval > 0.05){
+  pval <- "not signif."
+}
+
+t2t3Text <- data.frame(
+  group1 = "t1", group2 = "t2", group3 = "t3",
+  label = pval, y.position = 4.5)
+
+if(pval == "not signif.") { 
+  size <- 2 } else {size <- 3}
+
+p2 <- p2 + stat_pvalue_manual(t2t3Text,
+                             xmin = "group2", xmax = "group3",
+                             label = "label", label.size = size, 
+                             y.position = "y.position", remove.bracket = FALSE) 
+
+p2
+```
+
+### Exploratory analysis
+#### Case 01: Significant interaction 
+
+The effect of one factor on the outcome depends on the other factor. The objective of the study is exploratory.
+
+##### Simple main effect on the grp variable
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+dataL$grp <- interaction(dataL$Colour, dataL$Time, sep="_")
+
+lmer2 <- lmerTest::lmer(score ~ grp + (1|id), 
+                        data=dataL)
+Anova(lmer2, type=3)
+```
+
+##### All possible pairwise comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(multcomp)
+mc_tukey <- glht(lmer2, linfct=mcp(grp="Tukey")) 
+summary(mc_tukey) 
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor. The objective of the study is exploratory.
+
+##### Run the model without the interaction
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(multcomp)
+
+lmer2 <- lmerTest::lmer(score ~ Colour + Time + (1|id), 
+                        data=dataL)
+Anova(lmer2)
+```
+
+##### 2-by-2 comparisons within each level of significant factors
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Time is significant
+# Pairwise comparisons, independently of Colour
+
+pwc9 <- glht(lmer2, mcp(Time = "Tukey"))$linfct
+pwc9
+
+# If the effect of both factors was significant
+#pwc10 <- glht(lmer2, mcp(Colour = "Tukey"))$linfct
+#pwc11 <- rbind(pwc9,pwc10) 
+
+mc_tukey <- glht(lmer2,linfct=pwc9)
+summary(mc_tukey)
+
+```
+
+## *Repeated measures, parametricity violated: one between-id and one within-id (mixed model)*
+
+### Aligned rank transform (non-parametric approach)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(ARTool)
+
+dataL$Colour <- as.factor(dataL$Colour); 
+dataL$Colour <- factor(dataL$Colour, levels=c("blue", "red", "yellow"))
+dataL$Time <- as.factor(dataL$Time)
+dataL$Time <- factor(dataL$Time, levels=c("t1", "t2", "t3"))
+
+m <- art(score ~ Colour*Time + (1|id), data=dataL)
+
+# Ensure that aligned rank transform is appropriate: 
+# Sums of aligned responses and F values of ANOVAs on aligned responses not of interest should all be ~0.
+summary(m)
+
+# Confirm by anova of aligned data (F values should be ~0)
+anova(m, response="aligned")
+```
+
+### Anova on the ART responses
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+anova(m)
+```
+### Post-hoc comparisons
+
+### Case 01: Significant interaction
+
+The effect of one factor on the outcome depends on the other factor. The objective of the study is narrowed by a previous hypothesis.
+
+#### Simple main effect
+
+Effect of one factor at each modality of the other factor. Choose according to the objective of the study.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Time effect at each levels of Colour.
+# Use the error of the main model
+
+contrast(emmeans(artlm.con(m, "Colour"), pairwise ~ Colour, interaction = TRUE))
+```
+
+#### Pairwise comparisons
+
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(emmeans)
+contrast(emmeans(artlm.con(m, "Colour:Time"), pairwise ~ ColourTime, interaction = TRUE))
+```
+
+### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor. The objective of the study is narrowed by a previous hypothesis.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Check the main effect of each factor
+anova(m)
+```
+
+##### 2-by-2 comparisons within each level of significant factors, according to the hypothesis if relevant
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+art.con(m, "Time", interaction = FALSE)
+```
+
+### Exploratory analysis
+#### Case 01: Significant interaction
+
+The effect of one factor on the outcome depends on the other factor. The objective of the study is exploratory.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# All possible pairwise comparisons
+art.con(m, "Colour:Time")
+```
+
+#### Case 02: Non-significant interaction
+
+The effect of one factor on the outcome does not depend on the other factor. The objective of the study is exploratory.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Check the main effect of each factor
+anova(m)
+```
+
+##### 2-by-2 comparisons within each level of significant factors
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Time is significant
+# Pairwise comparisons, independently of Colour
+art.con(m, "Time", interaction = FALSE)
+```
+
+# Three-way ANOVA
+## *Independent, homogeneous, and normally distributed residuals*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+library(readxl)
+data <- read_excel("Three-way-ANOVA.xlsx")
+```
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+data %>%
+  group_by(Colour, Category, Weight) %>%
+  get_summary_stats(score, type = "mean_sd")
+
+bxp <- ggboxplot(data, x = "Weight", y = "score", 
+  color = "Category", palette = "jco", facet.by = "Colour")
+bxp
+```
+
+### ANOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+mod1 <- lm(score~Colour*Category*Weight, 
+           contrasts=list(Colour=contr.sum, Category=contr.sum, Weight=contr.sum), 
+           data=data) 
+library(car)
+Anova(mod1, type=3)
+
+# Anova with generalized eta squared 
+# option 1 (and Levene's test (homogeneity of variances)
+library(ez)
+mod <- ezANOVA(dv=score,
+               between = .(Colour, Category, Weight),
+               wid= id,
+               data=data)
+mod
+
+# option 2
+res.aov <- data %>% anova_test(score ~ Colour*Category*Weight)
+res.aov
+```
+
+### Confirm independence of residuals (p>0.05): non-repeated measures
+
+NOTICE: Graphs may not be representative of the adequate conditions for independence of residuals. Codes are purely demonstrative to highlight the methodology. Residuals must be centered around 0: they do not depend on the group (cross-modality).
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod1,1) 
+durbinWatsonTest(mod1)  
+```
+
+### Normality of residuals (p>0.05 on Shapiro test)
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals. Codes are purely demonstrative to highlight the methodology. Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod1,2) 
+library(ggpubr)
+ggqqplot(residuals(mod1))
+shapiro.test(residuals(mod1)) 
+```
+
+### Homogneity of variance
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneously distributed residuals. Codes are purely demonstrative to highlight the methodology. The dispersion must be similar across groups (cross-modality) to validate homogeneity of variances.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+plot(mod1,3) 
+
+# grp --> cross modality
+data$grp <- interaction(data$Colour, data$Category, data$Weight, sep="_")
+
+# Bartlett (p>0.05)
+bartlett.test(residuals(mod1)~data$grp)
+
+# Levene (p>0.05)
+leveneTest(residuals(mod1)~data$grp)
+
+# Fligner (p>0.05)
+fligner.test(residuals(mod1)~data$grp)
+
+#Or
+data %>% levene_test(score ~ Category*Colour*Weight)
+```
+
+### Post-hoc comparisons
+#### Significant three-way interaction
+
+One or more of the three possible two-way interactions  differ across the levels of a third variable. The objective of the study is narrowed by a previous hypothesis.
+
+##### Simple main effect (two-way)
+Effect of two factors at each modality of the other factor. Choose according to the objective of the study.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Group the data by colour (moderator factor) - use the error of the main model 
+
+data %>%
+  group_by(Colour) %>%
+  anova_test(score ~ Category*Weight, error = mod1)
+
+```
+
+##### Simple main effect (one-way)
+
+Effect of one factor at each modality of the other factor. Choose according to the objective of the study.
+Only where the two-way interaction was significant. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Group the data by colour and category - use the error of the main model
+
+mod4 <- data %>%
+  group_by(Colour, Category) %>%
+  anova_test(score ~ Weight, error = mod1)
+
+#Adjust p-values for multple testing 
+mod4$HolmPval <- p.adjust(mod4$p, method = "holm")
+
+for (x in seq(from = 1, to = nrow(mod4), by = 1)) 
+  if (mod4$HolmPval[x] < 0.001){
+    mod4$HolmPval.signif[x] <- "***"
+    } else if  (mod4$HolmPval[x] < 0.01) {
+      mod4$HolmPval.signif[x] <- "**"  
+    } else if  (mod4$HolmPval[x] < 0.05) {
+      mod4$HolmPval.signif[x] <- "*" 
+    } else {
+      mod4$HolmPval.signif[x] <- "NS" }
+
+mod4
+```
+
+##### Pairwise comparisons
+
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+#Effect of weight for Colour blue and category large
+library(emmeans)
+pwc <- data %>% 
+  group_by(Colour, Category) %>%
+  emmeans_test(score ~ Weight, p.adjust.method = "holm") 
+pwc <- pwc %>% filter(Colour == "blue", Category == "large")
+
+pwc
+
+```
+
+Notice:
+
+* In case of non-significant three-way interaction, you may focus on significant two-way interactions from the main model. Two-way interactions may be followed by main effects (one-way) and pairwise analyses. Please refer to the corresponding above-mentioned sections. 
+
+* In case of exploratory analysis, you may follow a similar methodology as described in above-mentioned sections for two-way ANOVA, adapted to three-way modelling: 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Significant interaction 
+mod_grp <- lm(score~grp, data=data)
+Anova(mod_grp, type=3)
+
+library(multcomp)
+mc_tukey <- glht(mod_grp, linfct=mcp(grp="Tukey")) 
+summary(mc_tukey) 
+
+#Non-ignificant interaction 
+data$Colour <- as.factor(data$Colour); data$Category <- as.factor(data$Category); 
+data$Weight <- as.factor(data$Weight )
+mod3 <- lm(score~Colour + Category + Weight, data=data)
+Anova(mod3)  
+
+#Category is significant
+#Pairwise comparisons, independently of Colour
+
+pwc6 <- glht(mod3, mcp(Category = "Tukey"))$linfct
+pwc6
+summary(glht(mod3, linfct = pwc6))
+```
+
+## *NOTICE*: violation of parametricity
+
+In case of violation of parametricity, a methodology similar to the one presented for the two-way model may be applied, adapted to three-way modelling (non-parametric approach). Please, refer to those sections. 
+
+## *Repeated measures, parametricity validated: example with one between-id and two within-id (mixed model)*
+
+NOTICE: factors "State" and "Time" are the within-id. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+data <- read_excel("Three-way-ANOVA-repeated-mixed.xlsx")
+```
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+dataL <- data %>%
+  gather(key = "Time", value = "score", t1, t2, t3) %>%
+  convert_as_factor(id, Time)
+  
+# Random rows of the data
+dataL %>% sample_n_by(Time, State, Colour, size = 1)
+
+# Basic statistics
+dataL %>%
+  group_by(Time, Colour, State) %>%
+  get_summary_stats(score, type = "mean_sd")
+
+dataLS <- dataL %>%
+            filter(State == "Solid")
+
+pS <- ggplot(dataLS, aes(x=Time, y=score, colour=Colour)) + 
+  geom_point()+
+  geom_line(aes(group=id))+
+#  scale_y_continuous(breaks = seq(1, 5, 3))+
+  ggtitle("Solid") +
+  theme_classic() 
+pS <- pS + scale_color_manual(values=c("blue", "red", "yellow"))
+
+dataLL <- dataL %>%
+            filter(State == "Liquid")
+
+pL <- ggplot(dataLL, aes(x=Time, y=score, colour=Colour)) + 
+  geom_point()+
+  geom_line(aes(group=id))+
+ # scale_y_continuous(breaks = seq(5, 7, 15))+
+  ggtitle("Liquid") +
+  theme_classic() 
+pL <- pL + scale_color_manual(values=c("blue", "red", "yellow"))
+
+ggarrange(pS, pL,labels = c("A", "B"),ncol = 1, nrow = 2)
+
+
+library(ez)
+p <- ezPlot(data=dataLS,  dv=.(score), 
+            wid=.(id), within = Time, between = Colour, 
+            x=.(Time), split=.(Colour))+
+  theme_classic() +
+  theme(axis.text = element_text(color = "black", size = 15)) +
+  ylab('score') + xlab('time') + ggtitle("Solid") +
+  theme(axis.title.y = element_text(color = "black", size = 15, face = "bold")) +
+  theme(axis.title.x = element_text(color = "black", size = 15, face = "bold"))
+p <- p + scale_color_manual(values=c("blue", "red", "yellow"))
+
+p2 <- ezPlot(data=dataLL,  dv=.(score), 
+            wid=.(id), within = Time, between = Colour, 
+            x=.(Time), split=.(Colour))+
+  theme_classic() +
+  theme(axis.text = element_text(color = "black", size = 15)) +
+  ylab('score') + xlab('time') + ggtitle("Liquid") +
+  theme(axis.title.y = element_text(color = "black", size = 15, face = "bold")) +
+  theme(axis.title.x = element_text(color = "black", size = 15, face = "bold"))
+p2 <- p2 + scale_color_manual(values=c("blue", "red", "yellow"))
+
+ggarrange(p, p2,labels = c("A", "B"),ncol = 1, nrow = 2)
+```
+
+### Confirm dependence of residuals (p<0.05): repeated measures
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+mod2 <- lm(score~Colour*Time*State, 
+           contrasts=list(Colour=contr.sum, Time=contr.sum, State=contr.sum), data=dataL) 
+durbinWatsonTest(mod2)  
+```
+
+### Normality of residuals (p>0.05 on Shapiro test)
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals. Codes are purely demonstrative to highlight the methodology. Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+lmer1 <- lmerTest::lmer(score ~ Colour*Time*State + (1|id),
+                        contrasts=list(Colour=contr.sum, Time=contr.sum, State=contr.sum), 
+                        data=dataL)
+Anova(lmer1, type=3)
+shapiro.test(residuals(lmer1))
+qqPlot(residuals(lmer1))
+```
+
+### Homogeneity of variances of the between-id factor (here, Colour)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+dataL$Colour <- as.factor(dataL$Colour); dataL$Time <- as.factor(dataL$Time); 
+dataL$State <- as.factor(dataL$State); 
+
+# Levene (p>0.05)
+dataL %>%
+  group_by(Time, State) %>%
+  levene_test(score ~ Colour)
+```
+
+### Sphericity (homogeneity of variances and covariances): Mauchly’s test (p>0.05)
+
+Notice: sphericity is always confirmed for effects with 2 levels.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(ez)
+mod <- ezANOVA(dv=score,
+               within = c(Time, State),
+               between = Colour, 
+               wid= id,
+               data=dataL)
+mod
+```
+
+### Three-way mixed ANOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+#Note: The ezANOVA function may also be interpreted
+
+res.aov <- anova_test(
+  data = dataL, dv = score, wid = id,
+  between = Colour, within = c(Time, State))
+get_anova_table(res.aov)
+
+library(effectsize)
+cohens_f(lmer1)
+```
+
+### Post-hoc comparisons
+#### Significant three-way interaction
+
+One or more of the three possible two-way interactions  differ across the levels of a third variable. The objective of the study is narrowed by a previous hypothesis.
+
+##### Simple main effect (two-way)
+
+Effect of two factors at each modality of the other factor. Choose according to the objective of the study.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Group the data by Colour (moderator factor)
+# Effect of Time, State and Time:Ste for every levels of Colour
+mod6 <- dataL %>%
+  group_by(Colour) %>%
+  anova_test(dv = score, wid = id, within = c(Time, State))
+get_anova_table(mod6)
+```
+
+##### Simple main effect (one-way)
+
+Effect of one factor at each modality of the other factor. Choose according to the objective of the study. Only where the two-way interaction was significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Effect of time on score at every level of state (or effect of state at every level of time)
+# Example: effect of time on score at every level of state 
+# Group the data by state and colour
+mod5 <- dataL %>%
+  group_by(State, Colour) %>%
+  anova_test(dv = score, wid = id, within = Time) %>%
+  get_anova_table()
+mod5
+# Do not filter Colour because every two-way interactions were significant and are relevant for the hypothesis of the study 
+
+#time.effect %>% filter(Colour == "blue")
+
+#Adjust p-values for multple testing 
+mod5$HolmPval <- p.adjust(mod5$p, method = "holm")
+
+for (x in seq(from = 1, to = nrow(mod5), by = 1)) 
+  if (mod5$HolmPval[x] < 0.001){
+    mod5$HolmPval.signif[x] <- "***"
+    } else if  (mod5$HolmPval[x] < 0.01) {
+      mod4$HolmPval.signif[x] <- "**"  
+    } else if  (mod5$HolmPval[x] < 0.05) {
+      mod5$HolmPval.signif[x] <- "*" 
+    } else {
+      mod5$HolmPval.signif[x] <- "NS" }
+
+mod5
+```
+
+##### Pairwise comparisons
+
+Only if the simple main effect is significant.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+#Effect of time for every color at state "solid"
+pwc <- dataL %>%
+  group_by(Colour, State) %>%
+  filter(State == "Solid") %>%
+  pairwise_t_test(score ~ Time, paired = TRUE, 
+    p.adjust.method = "holm")
+  
+pwc
+```
+
+NOTICE:
+
+* In case of non-significant three-way interaction, you may focus on significant two-way interactions from the main model. Two-way interactions may be followed by main effects (one-way) and pairwise analyses. Please refer to the corresponding above-mentioned sections.
+
+* In case of exploratory analysis, you may follow a similar methodology as described in above-mentioned sections for two-way mixed ANOVA, adapted to three-way modelling.
+
+## *NOTICE*: violation of parametricity
+
+In case of violation of parametricity, a methodology similar to the one presented for the two-way mixed model may be applied, adapted to three-way modelling (non-parametric approach). Please, refer to those sections.

@@ -1,0 +1,717 @@
+---
+title: "Multivariate Analysis of Variance (MANOVA)"
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+author: Mathilde Marie Duville
+editor_options: 
+  markdown: 
+    wrap: sentence
+---
+# Description
+
+The MANOVA may be used to (A) compare means on multiple outcomes between 2 or more groups. That is, we are interested in assessing whether the qualitative variable affects together various dependent variables. (B) Assess the linear relationship between various dependent and an independent variables.
+
+# Notice
+
+* This code is purely demonstrative. That is, data are not necessarily adequate for the analysis (e.g., a parametric test is applied when parametricity cannot be validated). Therefore, both data and outputs are not relevant and are not shared.
+
+* Only parametric tests are presented here. If your data do not meet the assumptions for parametricity, a non-parametric approach may be used. Also, some advices are provided within each subsection that corresponds to the validation of parametric assumptions to manage their violation. 
+
+# One-way MANOVA
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+
+library(readxl)
+data <- read_excel("One-way-MANOVA.xlsx")
+```
+
+## *MANOVA as a comparison of means on multiple outcomes between 2 or more groups.* 
+
+### Visualization
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+par(mar = c(5, 4, 4, 4) + 0.3) 
+boxplot( data$Size ~ data$Type, 
+xlab="Type", ylab=" ", 
+col = rgb(0, 0, 1, alpha = 0.1),
+border="blue")              
+par(new = TRUE)                            
+boxplot(data$Weight ~ data$Type,
+axes = FALSE, 
+col = rgb(1, 0, 0, alpha = 0.1),
+border= "red", xlab = "", ylab = "") 
+axis(side = 4, at = pretty(range(data$Weight)))      
+mtext("Size", side = 2, line = 3, col="blue") 
+mtext("Weight", side = 4, line = 3, col="red")
+
+# Summary stats
+library(rstatix)
+data %>%  group_by(Type) %>% get_summary_stats(Size, Weight)
+
+```
+
+### Adequate sample size
+
+Each group must have more samples than the number of response factors
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(tidyverse)
+data %>% group_by(Type) %>% summarise(N = n())
+```
+
+### Univariate outliers
+
+Notice: The MANOVA may be run in presence of outliers. However, a sensitivity analysis must also be performed, that is, the analysis must be run again without extreme values to compare results. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Option 1
+data %>% group_by(Type) %>% identify_outliers(Size)
+data %>% group_by(Type) %>% identify_outliers(Weight)
+
+# Option 2
+boxplot.stats(data$Size)$out
+boxplot.stats(data$Weight)$out
+
+which(data$Size %in% boxplot.stats(data$Size)$out)
+which(data$Weight %in% boxplot.stats(data$Weight)$out)
+
+```
+
+### Multivariate outliers
+
+Unusual combination of outcome samples.
+
+Notice: The MANOVA may be run in presence of outliers. However, a sensitivity analysis must also be performed, that is, the analysis must be run again without extreme values to compare results. 
+
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+data %>% group_by(Type) %>% mahalanobis_distance() %>%
+ filter(is.outlier == TRUE) %>%  as.data.frame()
+
+```
+
+### Univariate normality
+
+Notice: in case of violation of normality, you may run the MANOVA because this tend to be robust to non-normal distribution. However, you also perform a sensitivity analysis with transformed data that validate a normal distribution, and compare results. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# p>0.05 on Shapiro-Wilk
+data %>% group_by(Type) %>%
+  shapiro_test(Size, Weight) %>%  arrange(variable)
+
+library(ggpubr)
+p<-ggqqplot(data, "Size", facet.by = "Type", ylab = "Size", ggtheme = theme_bw())
+p2<-ggqqplot(data, "Weight", facet.by = "Type", ylab = "Weight", ggtheme = theme_bw())
+ggarrange(p, p2,labels = c("A", "B"),ncol = 1, nrow = 2)
+```
+
+NOTICE: Graphs may not be representative of the adequate conditions for normally distributed data.
+Codes are purely demonstrative to highlight the methodology.
+Dots of residuals must approximately fall along the reference line to validate normality.
+
+### Multivariate normality
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# p>0.05 on Multivariate Shapiro-Wilk
+data %>% select(Size, Weight) %>%  mshapiro_test()
+```
+
+
+### Multicollinearity
+
+The dependency between dependent variables must be moderate (~ not > |0.9|). If too low, you may consider separate one-way ANOVAs.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# In case of more than 2 dependent variables, use function "cor_mat"
+data %>% cor_test(Size, Weight)
+
+```
+
+### Linearity between dependent outcomes
+
+Notice: in case of non-linear relationship, the MANOVA may be run, but would lose power.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}       
+
+# Option 1
+library(GGally)
+p<-data %>% group_by(Type) %>% doo(~ggpairs(.) + theme_bw(), result = "plots")
+
+## Apple 
+p$plots[1]
+
+## Orange
+p$plots[2]
+
+## Banana
+p$plots[3]
+
+# Option 2
+library(car)
+scatterplot(Size~Weight, data=filter(data, Type %in% "Apple"))
+scatterplot(Size~Weight, data=filter(data, Type %in% "Orange"))
+scatterplot(Size~Weight, data=filter(data, Type %in% "Banana"))
+```
+
+### Homogeneity of covariances
+
+Multivariate homogeneity of variance (homogeneity of covariances between groups).
+In case of violation of homogeneity of covariances, the MANOVA can be run only if the design is balanced (same sample size in every group). If homogeneity of covariances is not validated within an unbalanced design, Pillai’s test statistic must be used for the MANOVA (see subsection "MANOVA").
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}  
+
+#p>0.001 on Box'M test (this test is highly sensitive)
+box_m(data[, c("Size", "Weight")], data$Type)
+```
+
+### Homogeneity of variances
+
+Homogeneity of variances between groups for each dependent variable. 
+
+In case of violation of homogeneity of variances, values of the dependent variable may be transformed, or a lower level of alpha for the p-value may be considered on the MANOVA results and post-hoc tests may be adjusted adequately (please refer to subsection "Univariate ANOVAs on each dependent variable"). 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}  
+
+#p>0.05 on Levene's test
+data %>% gather(key = "Dep.var.", value = "score", Size, Weight) %>%
+  group_by(Dep.var.) %>%
+  levene_test(score ~ Type)
+```
+
+### MANOVA 
+
+Check wether there is a significant effect of Type on combined dependent variables.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}  
+
+# You may choose Pillai, Wilks, Hotelling-Lawley or Roy test statistic
+# Pillai is more robust to violation of parametricity, particularly in case of non-homogeneous covariances and unbalanced design. 
+
+mod <- lm(cbind(Size, Weight) ~ Type, data)
+modManova <- Manova(mod, test.statistic = "Pillai")
+modManova
+```
+
+### Post-hoc comparisons
+
+#### Univariate ANOVAs on each dependent variable
+
+NOTICE: According to which assumption of parametricity are met, the adequate ANOVA test must be chosen. 
+Please refer to to the file named "ANOVA" for a detailed explanation. 
+
+In sum: 
+
+* a one-way ANOVA may be applied when homogeneity and normality are validated, 
+* a Welch one-way ANOVA may be applied in case of normality and non-homogeneity, 
+* a Kruskal-Wallis test may be applied in case of violation of normality and/or homogeneity. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'} 
+
+# ANOVA
+mod1 <- data %>% gather(key = "Dep.var.", value = "score", Size, Weight) %>%
+  group_by(Dep.var.) %>%  anova_test(score ~ Type)
+
+# Or
+# Welch
+mod1 <- data %>% gather(key = "Dep.var.", value = "score", Size, Weight) %>%
+  group_by(Dep.var.) %>%  welch_anova_test(score ~ Type)
+
+# Or
+# Kruskal-Wallis
+mod1 <- data %>% gather(key = "Dep.var.", value = "score", Size, Weight) %>%
+  group_by(Dep.var.) %>%  kruskal_test(score ~ Type)
+
+# Adjust the p-values
+mod1$HolmPval <- p.adjust(mod1$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(mod1), by = 1)) 
+  if (mod1$HolmPval[x] < 0.001){
+    mod1$p.adj.signif[x] <- "***"
+    
+    } else if  (mod1$HolmPval[x] < 0.01) {
+      mod1$p.adj.signif[x] <- "**"  
+    } else if  (mod1$HolmPval[x] < 0.05) {
+      mod1$p.adj.signif[x] <- "*" 
+    } else {
+      mod1$p.adj.signif[x] <- "NS" }
+
+mod1
+```
+
+
+#### 2-by-2 comparisons: adjust the p-value to the number of comparisons correcting for multiple comparisons
+##### Case of previous univeriate one-way ANOVA 
+###### Compare to one control group (e.g., Banana)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Dunnett
+# Define Banana as the reference
+data$Type <- as.factor(data$Type);data$Type <- relevel(data$Type, ref="Banana")
+
+# Check (must be the first)
+levels(data$Type) 
+
+# Do Anova again with Banana as the reference (should not change the results)
+data2 <- data %>% gather(key = "Dep.var.", value = "score", Size, Weight) 
+lmSize <- lm(score~Type, data=filter(data2, Dep.var. %in% "Size"))
+lmWeight <- lm(score~Type, data=filter(data2, Dep.var. %in% "Weight"))
+Anova(lmSize); Anova(lmWeight)
+mod1
+
+# 2-by-2 comparisons to reference
+library(multcomp)
+mc_dunnettSize <- glht(lmSize, linfct=mcp(Type="Dunnett")) 
+summary(mc_dunnettSize)
+
+mc_dunnettWeight <- glht(lmWeight, linfct=mcp(Type="Dunnett")) 
+summary(mc_dunnettWeight)
+```
+
+###### All 2-by-2 comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Tukey
+mc_tukeySize <- glht(lmSize, linfct=mcp(Type="Tukey")) 
+summary(mc_tukeySize)
+
+mc_tukeyWeight <- glht(lmWeight, linfct=mcp(Type="Tukey")) 
+summary(mc_tukeyWeight)
+
+# Visualization: box plots with p-values
+
+dataSize <- filter(data2, Dep.var. %in% "Size") %>% dplyr::select(-Dep.var.)
+pwc <- dataSize %>% tukey_hsd(score~Type) 
+
+library(ggpubr)
+pwc <- pwc %>% add_xy_position(x = "Type")
+
+p <- ggboxplot(dataSize, x = "Type", y = "score") +
+  stat_pvalue_manual(pwc, hide.ns = TRUE) +
+  labs(subtitle = get_test_label(dataSize %>% anova_test(score~Type), detailed = TRUE),
+    caption = get_pwc_label(pwc)) + ylab("Size")
+
+dataWeight <- filter(data2, Dep.var. %in% "Weight") %>% dplyr::select(-Dep.var.)
+pwc <- dataWeight %>% tukey_hsd(score~Type) 
+
+pwc <- pwc %>% add_xy_position(x = "Type")
+p2 <- ggboxplot(dataWeight, x = "Type", y = "score") +
+  stat_pvalue_manual(pwc, hide.ns = TRUE) +
+  labs(subtitle = get_test_label(dataWeight %>% anova_test(score~Type), detailed = TRUE),
+    caption = get_pwc_label(pwc)) + ylab("Weight")
+
+ggarrange(p, p2,labels = c("A", "B"),ncol = 1, nrow = 2)
+
+```
+
+
+##### Case of previous univariate Welch one-way ANOVA 
+
+Notice: in case of comparison to a reference, pairwise t-tests may be applied, with no assumption of equal variances and correction for multiple comparisons (e.g., Bonferroni).
+
+##### Compare to one control group (e.g., Banana)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+pwc3 <- dataSize %>% 
+  pairwise_t_test(score ~ Type, pool.sd = FALSE,
+    p.adjust.method = "none")
+pwc3
+
+
+pwc4 <- dataWeight %>% 
+  pairwise_t_test(score ~ Type, pool.sd = FALSE,
+    p.adjust.method = "none")
+pwc4
+
+#Define the reference
+reference <- "Banana"; i <- 0; pwc5 <- data.frame(.y. = character(),
+                                                  group1 = character(),
+                                                  group2 = character(),
+                                                  n1 = numeric(),
+                                                  n2 = numeric(),
+                                                  statistic = numeric(),
+                                                  df = numeric(),
+                                                  p = numeric(),
+                                                  p.adj = numeric(),
+                                                  p.adj.signif = character()) 
+
+pwc6 <- pwc5
+
+#Select the p-values of interest (comparisons with reference)
+
+for (x in seq(from = 1, to = nrow(pwc3), by = 1)) {
+  T1 <- pwc3$group1[x];  T2 <- pwc3$group2[x]
+  
+  if (T1[1] == reference | T2[1] == reference) { 
+    print(c("################## comparison = ", x, "contains ", reference)); 
+    i <- i+1;
+    pwc5[i,] <- pwc3[x,];
+  }
+}
+
+# Adjust the p-values
+pwc5$HolmPval <- p.adjust(pwc5$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pwc5), by = 1)) 
+  if (pwc5$HolmPval[x] < 0.001){
+    pwc5$p.adj.signif[x] <- "***"
+    
+    } else if  (pwc5$HolmPval[x] < 0.01) {
+      pwc5$p.adj.signif[x] <- "**"  
+    } else if  (pwc5$HolmPval[x] < 0.05) {
+      pwc5$p.adj.signif[x] <- "*" 
+    } else {
+      pwc5$p.adj.signif[x] <- "NS" }
+
+pwc5
+
+#Select the p-values of interest (comparisons with reference)
+i <- 0;
+for (x in seq(from = 1, to = nrow(pwc4), by = 1)) {
+  T1 <- pwc4$group1[x];  T2 <- pwc4$group2[x]
+  
+  if (T1[1] == reference | T2[1] == reference) { 
+    print(c("################## comparison = ", x, "contains ", reference)); 
+    i <- i+1;
+    pwc6[i,] <- pwc4[x,];
+  }
+}
+
+# Adjust the p-values
+pwc6$HolmPval <- p.adjust(pwc6$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pwc6), by = 1)) 
+  if (pwc6$HolmPval[x] < 0.001){
+    pwc6$p.adj.signif[x] <- "***"
+    
+    } else if  (pwc6$HolmPval[x] < 0.01) {
+      pwc6$p.adj.signif[x] <- "**"  
+    } else if  (pwc6$HolmPval[x] < 0.05) {
+      pwc6$p.adj.signif[x] <- "*" 
+    } else {
+      pwc6$p.adj.signif[x] <- "NS" }
+
+pwc6
+```
+
+###### All 2-by-2 comparisons
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+pwc2Size <- dataSize %>% games_howell_test(score ~ Type)
+pwc2Size
+
+pwc2Weight <- dataWeight %>% games_howell_test(score ~ Type)
+pwc2Weight
+
+# Visualization: box plots with p-values
+
+pwc2Size <- pwc2Size %>% add_xy_position(x = "Type")
+p <- ggboxplot(dataSize, x = "Type", y = "score") +
+  stat_pvalue_manual(pwc2Size, hide.ns = TRUE) +
+  labs(subtitle = get_test_label(dataSize %>% anova_test(score~Type), detailed = TRUE),
+    caption = get_pwc_label(pwc2Size)) + ylab("Size")
+
+pwc2Weight <- pwc2Weight %>% add_xy_position(x = "Type")
+p2 <- ggboxplot(dataWeight, x = "Type", y = "score") +
+  stat_pvalue_manual(pwc2Weight, hide.ns = TRUE) +
+  labs(subtitle = get_test_label(dataWeight %>% anova_test(score~Type), detailed = TRUE),
+    caption = get_pwc_label(pwc2Weight)) + ylab("Weight")
+
+ggarrange(p, p2,labels = c("A", "B"),ncol = 1, nrow = 2)
+```
+
+##### Case of previous Kruskal-Wallis test
+##### Compare to one control group (e.g., Banana)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+# Dunnett's procedure
+# All 2-by-2 comparisons without adjusting the p-value
+
+pp_allSize <- pairwise.wilcox.test(dataSize$score, data$Type,p.adjust.method ="none" )
+pp_allSize
+
+pp_allWeight <- pairwise.wilcox.test(dataWeight$score, data$Type,p.adjust.method ="none" )
+pp_allWeight
+
+# Select the p-values of interest (comparisons with reference)
+
+pvalSize <- data.frame(pp_allSize[["p.value"]])
+pvalWeight <- data.frame(pp_allWeight[["p.value"]])
+
+
+for (x in seq(from = 1, to = ncol(pvalSize)-1, by = 1)) {
+  cols <- c(colnames(pvalSize)[x], colnames(pvalSize)[x+1])
+  rows <- c(rownames(pvalSize)[x], rownames(pvalSize)[x+1])
+}
+
+
+reference <- "Banana"; i <- 0; pdunnSize <- data.frame(group1 = character(),
+                                                   group2 = character(),
+                                                   p = numeric(),
+                                                   p.adj = numeric(),
+                                                   p.adj.signif = character()) 
+
+
+pdunnSize[1,1:ncol(pvalSize)] <- cols; pdunnSize[2,1:ncol(pvalSize)] <- c(cols[1], rows[2])
+#pdunnSize[3,1:ncol(pvalSize)] <- rows
+
+pdunnSize[1,3] <- pvalSize[1,1]; pdunnSize[2,3] <- pvalSize[2,1]; #pdunnSize[3,3] <- pvalSize[2,2]
+
+#Adjust the p-values
+
+pdunnSize$p.adj <- p.adjust(pdunnSize$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pdunnSize), by = 1)) 
+  if (pdunnSize$p.adj[x] < 0.001){
+    pdunnSize$p.adj.signif[x] <- "***"
+  } else if  (pdunnSize$p.adj[x] < 0.01) {
+    pdunnSize$p.adj.signif[x] <- "**"  
+  } else if  (pdunnSize$p.adj[x] < 0.05) {
+    pdunnSize$p.adj.signif[x] <- "*" 
+  } else {
+    pdunnSize$p.adj.signif[x] <- "NS" }
+
+pdunnSize
+
+for (x in seq(from = 1, to = ncol(pvalWeight)-1, by = 1)) {
+  cols <- c(colnames(pvalWeight)[x], colnames(pvalWeight)[x+1])
+  rows <- c(rownames(pvalWeight)[x], rownames(pvalWeight)[x+1])
+}
+
+
+reference <- "Banana"; i <- 0; pdunnWeight <- data.frame(group1 = character(),
+                                                   group2 = character(),
+                                                   p = numeric(),
+                                                   p.adj = numeric(),
+                                                   p.adj.signif = character()) 
+
+
+pdunnWeight[1,1:ncol(pvalWeight)] <- cols; pdunnWeight[2,1:ncol(pvalWeight)] <- c(cols[1], rows[2])
+#pdunnWeight[3,1:ncol(pvalWeight)] <- rows
+
+pdunnWeight[1,3] <- pvalWeight[1,1]; pdunnWeight[2,3] <- pvalWeight[2,1]; #pdunnWeight[3,3] <- pvalWeight[2,2]
+
+#Adjust the p-values
+
+pdunnWeight$p.adj <- p.adjust(pdunnWeight$p, method = "holm") #Insert the method for p-adjustment that best suits your data
+
+for (x in seq(from = 1, to = nrow(pdunnWeight), by = 1)) 
+  if (pdunnWeight$p.adj[x] < 0.001){
+    pdunnWeight$p.adj.signif[x] <- "***"
+  } else if  (pdunnWeight$p.adj[x] < 0.01) {
+    pdunnWeight$p.adj.signif[x] <- "**"  
+  } else if  (pdunnWeight$p.adj[x] < 0.05) {
+    pdunnWeight$p.adj.signif[x] <- "*" 
+  } else {
+    pdunnWeight$p.adj.signif[x] <- "NS" }
+
+pdunnWeight
+
+```
+
+##### 2-by-2 comparisons with correction for multiple testing
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+ppSize <- pairwise.wilcox.test(dataSize$score, dataSize$Type,p.adjust.method ="holm" )
+ppSize
+
+ppWeight <- pairwise.wilcox.test(dataWeight$score, dataWeight$Type,p.adjust.method ="holm" )
+ppWeight
+
+```
+
+##### Summary plot (example with case of previous one-way ANOVA at post-hoc)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+pwc <- data %>%
+  gather(key = "Dep.var.", value = "score", Size, Weight) %>%
+  group_by(Dep.var.) %>%
+  tukey_hsd(score ~ Type)
+pwc
+
+
+pwc <- pwc %>% add_xy_position(x = "Type")
+test.label <- create_test_label(description = "MANOVA", statistic.text = quote(italic("F")),
+  statistic = 379.31, p= "<0.0001", parameter = "4,354",
+  type = "expression", detailed = TRUE)
+ggboxplot(data, x = "Type", y = c("Size", "Weight"), 
+  merge = TRUE, palette = "jco") + 
+  stat_pvalue_manual(pwc, hide.ns = TRUE, tip.length = 0, 
+    step.increase = 0.0001, step.group.by = "Dep.var.",
+    color = "Dep.var.") +
+  labs(subtitle = test.label,
+    caption = get_pwc_label(pwc, type = "expression")) + ylab("Size or Weight")
+```
+
+## *MANOVA as a multivariate linear regression*
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+rm(list = ls())
+library(readxl)
+data <- read_excel("One-way-MANOVA - Regression.xlsx")
+```
+
+### Visualization 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+data2 <- data %>% gather(key = "Dep.var.", value = "score", Size, Weight)
+library(ggplot2)
+ggplot(data2, aes(y=score, x=Length, colour=Dep.var.))+
+geom_point()+ geom_smooth(method="lm")
+```
+
+### Relationship between each dependent variable and predictor
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+#Relationship between Size (dependent) and Length (predictor) on the one hand, and Weight and Length on the other
+mod <- lm(cbind(Size, Weight) ~ Length, data = data)
+summary(mod)
+
+# Residuals
+resid(mod)
+
+# Fitted values
+fitted(mod)
+
+# Variance-covariance matrix
+vcov(mod)
+
+# Coefficients (estimate)
+coef(mod)
+
+# Residual's standard error
+sigma(mod)
+
+# Prediction on new data
+datanew <- data.frame(Length = c(2.1, 1.02))
+pred <- predict(mod, newdata=datanew)
+pred
+```
+
+### Assess wether the predictor is jointly contributing to both relationships (i.e., the coefficients covary)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(car)
+Manova(mod)
+
+#Or
+Anova(mod)
+```
+
+### Linearity
+
+NOTICE: Graphs may not be representative of the adequate conditions for linearity.
+Codes are purely demonstrative to highlight the methodology.
+
+The "residual versus fitted values" plot should me homegeneous (horizontal red curve around 0). It would mean that whenever fitted values increases, residuals globally remain uniformally distributed around 0. Therefore, the linear regression would be appropriate for the data.  
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+modSize <- lm(Size~Length, data=data)
+library(car)
+scatterplot(Size~Length, data=data)
+plot(modSize,1)
+
+modWeight <- lm(Weight~Length, data=data)
+scatterplot(Weight~Length, data=data)
+plot(modWeight,1)
+```
+
+### Autocorrelation of residuals
+
+NOTICE: Residuals should not be correlated with each other. 
+
+Graphs may not be representative of the adequate conditions for absence of autocorrelation of residuals.
+Codes are purely demonstrative to highlight the methodology.
+
+Horizontal dotted lines are confidence intervals of correlation coefficient = 0. Vertical lines represent correlation coefficients between every residual and its n+x residual (lag=x). Vertical lines should not be higher (or lower) than horizontal lines.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+durbinWatsonTest(modSize)
+acf(residuals(modSize), main="modSize")
+
+
+durbinWatsonTest(modWeight)
+acf(residuals(modWeight), main="modWeight")
+```
+
+### Normality of residuals
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneous, and normally distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+Dots of residuals must approximately fall along the reference line to validate normality.
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# p>0.05
+shapiro.test(residuals(modSize))
+plot(modSize,2)
+
+
+# p>0.05
+shapiro.test(residuals(modWeight))
+plot(modWeight,2)
+```
+
+### Homogeneity of residuals
+
+NOTICE: Graphs may not be representative of the adequate conditions for homogeneously distributed residuals.
+Codes are purely demonstrative to highlight the methodology.
+
+The red curve is a local regression line, that should approximate horizontality. If horizontal, it shows that residuals tend to be distributed homogeneously around fitted values. Therefore, the homogeneity of residuals should be validated. 
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+
+# Breush-Pagan: p>0.05
+ncvTest(modSize)
+plot(modSize, 3)
+
+# Breush-Pagan: p>0.05
+ncvTest(modWeight)
+plot(modWeight, 3)
+```
+
+### Outliers
+
+NOTICE: Plots from the "influenceIndexPlot" function represent: 
+
+* Cook's distance (i.e., change in regression coefficients when the value is not considered in the model. More the distance is high, more this value is considered influential). 
+
+* Studentized residuals
+
+* Bonferroni's p-values (p<0.05)
+
+* Hat's values (<0.05)
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+outlierTest(modSize)
+influenceIndexPlot(modSize)
+
+outlierTest(modWeight)
+influenceIndexPlot(modWeight)
+```
+
+Whenever an influential value is detected, the regression may be run, however, a sensitivity analysis may complement it. That is, the model should be performed again without those values, and coefficients may be compared. For instance, here, values of indexes 151 and 154 (size) have been highlighted as outliers by Cook's distance and hat's values. The model is run again without those values and coefficients are compared with the main model: 
+
+
+```{r, include=T, warning=FALSE, message=FALSE, results='hide'}
+library(dplyr)
+dataSize <- data %>% dplyr::select(-Weight)
+
+modSizebis <- lm(Size~Length, data=dataSize[-c(151,154),])
+compareCoefs(modSize,modSizebis)
+```
+
+# Ultimate Notice
+
+This code may further be adapted to two-way, three-way and mixed models (with within-id factors). You may refer to the present document complemented with the documentation on ANOVA and ANCOVA provided in the files named "ANOVA" and "MANOVA" to infer the code. 
+
