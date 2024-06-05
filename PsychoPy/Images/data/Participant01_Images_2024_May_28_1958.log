@@ -1,0 +1,450 @@
+9.6988 	WARNING 	User requested fullscreen with size [2256 1504], but screen is actually [1920, 1080]. Using actual size
+10.6873 	EXP 	Created window1 = Window(allowGUI=False, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([-1., -1., -1.]), colorSpace='rgb', fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000020D77B3DC50>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000020D77930978>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+10.6874 	EXP 	window1: recordFrameIntervals = False
+10.8481 	EXP 	window1: recordFrameIntervals = True
+11.0315 	EXP 	window1: recordFrameIntervals = False
+11.2277 	EXP 	Created instr = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='instr', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+11.2561 	EXP 	Created imagen_7211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.2771 	EXP 	Created imagen_7620 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7620', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.3092 	EXP 	Created imagen_7092 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7092', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.3252 	EXP 	Created imagen_9472 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_9472', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.3475 	EXP 	Created imagen_7188 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7188', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.3663 	EXP 	Created imagen_5395 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_5395', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.3890 	EXP 	Created imagen_7632 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7632', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.4099 	EXP 	Created imagen_8211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_8211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.4332 	EXP 	Created imagen_5455 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_5455', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.4533 	EXP 	Created imagen_7496 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7496', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.4743 	EXP 	Created imagen_7402 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7402', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.4961 	EXP 	Created imagen_6900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_6900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.5225 	EXP 	Created imagen_5661 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_5661', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.5463 	EXP 	Created imagen_6910 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_6910', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.5662 	EXP 	Created imagen_5535 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_5535', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.5918 	EXP 	Created imagen_7476 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7476', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.6138 	EXP 	Created imagen_5900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_5900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.6444 	EXP 	Created imagen_7013 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-17.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7013', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.6613 	EXP 	Created imagen_7820 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-18.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7820', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.6850 	EXP 	Created imagen_7830 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-19.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7830', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.7049 	EXP 	Created imagen_7504 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-20.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7504', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.7346 	EXP 	Created imagen_9422 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-21.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_9422', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.7563 	EXP 	Created imagen_7560 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-22.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7560', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.7812 	EXP 	Created imagen_7247 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-23.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7247', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.8090 	EXP 	Created imagen_7248 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-24.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7248', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.8315 	EXP 	Created imagen_7077 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-25.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7077', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.8554 	EXP 	Created imagen_9468 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-26.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_9468', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.8814 	EXP 	Created imagen_7365 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-27.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7365', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.9015 	EXP 	Created imagen_3005 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-28.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_3005', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.9352 	EXP 	Created imagen_8325 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-29.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_8325', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.9620 	EXP 	Created imagen_7487 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-30.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7487', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+11.9835 	EXP 	Created imagen_7054 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-31.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7054', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.0185 	EXP 	Created imagen_7461 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-32.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='imagen_7461', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.0352 	EXP 	Created Imagen_3005 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_3005', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.0645 	EXP 	Created Imagen_7632 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7632', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.0833 	EXP 	Created Imagen_7211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.1071 	EXP 	Created Imagen_9472 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_9472', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.1275 	EXP 	Created Imagen_7830 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7830', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.1471 	EXP 	Created Imagen_7560 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7560', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.1685 	EXP 	Created Imagen_5900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.1854 	EXP 	Created Imagen_7820 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7820', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.2157 	EXP 	Created Imagen_9422 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_9422', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.2452 	EXP 	Created Imagen_7496 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7496', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.2651 	EXP 	Created Imagen_7188 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7188', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.2891 	EXP 	Created Imagen_6900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_6900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.3097 	EXP 	Created Imagen_5535 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5535', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.3645 	EXP 	Created Imagen_8325 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_8325', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.3871 	EXP 	Created Imagen_7402 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7402', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.4204 	EXP 	Created Imagen_7013 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7013', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.4427 	EXP 	Created Imagen_9468 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_9468', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.4715 	EXP 	Created Imagen_7077 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-17.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7077', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.4910 	EXP 	Created Imagen_5395 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-18.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5395', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.5158 	EXP 	Created Imagen_7487 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-19.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7487', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.5463 	EXP 	Created Imagen_5661 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-20.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5661', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.5635 	EXP 	Created Imagen_7248 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-21.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7248', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.5826 	EXP 	Created Imagen_8211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-22.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_8211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.6147 	EXP 	Created Imagen_7092 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-23.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7092', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.6432 	EXP 	Created Imagen_5455 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-24.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5455', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.6660 	EXP 	Created Imagen_7054 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-25.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7054', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.6878 	EXP 	Created Imagen_7247 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-26.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7247', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.7309 	EXP 	Created Imagen_7461 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-27.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7461', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.7542 	EXP 	Created Imagen_7504 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-28.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7504', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.7841 	EXP 	Created Imagen_7476 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-29.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7476', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.8069 	EXP 	Created Imagen_6910 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-30.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_6910', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.8253 	EXP 	Created Imagen_7620 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-31.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7620', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.8465 	EXP 	Created Imagen_7365 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-32.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7365', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.8747 	EXP 	Created Image_7092 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7092', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.8940 	EXP 	Created Image_7620 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7620', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.9206 	EXP 	Created Image_9422 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_9422', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.9489 	EXP 	Created Image_7476 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7476', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.9682 	EXP 	Created Image_7504 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7504', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+12.9880 	EXP 	Created Image_7054 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7054', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.0083 	EXP 	Created Image_5455 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_5455', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.0274 	EXP 	Created Image_5535 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_5535', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.0521 	EXP 	Created Image_7365 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7365', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.0795 	EXP 	Created Image_5661 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_5661', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.1142 	EXP 	Created Image_7077 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-10.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7077', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.1377 	EXP 	Created Image_7248 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-11.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7248', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.1807 	EXP 	Created Image_7013 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7013', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.2108 	EXP 	Created Image_7211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-13.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.2688 	EXP 	Created Image_7461 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7461', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.3015 	EXP 	Created Image_3005 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_3005', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.3355 	EXP 	Created Image_7188 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7188', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.3704 	EXP 	Created Image_8211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-17.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_8211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.4096 	EXP 	Created Image_7247 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-18.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7247', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.4456 	EXP 	Created Image_7496 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-19.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7496', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.4825 	EXP 	Created Image_5900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-20.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_5900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.5219 	EXP 	Created Image_9468 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-21.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_9468', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.5548 	EXP 	Created Image_7402 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-22.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7402', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.6064 	EXP 	Created Image_7487 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-23.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7487', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.6427 	EXP 	Created Image_5395 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-24.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_5395', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.6769 	EXP 	Created Image_6910 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-25.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_6910', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.7132 	EXP 	Created Image_6900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-26.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_6900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.7451 	EXP 	Created Image_7560 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-27.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7560', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.7676 	EXP 	Created Image_7830 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-28.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7830', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.8115 	EXP 	Created Image_8325 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-29.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_8325', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.8328 	EXP 	Created Image_7820 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-30.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7820', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.8527 	EXP 	Created Image_9472 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-31.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_9472', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.8775 	EXP 	Created Image_7632 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-32.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Image_7632', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.9038 	EXP 	Created Imagen_5535 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5535', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.9236 	EXP 	Created Imagen_8211 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_8211', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.9446 	EXP 	Created Imagen_7402 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7402', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.9673 	EXP 	Created Imagen_5395 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5395', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+13.9928 	EXP 	Created Imagen_7092 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-4.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7092', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+14.0290 	EXP 	Created Imagen_7487 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7487', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+14.0560 	EXP 	Created Imagen_7188 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7188', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+14.0782 	EXP 	Created Imagen_7820 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7820', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+14.1052 	EXP 	Created Imagen_5900 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-8.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_5900', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+14.1391 	EXP 	Created Imagen_7476 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-9.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='Imagen_7476', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.8, 0.7]), texRes=128, units='height', win=Window(...))
+14.1953 	EXP 	Created gracias = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='gracias', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+14.2290 	EXP 	instr: autoDraw = True
+21.9574 	DATA 	Keypress: space
+21.9596 	EXP 	instr: autoDraw = False
+21.9596 	EXP 	imagen_7211: autoDraw = True
+26.9340 	EXP 	imagen_7620: autoDraw = True
+26.9667 	EXP 	imagen_7211: autoDraw = False
+31.9292 	EXP 	imagen_7092: autoDraw = True
+31.9452 	EXP 	imagen_7620: autoDraw = False
+36.9405 	EXP 	imagen_7092: autoDraw = False
+36.9405 	EXP 	imagen_9472: autoDraw = True
+41.9361 	EXP 	imagen_7188: autoDraw = True
+41.9524 	EXP 	imagen_9472: autoDraw = False
+46.9316 	EXP 	imagen_5395: autoDraw = True
+46.9477 	EXP 	imagen_7188: autoDraw = False
+51.9435 	EXP 	imagen_5395: autoDraw = False
+51.9435 	EXP 	imagen_7632: autoDraw = True
+56.9389 	EXP 	imagen_8211: autoDraw = True
+56.9549 	EXP 	imagen_7632: autoDraw = False
+61.9348 	EXP 	imagen_5455: autoDraw = True
+61.9505 	EXP 	imagen_8211: autoDraw = False
+66.9299 	EXP 	imagen_7496: autoDraw = True
+66.9459 	EXP 	imagen_5455: autoDraw = False
+71.9415 	EXP 	imagen_7496: autoDraw = False
+71.9415 	EXP 	imagen_7402: autoDraw = True
+76.9389 	EXP 	imagen_6900: autoDraw = True
+76.9535 	EXP 	imagen_7402: autoDraw = False
+81.9321 	EXP 	imagen_5661: autoDraw = True
+81.9480 	EXP 	imagen_6900: autoDraw = False
+86.9440 	EXP 	imagen_5661: autoDraw = False
+86.9440 	EXP 	imagen_6910: autoDraw = True
+91.9395 	EXP 	imagen_5535: autoDraw = True
+91.9557 	EXP 	imagen_6910: autoDraw = False
+96.9350 	EXP 	imagen_7476: autoDraw = True
+96.9511 	EXP 	imagen_5535: autoDraw = False
+101.9299 	EXP 	imagen_5900: autoDraw = True
+101.9464 	EXP 	imagen_7476: autoDraw = False
+106.9419 	EXP 	imagen_5900: autoDraw = False
+106.9419 	EXP 	imagen_7013: autoDraw = True
+111.9377 	EXP 	imagen_7820: autoDraw = True
+111.9540 	EXP 	imagen_7013: autoDraw = False
+116.9331 	EXP 	imagen_7830: autoDraw = True
+116.9490 	EXP 	imagen_7820: autoDraw = False
+121.9444 	EXP 	imagen_7830: autoDraw = False
+121.9444 	EXP 	imagen_7504: autoDraw = True
+126.9401 	EXP 	imagen_9422: autoDraw = True
+126.9558 	EXP 	imagen_7504: autoDraw = False
+131.9357 	EXP 	imagen_7560: autoDraw = True
+131.9516 	EXP 	imagen_9422: autoDraw = False
+136.9309 	EXP 	imagen_7247: autoDraw = True
+136.9467 	EXP 	imagen_7560: autoDraw = False
+141.9426 	EXP 	imagen_7247: autoDraw = False
+141.9426 	EXP 	imagen_7248: autoDraw = True
+146.9381 	EXP 	imagen_7077: autoDraw = True
+146.9542 	EXP 	imagen_7248: autoDraw = False
+151.9335 	EXP 	imagen_9468: autoDraw = True
+151.9496 	EXP 	imagen_7077: autoDraw = False
+156.9453 	EXP 	imagen_9468: autoDraw = False
+156.9453 	EXP 	imagen_7365: autoDraw = True
+161.9410 	EXP 	imagen_3005: autoDraw = True
+161.9569 	EXP 	imagen_7365: autoDraw = False
+166.9363 	EXP 	imagen_8325: autoDraw = True
+166.9523 	EXP 	imagen_3005: autoDraw = False
+171.9315 	EXP 	imagen_7487: autoDraw = True
+171.9474 	EXP 	imagen_8325: autoDraw = False
+176.9438 	EXP 	imagen_7487: autoDraw = False
+176.9438 	EXP 	imagen_7054: autoDraw = True
+181.9391 	EXP 	imagen_7461: autoDraw = True
+181.9552 	EXP 	imagen_7054: autoDraw = False
+186.9505 	EXP 	imagen_7461: autoDraw = False
+186.9505 	EXP 	imagen_7211: autoDraw = False
+186.9505 	EXP 	imagen_7620: autoDraw = False
+186.9505 	EXP 	imagen_7092: autoDraw = False
+186.9505 	EXP 	imagen_9472: autoDraw = False
+186.9505 	EXP 	imagen_7188: autoDraw = False
+186.9505 	EXP 	imagen_5395: autoDraw = False
+186.9505 	EXP 	imagen_7632: autoDraw = False
+186.9505 	EXP 	imagen_8211: autoDraw = False
+186.9505 	EXP 	imagen_5455: autoDraw = False
+186.9505 	EXP 	imagen_7496: autoDraw = False
+186.9505 	EXP 	imagen_7402: autoDraw = False
+186.9505 	EXP 	imagen_6900: autoDraw = False
+186.9505 	EXP 	imagen_5661: autoDraw = False
+186.9505 	EXP 	imagen_6910: autoDraw = False
+186.9505 	EXP 	imagen_5535: autoDraw = False
+186.9505 	EXP 	imagen_7476: autoDraw = False
+186.9505 	EXP 	imagen_5900: autoDraw = False
+186.9505 	EXP 	imagen_7013: autoDraw = False
+186.9505 	EXP 	imagen_7820: autoDraw = False
+186.9505 	EXP 	imagen_7830: autoDraw = False
+186.9505 	EXP 	imagen_7504: autoDraw = False
+186.9505 	EXP 	imagen_9422: autoDraw = False
+186.9505 	EXP 	imagen_7560: autoDraw = False
+186.9505 	EXP 	imagen_7247: autoDraw = False
+186.9505 	EXP 	imagen_7248: autoDraw = False
+186.9505 	EXP 	imagen_7077: autoDraw = False
+186.9505 	EXP 	imagen_9468: autoDraw = False
+186.9505 	EXP 	imagen_7365: autoDraw = False
+186.9505 	EXP 	imagen_3005: autoDraw = False
+186.9505 	EXP 	imagen_8325: autoDraw = False
+186.9505 	EXP 	imagen_7487: autoDraw = False
+186.9505 	EXP 	imagen_7054: autoDraw = False
+186.9505 	EXP 	imagen_7461: autoDraw = False
+186.9505 	EXP 	Imagen_5535: autoDraw = True
+191.9296 	EXP 	Imagen_7632: autoDraw = True
+191.9623 	EXP 	Imagen_5535: autoDraw = False
+196.9250 	EXP 	Imagen_7211: autoDraw = True
+196.9408 	EXP 	Imagen_7632: autoDraw = False
+201.9364 	EXP 	Imagen_7211: autoDraw = False
+201.9364 	EXP 	Imagen_9472: autoDraw = True
+206.9319 	EXP 	Imagen_7830: autoDraw = True
+206.9483 	EXP 	Imagen_9472: autoDraw = False
+211.9275 	EXP 	Imagen_7560: autoDraw = True
+211.9437 	EXP 	Imagen_7830: autoDraw = False
+216.9227 	EXP 	Imagen_5900: autoDraw = True
+216.9388 	EXP 	Imagen_7560: autoDraw = False
+221.9346 	EXP 	Imagen_5900: autoDraw = False
+221.9346 	EXP 	Imagen_7820: autoDraw = True
+226.9301 	EXP 	Imagen_9422: autoDraw = True
+226.9462 	EXP 	Imagen_7820: autoDraw = False
+231.9257 	EXP 	Imagen_7496: autoDraw = True
+231.9412 	EXP 	Imagen_9422: autoDraw = False
+236.9370 	EXP 	Imagen_7496: autoDraw = False
+236.9370 	EXP 	Imagen_7188: autoDraw = True
+241.9327 	EXP 	Imagen_6900: autoDraw = True
+241.9489 	EXP 	Imagen_7188: autoDraw = False
+246.9282 	EXP 	Imagen_5535: autoDraw = True
+246.9442 	EXP 	Imagen_6900: autoDraw = False
+251.9236 	EXP 	Imagen_8325: autoDraw = True
+251.9394 	EXP 	Imagen_5535: autoDraw = False
+256.9349 	EXP 	Imagen_8325: autoDraw = False
+256.9349 	EXP 	Imagen_7402: autoDraw = True
+261.9306 	EXP 	Imagen_7013: autoDraw = True
+261.9468 	EXP 	Imagen_7402: autoDraw = False
+266.9260 	EXP 	Imagen_9468: autoDraw = True
+266.9421 	EXP 	Imagen_7013: autoDraw = False
+271.9379 	EXP 	Imagen_9468: autoDraw = False
+271.9379 	EXP 	Imagen_7077: autoDraw = True
+276.9334 	EXP 	Imagen_5395: autoDraw = True
+276.9494 	EXP 	Imagen_7077: autoDraw = False
+281.9286 	EXP 	Imagen_7487: autoDraw = True
+281.9447 	EXP 	Imagen_5395: autoDraw = False
+286.9243 	EXP 	Imagen_5661: autoDraw = True
+286.9402 	EXP 	Imagen_7487: autoDraw = False
+291.9357 	EXP 	Imagen_5661: autoDraw = False
+291.9357 	EXP 	Imagen_7248: autoDraw = True
+296.9313 	EXP 	Imagen_8211: autoDraw = True
+296.9472 	EXP 	Imagen_7248: autoDraw = False
+301.9268 	EXP 	Imagen_7092: autoDraw = True
+301.9427 	EXP 	Imagen_8211: autoDraw = False
+306.9383 	EXP 	Imagen_7092: autoDraw = False
+306.9383 	EXP 	Imagen_5455: autoDraw = True
+311.9337 	EXP 	Imagen_7054: autoDraw = True
+311.9500 	EXP 	Imagen_5455: autoDraw = False
+316.9291 	EXP 	Imagen_7247: autoDraw = True
+316.9454 	EXP 	Imagen_7054: autoDraw = False
+321.9246 	EXP 	Imagen_7461: autoDraw = True
+321.9407 	EXP 	Imagen_7247: autoDraw = False
+326.9362 	EXP 	Imagen_7461: autoDraw = False
+326.9362 	EXP 	Imagen_7504: autoDraw = True
+331.9318 	EXP 	Imagen_7476: autoDraw = True
+331.9480 	EXP 	Imagen_7504: autoDraw = False
+336.9271 	EXP 	Imagen_6910: autoDraw = True
+336.9432 	EXP 	Imagen_7476: autoDraw = False
+341.9226 	EXP 	Imagen_7620: autoDraw = True
+341.9387 	EXP 	Imagen_6910: autoDraw = False
+346.9343 	EXP 	Imagen_7620: autoDraw = False
+346.9343 	EXP 	Imagen_7365: autoDraw = True
+351.9461 	EXP 	Imagen_7365: autoDraw = False
+351.9461 	EXP 	Imagen_5535: autoDraw = False
+351.9461 	EXP 	Imagen_7632: autoDraw = False
+351.9461 	EXP 	Imagen_7211: autoDraw = False
+351.9461 	EXP 	Imagen_9472: autoDraw = False
+351.9461 	EXP 	Imagen_7830: autoDraw = False
+351.9461 	EXP 	Imagen_7560: autoDraw = False
+351.9461 	EXP 	Imagen_5900: autoDraw = False
+351.9461 	EXP 	Imagen_7820: autoDraw = False
+351.9461 	EXP 	Imagen_9422: autoDraw = False
+351.9461 	EXP 	Imagen_7496: autoDraw = False
+351.9461 	EXP 	Imagen_7188: autoDraw = False
+351.9461 	EXP 	Imagen_6900: autoDraw = False
+351.9461 	EXP 	Imagen_5535: autoDraw = False
+351.9461 	EXP 	Imagen_8325: autoDraw = False
+351.9461 	EXP 	Imagen_7402: autoDraw = False
+351.9461 	EXP 	Imagen_7013: autoDraw = False
+351.9461 	EXP 	Imagen_9468: autoDraw = False
+351.9461 	EXP 	Imagen_7077: autoDraw = False
+351.9461 	EXP 	Imagen_5395: autoDraw = False
+351.9461 	EXP 	Imagen_7487: autoDraw = False
+351.9461 	EXP 	Imagen_5661: autoDraw = False
+351.9461 	EXP 	Imagen_7248: autoDraw = False
+351.9461 	EXP 	Imagen_8211: autoDraw = False
+351.9461 	EXP 	Imagen_7092: autoDraw = False
+351.9461 	EXP 	Imagen_5455: autoDraw = False
+351.9461 	EXP 	Imagen_7054: autoDraw = False
+351.9461 	EXP 	Imagen_7247: autoDraw = False
+351.9461 	EXP 	Imagen_7461: autoDraw = False
+351.9461 	EXP 	Imagen_7504: autoDraw = False
+351.9461 	EXP 	Imagen_7476: autoDraw = False
+351.9461 	EXP 	Imagen_6910: autoDraw = False
+351.9461 	EXP 	Imagen_7620: autoDraw = False
+351.9461 	EXP 	Imagen_7365: autoDraw = False
+351.9461 	EXP 	Image_7092: autoDraw = True
+356.9252 	EXP 	Image_7620: autoDraw = True
+356.9580 	EXP 	Image_7092: autoDraw = False
+361.9206 	EXP 	Image_9422: autoDraw = True
+361.9364 	EXP 	Image_7620: autoDraw = False
+366.9321 	EXP 	Image_9422: autoDraw = False
+366.9321 	EXP 	Image_7476: autoDraw = True
+371.9278 	EXP 	Image_7504: autoDraw = True
+371.9451 	EXP 	Image_7476: autoDraw = False
+376.9231 	EXP 	Image_7054: autoDraw = True
+376.9392 	EXP 	Image_7504: autoDraw = False
+381.9185 	EXP 	Image_5455: autoDraw = True
+381.9345 	EXP 	Image_7054: autoDraw = False
+386.9302 	EXP 	Image_5455: autoDraw = False
+386.9302 	EXP 	Image_5535: autoDraw = True
+391.9258 	EXP 	Image_7365: autoDraw = True
+391.9419 	EXP 	Image_5535: autoDraw = False
+396.9213 	EXP 	Image_5661: autoDraw = True
+396.9371 	EXP 	Image_7365: autoDraw = False
+401.9328 	EXP 	Image_5661: autoDraw = False
+401.9328 	EXP 	Image_7077: autoDraw = True
+406.9285 	EXP 	Image_7248: autoDraw = True
+406.9444 	EXP 	Image_7077: autoDraw = False
+411.9238 	EXP 	Image_7013: autoDraw = True
+411.9397 	EXP 	Image_7248: autoDraw = False
+416.9190 	EXP 	Image_7211: autoDraw = True
+416.9351 	EXP 	Image_7013: autoDraw = False
+421.9308 	EXP 	Image_7211: autoDraw = False
+421.9308 	EXP 	Image_7461: autoDraw = True
+426.9262 	EXP 	Image_3005: autoDraw = True
+426.9424 	EXP 	Image_7461: autoDraw = False
+431.9213 	EXP 	Image_7188: autoDraw = True
+431.9375 	EXP 	Image_3005: autoDraw = False
+436.9335 	EXP 	Image_7188: autoDraw = False
+436.9335 	EXP 	Image_8211: autoDraw = True
+441.9286 	EXP 	Image_7247: autoDraw = True
+441.9448 	EXP 	Image_8211: autoDraw = False
+446.9243 	EXP 	Image_7496: autoDraw = True
+446.9404 	EXP 	Image_7247: autoDraw = False
+451.9198 	EXP 	Image_5900: autoDraw = True
+451.9358 	EXP 	Image_7496: autoDraw = False
+456.9149 	EXP 	Image_9468: autoDraw = True
+456.9311 	EXP 	Image_5900: autoDraw = False
+461.9267 	EXP 	Image_9468: autoDraw = False
+461.9267 	EXP 	Image_7402: autoDraw = True
+466.9229 	EXP 	Image_7487: autoDraw = True
+466.9381 	EXP 	Image_7402: autoDraw = False
+471.9177 	EXP 	Image_5395: autoDraw = True
+471.9337 	EXP 	Image_7487: autoDraw = False
+476.9291 	EXP 	Image_5395: autoDraw = False
+476.9291 	EXP 	Image_6910: autoDraw = True
+481.9245 	EXP 	Image_6900: autoDraw = True
+481.9409 	EXP 	Image_6910: autoDraw = False
+486.9202 	EXP 	Image_7560: autoDraw = True
+486.9364 	EXP 	Image_6900: autoDraw = False
+491.9320 	EXP 	Image_7560: autoDraw = False
+491.9320 	EXP 	Image_7830: autoDraw = True
+496.9278 	EXP 	Image_8325: autoDraw = True
+496.9436 	EXP 	Image_7830: autoDraw = False
+501.9230 	EXP 	Image_7820: autoDraw = True
+501.9390 	EXP 	Image_8325: autoDraw = False
+506.9183 	EXP 	Image_9472: autoDraw = True
+506.9341 	EXP 	Image_7820: autoDraw = False
+511.9299 	EXP 	Image_9472: autoDraw = False
+511.9299 	EXP 	Image_7632: autoDraw = True
+516.9416 	EXP 	Image_7632: autoDraw = False
+516.9416 	EXP 	Image_7092: autoDraw = False
+516.9416 	EXP 	Image_7620: autoDraw = False
+516.9416 	EXP 	Image_9422: autoDraw = False
+516.9416 	EXP 	Image_7476: autoDraw = False
+516.9416 	EXP 	Image_7504: autoDraw = False
+516.9416 	EXP 	Image_7054: autoDraw = False
+516.9416 	EXP 	Image_5455: autoDraw = False
+516.9416 	EXP 	Image_5535: autoDraw = False
+516.9416 	EXP 	Image_7365: autoDraw = False
+516.9416 	EXP 	Image_5661: autoDraw = False
+516.9416 	EXP 	Image_7077: autoDraw = False
+516.9416 	EXP 	Image_7248: autoDraw = False
+516.9416 	EXP 	Image_7013: autoDraw = False
+516.9416 	EXP 	Image_7211: autoDraw = False
+516.9416 	EXP 	Image_7461: autoDraw = False
+516.9416 	EXP 	Image_3005: autoDraw = False
+516.9416 	EXP 	Image_7188: autoDraw = False
+516.9416 	EXP 	Image_8211: autoDraw = False
+516.9416 	EXP 	Image_7247: autoDraw = False
+516.9416 	EXP 	Image_7496: autoDraw = False
+516.9416 	EXP 	Image_5900: autoDraw = False
+516.9416 	EXP 	Image_9468: autoDraw = False
+516.9416 	EXP 	Image_7402: autoDraw = False
+516.9416 	EXP 	Image_7487: autoDraw = False
+516.9416 	EXP 	Image_5395: autoDraw = False
+516.9416 	EXP 	Image_6910: autoDraw = False
+516.9416 	EXP 	Image_6900: autoDraw = False
+516.9416 	EXP 	Image_7560: autoDraw = False
+516.9416 	EXP 	Image_7830: autoDraw = False
+516.9416 	EXP 	Image_8325: autoDraw = False
+516.9416 	EXP 	Image_7820: autoDraw = False
+516.9416 	EXP 	Image_9472: autoDraw = False
+516.9416 	EXP 	Image_7632: autoDraw = False
+516.9416 	EXP 	Imagen_5535: autoDraw = True
+521.9207 	EXP 	Imagen_8211: autoDraw = True
+521.9536 	EXP 	Imagen_5535: autoDraw = False
+526.9160 	EXP 	Imagen_7402: autoDraw = True
+526.9321 	EXP 	Imagen_8211: autoDraw = False
+531.9274 	EXP 	Imagen_7402: autoDraw = False
+531.9274 	EXP 	Imagen_5395: autoDraw = True
+536.9231 	EXP 	Imagen_7092: autoDraw = True
+536.9396 	EXP 	Imagen_5395: autoDraw = False
+541.9186 	EXP 	Imagen_7487: autoDraw = True
+541.9349 	EXP 	Imagen_7092: autoDraw = False
+546.9138 	EXP 	Imagen_7188: autoDraw = True
+546.9301 	EXP 	Imagen_7487: autoDraw = False
+551.9257 	EXP 	Imagen_7188: autoDraw = False
+551.9257 	EXP 	Imagen_7820: autoDraw = True
+556.9211 	EXP 	Imagen_5900: autoDraw = True
+556.9375 	EXP 	Imagen_7820: autoDraw = False
+561.9165 	EXP 	Imagen_7476: autoDraw = True
+561.9329 	EXP 	Imagen_5900: autoDraw = False
+566.9276 	EXP 	Imagen_7476: autoDraw = False
+566.9276 	EXP 	Imagen_5535: autoDraw = False
+566.9276 	EXP 	Imagen_8211: autoDraw = False
+566.9276 	EXP 	Imagen_7402: autoDraw = False
+566.9276 	EXP 	Imagen_5395: autoDraw = False
+566.9276 	EXP 	Imagen_7092: autoDraw = False
+566.9276 	EXP 	Imagen_7487: autoDraw = False
+566.9276 	EXP 	Imagen_7188: autoDraw = False
+566.9276 	EXP 	Imagen_7820: autoDraw = False
+566.9276 	EXP 	Imagen_5900: autoDraw = False
+566.9276 	EXP 	Imagen_7476: autoDraw = False
+566.9276 	EXP 	gracias: autoDraw = True
+729.1147 	DATA 	Keypress: space
+729.1261 	EXP 	gracias: autoDraw = False
+729.2706 	EXP 	window1: mouseVisible = True
