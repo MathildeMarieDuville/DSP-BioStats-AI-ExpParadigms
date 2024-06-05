@@ -1,0 +1,38 @@
+NOTICE
+
+This product includes software developed by Mathilde Marie Duville (married name Gamboa) and other contributors.
+
+Copyright (c) 2024 Mathilde Marie Duville. All rights reserved.
+
+This software is licensed under the GNU General Public License (GPL) Version 3.0. You may obtain a copy of the license at http://www.gnu.org/licenses/gpl-3.0.html.
+
+Third-party libraries and tools used in this project:
+- The MathWorks Inc. (2022). MATLAB version: 9.12.0 (R2022a) (Version R2022a) [Computer software]. https://matlab.mathworks.com/
+- The MathWorks Inc. (2019). MATLAB version: 9.7.0 (R2019b) (Version R2019b) [Computer software]. https://matlab.mathworks.com/
+- Delorme, A., & Makeig, S. (2004). EEGLAB: An open source toolbox for analysis of single-trial EEG dynamics including independent component analysis. Journal of Neuroscience Methods, 134(1), 9–21. https://doi.org/10.1016/j.jneumeth.2003.10.009
+- Oostenveld, R., Fries, P., Maris, E., & Schoffelen, J.-M. (2011). FieldTrip: Open Source Software for Advanced Analysis of MEG, EEG, and Invasive Electrophysiological Data. Computational Intelligence and Neuroscience, 2011, 1–9. https://doi.org/10.1155/2011/156869
+- Dong, L., Li, F., Liu, Q., Wen, X., Lai, Y., Xu, P., & Yao, D. (2017). MATLAB Toolboxes for Reference Electrode Standardization Technique (REST) of Scalp EEG. Frontiers in Neuroscience, 11, 601. https://doi.org/10.3389/fnins.2017.00601
+- Renard, Y., Lotte, F., Gibert, G., Congedo, M., Maby, E., Delannoy, V., Bertrand, O., & Lécuyer, A. (2010). OpenViBE: An Open-Source Software Platform to Design, Test, and Use Brain–Computer Interfaces in Real and Virtual Environments. Presence: Teleoperators and Virtual Environments, 19(1), 35–53. https://doi.org/10.1162/pres.19.1.35
+- Boersma, P., & Weenink, D. (2020). Praat: Doing phonetics by computer (6.1.09) [Computer software]. http://www.praat.org/
+- Corretge, R. (2012). Praat Vocal Toolkit [Computer software]. https://www.praatvocaltoolkit.com
+- Peirce, J. W., Hirst, R. J., & MacAskill, M. R. (2022). Building Experiments in PsychoPy. 2nd Edn (London: Sage).
+- Python Language Reference. (2022). Python Software Foundation (3.11) [Computer software]. https://www.python.org/
+- R Core Team. (2023). R: A language and environment for statistical computing (4.3.1) [Computer software]. R Foundation for Statistical Computing. http://www.R-project.org/
+- RStudio Team, Rs., PBC. (2020). RStudio: Integrated Development Environment for R [R]. http://www.rstudio.com/
+- International Business Machines Corporation. (2020). IBM Watson® Studio [Computer software]. https://www.ibm.com/products/watson-studio
+
+Additional Notices:
+You must share the present Copyright Notice along with any verbatim or modified copy or work based on this product. 
+In case of modified copy or work based on this product, you must add prominent notices stating that you modified the product, and giving a relevant date.
+
+This product also includes software from the following open source projects:
+- Meyerhoff, H. S., & Papenmeier, F. (2020). Individual differences in visual attention: A short, reliable, open-source, and multilingual test of multiple object tracking in PsychoPy. Behavior Research Methods, 52(6), 2556–2566. https://doi.org/10.3758/s13428-020-01413-4
+
+This product also includes scripts from the following course:
+- Kienzler, R., Santarcangelo, J., Aklson, A., Aghabozorgi, S., Madhavan, S., Egwaikhide, A., & Nilmeier, J. (2023). IBM AI Engineering Professional Certificate (Coursera: https://www.coursera.org/). https://shorturl.at/EVbWo
+
+If you have any questions about this NOTICE file, please contact Mathilde Marie Duville at mathilde.duville@gmail.com.
+
+---
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
