@@ -1,0 +1,1019 @@
+20.5075 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([-1., -1., -1.]), colorSpace='rgb', fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x000002C813548EF0>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x000002C813389B00>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+20.5075 	EXP 	window1: recordFrameIntervals = False
+20.6734 	EXP 	window1: recordFrameIntervals = True
+20.8565 	EXP 	window1: recordFrameIntervals = False
+21.0594 	EXP 	Created instr = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.0697 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='pareció desorganizado?', units='height', win=Window(...), wrapWidth=1)
+21.1134 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.1209 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.1350 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.1419 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='buscó la compañía de otros niños?', units='height', win=Window(...), wrapWidth=1)
+21.1603 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.1637 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text='demostró poca emoción?', units='height', win=Window(...), wrapWidth=1)
+21.1783 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.1823 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text='siguió instrucciones que entendió?', units='height', win=Window(...), wrapWidth=1)
+21.1982 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.2034 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='discutió y peleó con otros niños?', units='height', win=Window(...), wrapWidth=1)
+21.2181 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.2255 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='tuvo dificultad en esperar su turno?', units='height', win=Window(...), wrapWidth=1)
+21.2401 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.2448 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text='compartió en actividades divertidas con otros?', units='height', win=Window(...), wrapWidth=1)
+21.2594 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.2638 	EXP 	Created instr_2 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_2', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+21.2804 	EXP 	Created instr_3 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_3', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.2860 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='miró a las personas con quien hablaba?', units='height', win=Window(...), wrapWidth=1)
+21.3017 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.3074 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.3230 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.3272 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='evitó mirar a personas que le hablaban?', units='height', win=Window(...), wrapWidth=1)
+21.3416 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.3473 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text='jugó con juguetes en manera apropiada?', units='height', win=Window(...), wrapWidth=1)
+21.3627 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.3679 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.3852 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.3903 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='tuvo dificultad de hablar con otros niños?', units='height', win=Window(...), wrapWidth=1)
+21.4058 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.4102 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='entendió el punto de vista de otros?', units='height', win=Window(...), wrapWidth=1)
+21.4250 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.4318 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.4469 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.4512 	EXP 	Created instr_4 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_4', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+21.4607 	EXP 	Created instr_5 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_5', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.4667 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='utilizó lenguaje que es inmaduro para su edad?', units='height', win=Window(...), wrapWidth=1)
+21.4829 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.4872 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text='tuvo problemas con adultos?', units='height', win=Window(...), wrapWidth=1)
+21.5040 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.5111 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.5262 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.5301 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text='tuvo una manera rara de hablar?', units='height', win=Window(...), wrapWidth=1)
+21.5464 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.5532 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.5688 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.5733 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='se obsesionó con detalles?', units='height', win=Window(...), wrapWidth=1)
+21.5889 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.5934 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='mantuvo una conversación?', units='height', win=Window(...), wrapWidth=1)
+21.6106 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.6157 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.6324 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.6381 	EXP 	Created instr_6 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_6', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+21.6455 	EXP 	Created instr_7 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_7', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.6501 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='reaccionó exageradamente a ser tocado(a)?', units='height', win=Window(...), wrapWidth=1)
+21.6658 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.6702 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text='repitió lo que otros dijeron?', units='height', win=Window(...), wrapWidth=1)
+21.6860 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.6940 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='olió, probó, y comió objetos no comestibles?', units='height', win=Window(...), wrapWidth=1)
+21.7118 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.7160 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text='entendió cómo se sentía otra persona', units='height', win=Window(...), wrapWidth=1)
+21.7310 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.7357 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text='reaccionó exageramente a olores comunes?', units='height', win=Window(...), wrapWidth=1)
+21.7523 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.7555 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='se distrajó?', units='height', win=Window(...), wrapWidth=1)
+21.7706 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.7742 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='jugó con otros?', units='height', win=Window(...), wrapWidth=1)
+21.7883 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.7920 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text='reconoció señales sociales?', units='height', win=Window(...), wrapWidth=1)
+21.8097 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.8140 	EXP 	Created instr_8 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_8', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+21.8228 	EXP 	Created instr_9 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_9', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.8284 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='respondió cuando le hablaron los adultos?', units='height', win=Window(...), wrapWidth=1)
+21.8443 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.8490 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.8659 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.8741 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.8895 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.8945 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.9103 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.9155 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.9319 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.9383 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='resistió ser tocado(a) o abrazado(a)?', units='height', win=Window(...), wrapWidth=1)
+21.9534 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.9587 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+21.9733 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+21.9775 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text='se enfocó demasiado en detalles?', units='height', win=Window(...), wrapWidth=1)
+21.9942 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.0005 	EXP 	Created instr_10 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_10', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+22.0122 	EXP 	Created instr_11 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_11', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.0181 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='no entendió porqué no le cae bien a otros?', units='height', win=Window(...), wrapWidth=1)
+22.0356 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.0403 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text='compartió su alegría con otros?', units='height', win=Window(...), wrapWidth=1)
+22.0572 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.0630 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='demostró interés en las ideas de otros?', units='height', win=Window(...), wrapWidth=1)
+22.0810 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.0871 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.1032 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.1130 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text='entendió humor/bromas apropiadas para su edad?', units='height', win=Window(...), wrapWidth=1)
+22.1284 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.1325 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='sacudió las manos cuando se excitó?', units='height', win=Window(...), wrapWidth=1)
+22.1479 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.1514 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='escuchó cuando le hablaban?', units='height', win=Window(...), wrapWidth=1)
+22.1661 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.1718 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text='se enfocó en una sola cosa por mucho tiempo?', units='height', win=Window(...), wrapWidth=1)
+22.1863 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.1912 	EXP 	Created instr_12 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_12', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+22.1981 	EXP 	Created instr_13 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_13', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.2032 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.2191 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.2251 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.2401 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.2442 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='insistió en seguir ciertas rutinas?', units='height', win=Window(...), wrapWidth=1)
+22.2591 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.2649 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.2798 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.2842 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text='se fascinó con las partes de objetos?', units='height', win=Window(...), wrapWidth=1)
+22.2988 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.3025 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='alineó objetos en una fila?', units='height', win=Window(...), wrapWidth=1)
+22.3194 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.3237 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='sonrió en manera apropiada?', units='height', win=Window(...), wrapWidth=1)
+22.3392 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.3441 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text='inició conversaciones con otros?', units='height', win=Window(...), wrapWidth=1)
+22.3614 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.3663 	EXP 	Created instr_14 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_14', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+22.3743 	EXP 	Created instr_15 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_15', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.3782 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text='no completó tareas?', units='height', win=Window(...), wrapWidth=1)
+22.3945 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.3994 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text='hizo preguntas que estaban fuera del tema?', units='height', win=Window(...), wrapWidth=1)
+22.4150 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.4202 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='tuvo dificultad de conversar con adultos?', units='height', win=Window(...), wrapWidth=1)
+22.4349 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.4392 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text='interumpió o importunó a otros?', units='height', win=Window(...), wrapWidth=1)
+22.4537 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.4581 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text='miró a otros relacionándose con ellos?', units='height', win=Window(...), wrapWidth=1)
+22.4726 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.4771 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='reaccionó exageradamente a ruidos fuertes?', units='height', win=Window(...), wrapWidth=1)
+22.4921 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.4964 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text='se disgustó si las rutinas cambiaban?', units='height', win=Window(...), wrapWidth=1)
+22.5121 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.5153 	EXP 	Created P8a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P8a', opacity=1.0, ori=0, pos=array([ 0.37, -0.15]), rgb=array([255., 255., 255.]), text='decidió jugar solo(a)?', units='height', win=Window(...), wrapWidth=1)
+22.5678 	EXP 	Created P8b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P8b', noMouse=False, pos=[0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.5721 	EXP 	Created instr_16 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_16', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para seguir', units='height', win=Window(...), wrapWidth=1)
+22.5781 	EXP 	Created instr_17 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_17', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.5836 	EXP 	Created P1a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P1a', opacity=1.0, ori=0, pos=array([-0.37,  0.3 ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.5991 	EXP 	Created P1b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P1b', noMouse=False, pos=[-0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.6033 	EXP 	Created P2a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P2a', opacity=1.0, ori=0, pos=array([0.37, 0.3 ]), rgb=array([255., 255., 255.]), text='tuvo problemas sociales con adultos?', units='height', win=Window(...), wrapWidth=1)
+22.6184 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[0.5, 0.5], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.6240 	EXP 	Created P3a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P3a', opacity=1.0, ori=0, pos=array([-0.37,  0.15]), rgb=array([255., 255., 255.]), text='giró, dio vueltas, o golpeó objetos?', units='height', win=Window(...), wrapWidth=1)
+22.6394 	EXP 	Created P3b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P3b', noMouse=False, pos=[-0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.6455 	EXP 	Created P4a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P4a', opacity=1.0, ori=0, pos=array([0.37, 0.15]), rgb=array([255., 255., 255.]), text='invirtió los pronombres (ej. tú en vez de mí)?', units='height', win=Window(...), wrapWidth=1)
+22.6608 	EXP 	Created P4b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P4b', noMouse=False, pos=[0.5, 0.2], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.6657 	EXP 	Created P5a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P5a', opacity=1.0, ori=0, pos=array([-0.37,  0.  ]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.6807 	EXP 	Created P5b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P5b', noMouse=False, pos=[-0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.6850 	EXP 	Created P6a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P6a', opacity=1.0, ori=0, pos=array([0.37, 0.  ]), rgb=array([255., 255., 255.]), text='respondió cuando otros niños hablaban?', units='height', win=Window(...), wrapWidth=1)
+22.7005 	EXP 	Created P6b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P6b', noMouse=False, pos=[0.5, -0.1], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.7064 	EXP 	Created P7a = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.02, italic=False, languageStyle='LTR', name='P7a', opacity=1.0, ori=0, pos=array([-0.37, -0.15]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.7228 	EXP 	Created P7b = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=list(...), depth=0, disappear=False, flipVert=False, high=4, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=0, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='P7b', noMouse=False, pos=[-0.5, -0.4], precision=1, respKeys=['0', '1', '2', '3', '4'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.6, skipKeys=['tab'], stretch=1.2, textColor='LightGray', textFont='Helvetica Bold', textSize=0.041999999999999996, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+22.7281 	EXP 	Created instr_18 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr_18', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text='Presione la tecla de espacio para terminar', units='height', win=Window(...), wrapWidth=1)
+22.7352 	EXP 	Created instr_19 = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.025, italic=False, languageStyle='LTR', name='instr_19', opacity=1.0, ori=0, pos=array([0. , 0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.7586 	EXP 	Created gracias = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='gracias', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	P8b: flipVert = False
+22.7871 	EXP 	P8b: autoLog = True
+22.7871 	EXP 	P1b: flipVert = False
+22.7871 	EXP 	P1b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P3b: flipVert = False
+22.7871 	EXP 	P3b: autoLog = True
+22.7871 	EXP 	P4b: flipVert = False
+22.7871 	EXP 	P4b: autoLog = True
+22.7871 	EXP 	P5b: flipVert = False
+22.7871 	EXP 	P5b: autoLog = True
+22.7871 	EXP 	P6b: flipVert = False
+22.7871 	EXP 	P6b: autoLog = True
+22.7871 	EXP 	P7b: flipVert = False
+22.7871 	EXP 	P7b: autoLog = True
+22.7871 	EXP 	instr: autoDraw = True
+23.7750 	EXP 	RatingScale P1b: reset()
+23.7754 	EXP 	RatingScale P3b: reset()
+23.7822 	DATA 	Keypress: space
+23.8024 	EXP 	instr: autoDraw = False
+23.8024 	EXP 	P1a: autoDraw = True
+23.8024 	EXP 	P1b: autoDraw = True
+23.8024 	EXP 	P2a: autoDraw = True
+23.8024 	EXP 	P3b: autoDraw = True
+23.8024 	EXP 	P3a: autoDraw = True
+23.8024 	EXP 	P3b: autoDraw = True
+23.8024 	EXP 	P4a: autoDraw = True
+23.8024 	EXP 	P4b: autoDraw = True
+23.8024 	EXP 	P5a: autoDraw = True
+23.8024 	EXP 	P5b: autoDraw = True
+23.8024 	EXP 	P7a: autoDraw = True
+23.8024 	EXP 	P7b: autoDraw = True
+23.8024 	EXP 	P6a: autoDraw = True
+23.8024 	EXP 	P6b: autoDraw = True
+23.8024 	EXP 	P8a: autoDraw = True
+23.8024 	EXP 	P8b: autoDraw = True
+23.8024 	EXP 	instr_2: autoDraw = True
+23.8024 	EXP 	instr_3: autoDraw = True
+25.7698 	DATA 	Mouse: Left button down, pos=(680,806)
+25.7773 	DATA 	RatingScale P1b: (mouse single-click) rating=Frecuentemente
+25.7774 	DATA 	RatingScale P1b: rating RT=1.998
+25.7774 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Frecuentemente', 1.998)]
+25.8236 	DATA 	Mouse:  Left button up, pos=(680,806)
+27.5897 	DATA 	Mouse: Left button down, pos=(284,658)
+27.5906 	DATA 	RatingScale P3b: (mouse single-click) rating=Casi nunca (rara vez)
+27.5906 	DATA 	RatingScale P3b: rating RT=3.805
+27.5906 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Casi nunca (rara vez)', 3.805)]
+27.6387 	DATA 	Mouse:  Left button up, pos=(284,658)
+30.0691 	DATA 	Mouse: Left button down, pos=(661,502)
+30.0713 	DATA 	RatingScale P5b: (mouse single-click) rating=Frecuentemente
+30.0714 	DATA 	RatingScale P5b: rating RT=6.281
+30.0714 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Frecuentemente', 6.281)]
+30.1186 	DATA 	Mouse:  Left button up, pos=(661,502)
+32.4751 	DATA 	Mouse: Left button down, pos=(488,336)
+32.4862 	DATA 	RatingScale P7b: (mouse single-click) rating=Ocasionalmente
+32.4862 	DATA 	RatingScale P7b: rating RT=8.693
+32.4862 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Ocasionalmente', 8.693)]
+32.5351 	DATA 	Mouse:  Left button up, pos=(488,336)
+34.4849 	DATA 	Mouse: Left button down, pos=(1278,821)
+34.4994 	DATA 	RatingScale P3b: (mouse single-click) rating=Casi nunca (rara vez)
+34.4994 	DATA 	RatingScale P3b: rating RT=10.716
+34.4994 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Casi nunca (rara vez)', 10.716)]
+34.5515 	DATA 	Mouse:  Left button up, pos=(1278,821)
+35.7346 	DATA 	Mouse: Left button down, pos=(1444,661)
+35.7349 	DATA 	RatingScale P4b: (mouse single-click) rating=Ocasionalmente
+35.7349 	DATA 	RatingScale P4b: rating RT=11.947
+35.7349 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Ocasionalmente', 11.947)]
+35.7850 	DATA 	Mouse:  Left button up, pos=(1444,661)
+37.2022 	DATA 	Mouse: Left button down, pos=(1625,486)
+37.2023 	DATA 	RatingScale P6b: (mouse single-click) rating=Frecuentemente
+37.2024 	DATA 	RatingScale P6b: rating RT=13.407
+37.2024 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Frecuentemente', 13.407)]
+37.2689 	DATA 	Mouse:  Left button up, pos=(1625,486)
+41.0305 	DATA 	Mouse: Left button down, pos=(1434,333)
+41.0306 	DATA 	RatingScale P8b: (mouse single-click) rating=Ocasionalmente
+41.0306 	DATA 	RatingScale P8b: rating RT=17.233
+41.0306 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Ocasionalmente', 17.233)]
+41.0671 	DATA 	Mouse:  Left button up, pos=(1434,333)
+43.1408 	EXP 	RatingScale P1b: reset()
+43.1410 	EXP 	RatingScale P3b: reset()
+43.1467 	DATA 	Keypress: space
+43.1616 	EXP 	P1a: autoDraw = False
+43.1616 	EXP 	P1b: autoDraw = False
+43.1616 	EXP 	P2a: autoDraw = False
+43.1616 	EXP 	P3b: autoDraw = False
+43.1616 	EXP 	P3a: autoDraw = False
+43.1616 	EXP 	P3b: autoDraw = False
+43.1616 	EXP 	P4a: autoDraw = False
+43.1616 	EXP 	P4b: autoDraw = False
+43.1616 	EXP 	P5a: autoDraw = False
+43.1616 	EXP 	P5b: autoDraw = False
+43.1616 	EXP 	P6a: autoDraw = False
+43.1616 	EXP 	P6b: autoDraw = False
+43.1616 	EXP 	P7a: autoDraw = False
+43.1616 	EXP 	P7b: autoDraw = False
+43.1616 	EXP 	P8a: autoDraw = False
+43.1616 	EXP 	P8b: autoDraw = False
+43.1616 	EXP 	instr_2: autoDraw = False
+43.1616 	EXP 	instr_3: autoDraw = False
+43.1616 	EXP 	P1a: autoDraw = True
+43.1616 	EXP 	P1b: autoDraw = True
+43.1616 	EXP 	P2a: autoDraw = True
+43.1616 	EXP 	P3b: autoDraw = True
+43.1616 	EXP 	P3a: autoDraw = True
+43.1616 	EXP 	P3b: autoDraw = True
+43.1616 	EXP 	P4a: autoDraw = True
+43.1616 	EXP 	P4b: autoDraw = True
+43.1616 	EXP 	P5a: autoDraw = True
+43.1616 	EXP 	P5b: autoDraw = True
+43.1616 	EXP 	P6a: autoDraw = True
+43.1616 	EXP 	P6b: autoDraw = True
+43.1616 	EXP 	P7a: autoDraw = True
+43.1616 	EXP 	P7b: autoDraw = True
+43.1616 	EXP 	P8a: autoDraw = True
+43.1616 	EXP 	P8b: autoDraw = True
+43.1616 	EXP 	instr_4: autoDraw = True
+43.1616 	EXP 	instr_5: autoDraw = True
+46.7040 	DATA 	Mouse: Left button down, pos=(482,820)
+46.7041 	DATA 	RatingScale P1b: (mouse single-click) rating=Ocasionalmente
+46.7042 	DATA 	RatingScale P1b: rating RT=3.560
+46.7042 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Ocasionalmente', 3.56)]
+46.7405 	DATA 	Mouse:  Left button up, pos=(482,820)
+48.1729 	DATA 	Mouse: Left button down, pos=(659,653)
+48.1887 	DATA 	RatingScale P3b: (mouse single-click) rating=Frecuentemente
+48.1887 	DATA 	RatingScale P3b: rating RT=5.040
+48.1887 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Frecuentemente', 5.04)]
+48.2527 	DATA 	Mouse:  Left button up, pos=(659,653)
+52.2835 	DATA 	Mouse: Left button down, pos=(470,504)
+52.2845 	DATA 	RatingScale P5b: (mouse single-click) rating=Ocasionalmente
+52.2845 	DATA 	RatingScale P5b: rating RT=9.132
+52.2845 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Ocasionalmente', 9.132)]
+52.3326 	DATA 	Mouse:  Left button up, pos=(470,504)
+55.3808 	DATA 	Mouse: Left button down, pos=(317,328)
+55.3832 	DATA 	RatingScale P7b: (mouse single-click) rating=Casi nunca (rara vez)
+55.3832 	DATA 	RatingScale P7b: rating RT=12.226
+55.3833 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Casi nunca (rara vez)', 12.226)]
+55.4464 	DATA 	Mouse:  Left button up, pos=(317,328)
+59.6102 	DATA 	Mouse: Left button down, pos=(1781,825)
+59.6103 	DATA 	RatingScale P3b: (mouse single-click) rating=Muy frecuentemente
+59.6103 	DATA 	RatingScale P3b: rating RT=16.463
+59.6103 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Muy frecuentemente', 16.463)]
+59.6778 	DATA 	Mouse:  Left button up, pos=(1781,825)
+61.5248 	DATA 	Mouse: Left button down, pos=(1444,662)
+61.5249 	DATA 	RatingScale P4b: (mouse single-click) rating=Ocasionalmente
+61.5249 	DATA 	RatingScale P4b: rating RT=18.375
+61.5249 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Ocasionalmente', 18.375)]
+61.5933 	DATA 	Mouse:  Left button up, pos=(1444,662)
+63.3741 	DATA 	Mouse: Left button down, pos=(1441,500)
+63.3742 	DATA 	RatingScale P6b: (mouse single-click) rating=Ocasionalmente
+63.3743 	DATA 	RatingScale P6b: rating RT=20.220
+63.3743 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Ocasionalmente', 20.219)]
+63.4268 	DATA 	Mouse:  Left button up, pos=(1441,500)
+67.6562 	DATA 	Mouse: Left button down, pos=(1463,332)
+67.6563 	DATA 	RatingScale P8b: (mouse single-click) rating=Ocasionalmente
+67.6563 	DATA 	RatingScale P8b: rating RT=24.498
+67.6563 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Ocasionalmente', 24.498)]
+67.7060 	DATA 	Mouse:  Left button up, pos=(1463,332)
+68.3711 	DATA 	Keypress: space
+68.3827 	EXP 	RatingScale P1b: reset()
+68.3829 	EXP 	RatingScale P3b: reset()
+68.4070 	EXP 	P1a: autoDraw = False
+68.4070 	EXP 	P1b: autoDraw = False
+68.4070 	EXP 	P2a: autoDraw = False
+68.4070 	EXP 	P3b: autoDraw = False
+68.4070 	EXP 	P3a: autoDraw = False
+68.4070 	EXP 	P3b: autoDraw = False
+68.4070 	EXP 	P4a: autoDraw = False
+68.4070 	EXP 	P4b: autoDraw = False
+68.4070 	EXP 	P5a: autoDraw = False
+68.4070 	EXP 	P5b: autoDraw = False
+68.4070 	EXP 	P6a: autoDraw = False
+68.4070 	EXP 	P6b: autoDraw = False
+68.4070 	EXP 	P7a: autoDraw = False
+68.4070 	EXP 	P7b: autoDraw = False
+68.4070 	EXP 	P8a: autoDraw = False
+68.4070 	EXP 	P8b: autoDraw = False
+68.4070 	EXP 	instr_4: autoDraw = False
+68.4070 	EXP 	instr_5: autoDraw = False
+68.4070 	EXP 	P1a: autoDraw = True
+68.4070 	EXP 	P1b: autoDraw = True
+68.4070 	EXP 	P2a: autoDraw = True
+68.4070 	EXP 	P3b: autoDraw = True
+68.4070 	EXP 	P3a: autoDraw = True
+68.4070 	EXP 	P3b: autoDraw = True
+68.4070 	EXP 	P4a: autoDraw = True
+68.4070 	EXP 	P4b: autoDraw = True
+68.4070 	EXP 	P5a: autoDraw = True
+68.4070 	EXP 	P5b: autoDraw = True
+68.4070 	EXP 	P6a: autoDraw = True
+68.4070 	EXP 	P6b: autoDraw = True
+68.4070 	EXP 	P7a: autoDraw = True
+68.4070 	EXP 	P7b: autoDraw = True
+68.4070 	EXP 	P8a: autoDraw = True
+68.4070 	EXP 	P8b: autoDraw = True
+68.4070 	EXP 	instr_6: autoDraw = True
+68.4070 	EXP 	instr_7: autoDraw = True
+70.4826 	DATA 	Mouse: Left button down, pos=(475,832)
+70.4827 	DATA 	RatingScale P1b: (mouse single-click) rating=Ocasionalmente
+70.4828 	DATA 	RatingScale P1b: rating RT=2.097
+70.4828 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Ocasionalmente', 2.097)]
+70.5389 	DATA 	Mouse:  Left button up, pos=(475,832)
+72.2485 	DATA 	Mouse: Left button down, pos=(633,662)
+72.2486 	DATA 	RatingScale P3b: (mouse single-click) rating=Frecuentemente
+72.2487 	DATA 	RatingScale P3b: rating RT=3.857
+72.2487 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Frecuentemente', 3.857)]
+72.2978 	DATA 	Mouse:  Left button up, pos=(633,662)
+74.3294 	DATA 	Mouse: Left button down, pos=(646,491)
+74.3318 	DATA 	RatingScale P5b: (mouse single-click) rating=Frecuentemente
+74.3318 	DATA 	RatingScale P5b: rating RT=5.936
+74.3318 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Frecuentemente', 5.936)]
+74.4303 	DATA 	Mouse:  Left button up, pos=(647,491)
+76.0828 	DATA 	Mouse: Left button down, pos=(305,333)
+76.0845 	DATA 	RatingScale P7b: (mouse single-click) rating=Casi nunca (rara vez)
+76.0845 	DATA 	RatingScale P7b: rating RT=7.683
+76.0846 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Casi nunca (rara vez)', 7.683)]
+76.1438 	DATA 	Mouse:  Left button up, pos=(305,333)
+80.3562 	DATA 	Mouse: Left button down, pos=(1267,814)
+80.3563 	DATA 	RatingScale P3b: (mouse single-click) rating=Casi nunca (rara vez)
+80.3563 	DATA 	RatingScale P3b: rating RT=11.967
+80.3563 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Casi nunca (rara vez)', 11.967)]
+80.4108 	DATA 	Mouse:  Left button up, pos=(1267,814)
+84.9908 	DATA 	Mouse: Left button down, pos=(1449,655)
+85.0051 	DATA 	RatingScale P4b: (mouse single-click) rating=Ocasionalmente
+85.0051 	DATA 	RatingScale P4b: rating RT=16.612
+85.0052 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Ocasionalmente', 16.612)]
+85.0741 	DATA 	Mouse:  Left button up, pos=(1449,655)
+90.3012 	DATA 	Mouse: Left button down, pos=(1614,498)
+90.3013 	DATA 	RatingScale P6b: (mouse single-click) rating=Frecuentemente
+90.3013 	DATA 	RatingScale P6b: rating RT=21.902
+90.3013 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Frecuentemente', 21.902)]
+90.3856 	DATA 	Mouse:  Left button up, pos=(1614,498)
+98.8281 	DATA 	Mouse: Left button down, pos=(1619,333)
+98.8282 	DATA 	Mouse:  Left button up, pos=(1619,333)
+99.6453 	DATA 	Mouse: Left button down, pos=(1604,344)
+99.6454 	DATA 	RatingScale P8b: (mouse single-click) rating=Frecuentemente
+99.6455 	DATA 	RatingScale P8b: rating RT=31.242
+99.6455 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Frecuentemente', 31.242)]
+99.7104 	DATA 	Mouse:  Left button up, pos=(1604,344)
+100.4622 	DATA 	Keypress: space
+100.4700 	EXP 	RatingScale P1b: reset()
+100.4704 	EXP 	RatingScale P3b: reset()
+100.4933 	EXP 	P1a: autoDraw = False
+100.4933 	EXP 	P1b: autoDraw = False
+100.4933 	EXP 	P2a: autoDraw = False
+100.4933 	EXP 	P3b: autoDraw = False
+100.4933 	EXP 	P3a: autoDraw = False
+100.4933 	EXP 	P3b: autoDraw = False
+100.4933 	EXP 	P4a: autoDraw = False
+100.4933 	EXP 	P4b: autoDraw = False
+100.4933 	EXP 	P5a: autoDraw = False
+100.4933 	EXP 	P5b: autoDraw = False
+100.4933 	EXP 	P6a: autoDraw = False
+100.4933 	EXP 	P6b: autoDraw = False
+100.4933 	EXP 	P7a: autoDraw = False
+100.4933 	EXP 	P7b: autoDraw = False
+100.4933 	EXP 	P8a: autoDraw = False
+100.4933 	EXP 	P8b: autoDraw = False
+100.4933 	EXP 	instr_6: autoDraw = False
+100.4933 	EXP 	instr_7: autoDraw = False
+100.4933 	EXP 	P1a: autoDraw = True
+100.4933 	EXP 	P1b: autoDraw = True
+100.4933 	EXP 	P2a: autoDraw = True
+100.4933 	EXP 	P3b: autoDraw = True
+100.4933 	EXP 	P3a: autoDraw = True
+100.4933 	EXP 	P3b: autoDraw = True
+100.4933 	EXP 	P4a: autoDraw = True
+100.4933 	EXP 	P4b: autoDraw = True
+100.4933 	EXP 	P5a: autoDraw = True
+100.4933 	EXP 	P5b: autoDraw = True
+100.4933 	EXP 	P6a: autoDraw = True
+100.4933 	EXP 	P6b: autoDraw = True
+100.4933 	EXP 	P7a: autoDraw = True
+100.4933 	EXP 	P7b: autoDraw = True
+100.4933 	EXP 	P8a: autoDraw = True
+100.4933 	EXP 	P8b: autoDraw = True
+100.4933 	EXP 	instr_8: autoDraw = True
+100.4933 	EXP 	instr_9: autoDraw = True
+104.6509 	DATA 	Mouse: Left button down, pos=(642,832)
+104.6510 	DATA 	RatingScale P1b: (mouse single-click) rating=Frecuentemente
+104.6510 	DATA 	RatingScale P1b: rating RT=4.178
+104.6510 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Frecuentemente', 4.178)]
+104.7165 	DATA 	Mouse:  Left button up, pos=(642,832)
+108.4465 	DATA 	Mouse: Left button down, pos=(1454,830)
+108.4466 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+108.4466 	DATA 	RatingScale P3b: rating RT=7.971
+108.4466 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 7.971)]
+108.5478 	DATA 	Mouse:  Left button up, pos=(1454,830)
+110.4955 	DATA 	Mouse: Left button down, pos=(473,669)
+110.4956 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+110.4956 	DATA 	RatingScale P3b: rating RT=10.019
+110.4956 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 10.019)]
+110.5656 	DATA 	Mouse:  Left button up, pos=(473,669)
+113.7097 	DATA 	Mouse: Left button down, pos=(1082,663)
+113.7098 	DATA 	RatingScale P4b: (mouse single-click) rating=Nunca
+113.7098 	DATA 	RatingScale P4b: rating RT=13.230
+113.7098 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Nunca', 13.23)]
+113.7929 	DATA 	Mouse:  Left button up, pos=(1082,663)
+117.2065 	DATA 	Mouse: Left button down, pos=(659,506)
+117.2065 	DATA 	RatingScale P5b: (mouse single-click) rating=Frecuentemente
+117.2065 	DATA 	RatingScale P5b: rating RT=16.725
+117.2066 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Frecuentemente', 16.725)]
+117.2904 	DATA 	Mouse:  Left button up, pos=(659,506)
+118.9393 	DATA 	Mouse: Left button down, pos=(1447,493)
+118.9394 	DATA 	RatingScale P6b: (mouse single-click) rating=Ocasionalmente
+118.9394 	DATA 	RatingScale P6b: rating RT=18.456
+118.9394 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Ocasionalmente', 18.456)]
+119.0557 	DATA 	Mouse:  Left button up, pos=(1447,493)
+120.9379 	DATA 	Mouse: Left button down, pos=(476,334)
+120.9379 	DATA 	RatingScale P7b: (mouse single-click) rating=Ocasionalmente
+120.9379 	DATA 	RatingScale P7b: rating RT=20.452
+120.9379 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Ocasionalmente', 20.452)]
+121.0218 	DATA 	Mouse:  Left button up, pos=(476,334)
+126.9839 	DATA 	Mouse: Left button down, pos=(1267,344)
+126.9840 	DATA 	RatingScale P8b: (mouse single-click) rating=Casi nunca (rara vez)
+126.9840 	DATA 	RatingScale P8b: rating RT=26.496
+126.9840 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Casi nunca (rara vez)', 26.496)]
+127.0702 	DATA 	Mouse:  Left button up, pos=(1267,344)
+127.5489 	DATA 	Keypress: space
+127.5614 	EXP 	RatingScale P1b: reset()
+127.5616 	EXP 	RatingScale P3b: reset()
+127.5842 	EXP 	P1a: autoDraw = False
+127.5842 	EXP 	P1b: autoDraw = False
+127.5842 	EXP 	P2a: autoDraw = False
+127.5842 	EXP 	P3b: autoDraw = False
+127.5842 	EXP 	P3a: autoDraw = False
+127.5842 	EXP 	P3b: autoDraw = False
+127.5842 	EXP 	P4a: autoDraw = False
+127.5842 	EXP 	P4b: autoDraw = False
+127.5842 	EXP 	P5a: autoDraw = False
+127.5842 	EXP 	P5b: autoDraw = False
+127.5842 	EXP 	P6a: autoDraw = False
+127.5842 	EXP 	P6b: autoDraw = False
+127.5842 	EXP 	P7a: autoDraw = False
+127.5842 	EXP 	P7b: autoDraw = False
+127.5842 	EXP 	P8a: autoDraw = False
+127.5842 	EXP 	P8b: autoDraw = False
+127.5842 	EXP 	instr_8: autoDraw = False
+127.5842 	EXP 	instr_9: autoDraw = False
+127.5842 	EXP 	P1a: autoDraw = True
+127.5842 	EXP 	P1b: autoDraw = True
+127.5842 	EXP 	P2a: autoDraw = True
+127.5842 	EXP 	P3b: autoDraw = True
+127.5842 	EXP 	P3a: autoDraw = True
+127.5842 	EXP 	P3b: autoDraw = True
+127.5842 	EXP 	P4a: autoDraw = True
+127.5842 	EXP 	P4b: autoDraw = True
+127.5842 	EXP 	P5a: autoDraw = True
+127.5842 	EXP 	P5b: autoDraw = True
+127.5842 	EXP 	P6a: autoDraw = True
+127.5842 	EXP 	P6b: autoDraw = True
+127.5842 	EXP 	P7a: autoDraw = True
+127.5842 	EXP 	P7b: autoDraw = True
+127.5842 	EXP 	P8a: autoDraw = True
+127.5842 	EXP 	P8b: autoDraw = True
+127.5842 	EXP 	instr_10: autoDraw = True
+127.5842 	EXP 	instr_11: autoDraw = True
+132.4963 	DATA 	Mouse: Left button down, pos=(646,829)
+132.5068 	DATA 	RatingScale P1b: (mouse single-click) rating=Frecuentemente
+132.5068 	DATA 	RatingScale P1b: rating RT=4.942
+132.5068 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Frecuentemente', 4.942)]
+132.6090 	DATA 	Mouse:  Left button up, pos=(646,829)
+137.3536 	DATA 	Mouse: Left button down, pos=(481,658)
+137.3545 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+137.3545 	DATA 	RatingScale P3b: rating RT=9.786
+137.3545 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 9.786)]
+137.4236 	DATA 	Mouse:  Left button up, pos=(481,658)
+141.8650 	DATA 	Mouse: Left button down, pos=(623,496)
+141.8670 	DATA 	RatingScale P5b: (mouse single-click) rating=Frecuentemente
+141.8670 	DATA 	RatingScale P5b: rating RT=14.293
+141.8671 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Frecuentemente', 14.293)]
+141.9490 	DATA 	Mouse:  Left button up, pos=(623,496)
+146.1963 	DATA 	Mouse: Left button down, pos=(305,335)
+146.2043 	DATA 	RatingScale P7b: (mouse single-click) rating=Casi nunca (rara vez)
+146.2044 	DATA 	RatingScale P7b: rating RT=18.625
+146.2044 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Casi nunca (rara vez)', 18.625)]
+146.2814 	DATA 	Mouse:  Left button up, pos=(305,335)
+149.3492 	DATA 	Mouse: Left button down, pos=(1452,809)
+149.3585 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+149.3585 	DATA 	RatingScale P3b: rating RT=21.792
+149.3585 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 21.792)]
+149.4298 	DATA 	Mouse:  Left button up, pos=(1452,809)
+152.7615 	DATA 	Mouse: Left button down, pos=(1462,662)
+152.7763 	DATA 	RatingScale P4b: (mouse single-click) rating=Ocasionalmente
+152.7763 	DATA 	RatingScale P4b: rating RT=25.206
+152.7764 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Ocasionalmente', 25.205)]
+152.8295 	DATA 	Mouse:  Left button up, pos=(1462,662)
+158.6031 	DATA 	Mouse: Left button down, pos=(1446,495)
+158.6208 	DATA 	RatingScale P6b: (mouse single-click) rating=Ocasionalmente
+158.6208 	DATA 	RatingScale P6b: rating RT=31.044
+158.6209 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Ocasionalmente', 31.044)]
+158.6708 	DATA 	Mouse:  Left button up, pos=(1446,495)
+160.5381 	DATA 	Mouse: Left button down, pos=(1755,324)
+160.5382 	DATA 	RatingScale P8b: (mouse single-click) rating=Muy frecuentemente
+160.5382 	DATA 	RatingScale P8b: rating RT=32.958
+160.5382 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Muy frecuentemente', 32.958)]
+160.6050 	DATA 	Mouse:  Left button up, pos=(1755,324)
+161.1467 	EXP 	RatingScale P1b: reset()
+161.1469 	EXP 	RatingScale P3b: reset()
+161.1521 	DATA 	Keypress: space
+161.1748 	EXP 	P1a: autoDraw = False
+161.1748 	EXP 	P1b: autoDraw = False
+161.1748 	EXP 	P2a: autoDraw = False
+161.1748 	EXP 	P3b: autoDraw = False
+161.1748 	EXP 	P3a: autoDraw = False
+161.1748 	EXP 	P3b: autoDraw = False
+161.1748 	EXP 	P4a: autoDraw = False
+161.1748 	EXP 	P4b: autoDraw = False
+161.1748 	EXP 	P5a: autoDraw = False
+161.1748 	EXP 	P5b: autoDraw = False
+161.1748 	EXP 	P6a: autoDraw = False
+161.1748 	EXP 	P6b: autoDraw = False
+161.1748 	EXP 	P7a: autoDraw = False
+161.1748 	EXP 	P7b: autoDraw = False
+161.1748 	EXP 	P8a: autoDraw = False
+161.1748 	EXP 	P8b: autoDraw = False
+161.1748 	EXP 	instr_10: autoDraw = False
+161.1748 	EXP 	instr_11: autoDraw = False
+161.1748 	EXP 	P1a: autoDraw = True
+161.1748 	EXP 	P1b: autoDraw = True
+161.1748 	EXP 	P2a: autoDraw = True
+161.1748 	EXP 	P3b: autoDraw = True
+161.1748 	EXP 	P3a: autoDraw = True
+161.1748 	EXP 	P3b: autoDraw = True
+161.1748 	EXP 	P4a: autoDraw = True
+161.1748 	EXP 	P4b: autoDraw = True
+161.1748 	EXP 	P5a: autoDraw = True
+161.1748 	EXP 	P5b: autoDraw = True
+161.1748 	EXP 	P6a: autoDraw = True
+161.1748 	EXP 	P6b: autoDraw = True
+161.1748 	EXP 	P7a: autoDraw = True
+161.1748 	EXP 	P7b: autoDraw = True
+161.1748 	EXP 	P8a: autoDraw = True
+161.1748 	EXP 	P8b: autoDraw = True
+161.1748 	EXP 	instr_12: autoDraw = True
+161.1748 	EXP 	instr_13: autoDraw = True
+164.0113 	DATA 	Mouse: Left button down, pos=(647,821)
+164.0114 	DATA 	RatingScale P1b: (mouse single-click) rating=Frecuentemente
+164.0114 	DATA 	RatingScale P1b: rating RT=2.862
+164.0114 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Frecuentemente', 2.862)]
+164.0485 	DATA 	Mouse:  Left button up, pos=(647,821)
+166.3931 	DATA 	Mouse: Left button down, pos=(460,658)
+166.3940 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+166.3940 	DATA 	RatingScale P3b: rating RT=5.237
+166.3940 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 5.237)]
+166.4422 	DATA 	Mouse:  Left button up, pos=(460,658)
+169.4231 	DATA 	Mouse: Left button down, pos=(296,495)
+169.4251 	DATA 	RatingScale P5b: (mouse single-click) rating=Casi nunca (rara vez)
+169.4251 	DATA 	RatingScale P5b: rating RT=8.262
+169.4251 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Casi nunca (rara vez)', 8.262)]
+169.4946 	DATA 	Mouse:  Left button up, pos=(296,495)
+172.8387 	DATA 	Mouse: Left button down, pos=(313,334)
+172.8451 	DATA 	RatingScale P7b: (mouse single-click) rating=Casi nunca (rara vez)
+172.8452 	DATA 	RatingScale P7b: rating RT=11.677
+172.8452 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Casi nunca (rara vez)', 11.677)]
+172.9199 	DATA 	Mouse:  Left button up, pos=(313,334)
+175.4865 	DATA 	Mouse: Left button down, pos=(1426,817)
+175.5010 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+175.5010 	DATA 	RatingScale P3b: rating RT=14.348
+175.5010 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 14.348)]
+175.5674 	DATA 	Mouse:  Left button up, pos=(1426,817)
+179.1160 	DATA 	Mouse: Left button down, pos=(1613,657)
+179.1161 	DATA 	RatingScale P4b: (mouse single-click) rating=Frecuentemente
+179.1161 	DATA 	RatingScale P4b: rating RT=17.956
+179.1161 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Frecuentemente', 17.956)]
+179.1828 	DATA 	Mouse:  Left button up, pos=(1613,657)
+182.1484 	DATA 	Mouse: Left button down, pos=(1615,499)
+182.1485 	DATA 	RatingScale P6b: (mouse single-click) rating=Frecuentemente
+182.1485 	DATA 	RatingScale P6b: rating RT=20.983
+182.1485 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Frecuentemente', 20.983)]
+182.2153 	DATA 	Mouse:  Left button up, pos=(1615,499)
+186.9275 	DATA 	Mouse: Left button down, pos=(1617,336)
+186.9275 	DATA 	RatingScale P8b: (mouse single-click) rating=Frecuentemente
+186.9275 	DATA 	RatingScale P8b: rating RT=25.757
+186.9275 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Frecuentemente', 25.757)]
+187.0097 	DATA 	Mouse:  Left button up, pos=(1617,336)
+187.4060 	EXP 	RatingScale P1b: reset()
+187.4062 	EXP 	RatingScale P3b: reset()
+187.4115 	DATA 	Keypress: space
+187.4263 	EXP 	P1a: autoDraw = False
+187.4263 	EXP 	P1b: autoDraw = False
+187.4263 	EXP 	P2a: autoDraw = False
+187.4263 	EXP 	P3b: autoDraw = False
+187.4263 	EXP 	P3a: autoDraw = False
+187.4263 	EXP 	P3b: autoDraw = False
+187.4263 	EXP 	P4a: autoDraw = False
+187.4263 	EXP 	P4b: autoDraw = False
+187.4263 	EXP 	P5a: autoDraw = False
+187.4263 	EXP 	P5b: autoDraw = False
+187.4263 	EXP 	P6a: autoDraw = False
+187.4263 	EXP 	P6b: autoDraw = False
+187.4263 	EXP 	P7a: autoDraw = False
+187.4263 	EXP 	P7b: autoDraw = False
+187.4263 	EXP 	P8a: autoDraw = False
+187.4263 	EXP 	P8b: autoDraw = False
+187.4263 	EXP 	instr_12: autoDraw = False
+187.4263 	EXP 	instr_13: autoDraw = False
+187.4263 	EXP 	P1a: autoDraw = True
+187.4263 	EXP 	P1b: autoDraw = True
+187.4263 	EXP 	P2a: autoDraw = True
+187.4263 	EXP 	P3b: autoDraw = True
+187.4263 	EXP 	P3a: autoDraw = True
+187.4263 	EXP 	P3b: autoDraw = True
+187.4263 	EXP 	P4a: autoDraw = True
+187.4263 	EXP 	P4b: autoDraw = True
+187.4263 	EXP 	P5a: autoDraw = True
+187.4263 	EXP 	P5b: autoDraw = True
+187.4263 	EXP 	P6a: autoDraw = True
+187.4263 	EXP 	P6b: autoDraw = True
+187.4263 	EXP 	P7a: autoDraw = True
+187.4263 	EXP 	P7b: autoDraw = True
+187.4263 	EXP 	P8a: autoDraw = True
+187.4263 	EXP 	P8b: autoDraw = True
+187.4263 	EXP 	instr_14: autoDraw = True
+187.4263 	EXP 	instr_15: autoDraw = True
+190.5087 	DATA 	Mouse: Left button down, pos=(818,817)
+190.5196 	DATA 	RatingScale P1b: (mouse single-click) rating=Muy frecuentemente
+190.5196 	DATA 	RatingScale P1b: rating RT=3.111
+190.5196 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Muy frecuentemente', 3.111)]
+190.5914 	DATA 	Mouse:  Left button up, pos=(818,817)
+191.9191 	DATA 	Mouse: Left button down, pos=(634,662)
+191.9203 	DATA 	RatingScale P3b: (mouse single-click) rating=Frecuentemente
+191.9203 	DATA 	RatingScale P3b: rating RT=4.506
+191.9203 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Frecuentemente', 4.506)]
+191.9860 	DATA 	Mouse:  Left button up, pos=(634,662)
+193.2693 	DATA 	Mouse: Left button down, pos=(494,486)
+193.2714 	DATA 	RatingScale P5b: (mouse single-click) rating=Ocasionalmente
+193.2714 	DATA 	RatingScale P5b: rating RT=5.853
+193.2714 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Ocasionalmente', 5.853)]
+193.3508 	DATA 	Mouse:  Left button up, pos=(494,486)
+195.6654 	DATA 	Mouse: Left button down, pos=(469,334)
+195.6692 	DATA 	RatingScale P7b: (mouse single-click) rating=Ocasionalmente
+195.6692 	DATA 	RatingScale P7b: rating RT=8.248
+195.6692 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Ocasionalmente', 8.248)]
+195.7318 	DATA 	Mouse:  Left button up, pos=(470,334)
+200.3609 	DATA 	Mouse: Left button down, pos=(1444,836)
+200.3610 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+200.3610 	DATA 	RatingScale P3b: rating RT=12.949
+200.3610 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 12.949)]
+200.4454 	DATA 	Mouse:  Left button up, pos=(1444,836)
+202.7779 	DATA 	Mouse: Left button down, pos=(1606,663)
+202.7780 	DATA 	RatingScale P4b: (mouse single-click) rating=Frecuentemente
+202.7780 	DATA 	RatingScale P4b: rating RT=15.362
+202.7780 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Frecuentemente', 15.362)]
+202.8457 	DATA 	Mouse:  Left button up, pos=(1606,663)
+204.4041 	DATA 	Mouse: Left button down, pos=(1438,491)
+204.4042 	DATA 	RatingScale P6b: (mouse single-click) rating=Ocasionalmente
+204.4042 	DATA 	RatingScale P6b: rating RT=16.984
+204.4042 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Ocasionalmente', 16.984)]
+204.4936 	DATA 	Mouse:  Left button up, pos=(1438,491)
+207.7569 	DATA 	Mouse: Left button down, pos=(1435,336)
+207.7570 	DATA 	RatingScale P8b: (mouse single-click) rating=Ocasionalmente
+207.7570 	DATA 	RatingScale P8b: rating RT=20.334
+207.7570 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Ocasionalmente', 20.334)]
+207.8250 	DATA 	Mouse:  Left button up, pos=(1435,336)
+208.2531 	EXP 	RatingScale P1b: reset()
+208.2534 	EXP 	RatingScale P3b: reset()
+208.2583 	DATA 	Keypress: space
+208.2755 	EXP 	P1a: autoDraw = False
+208.2755 	EXP 	P1b: autoDraw = False
+208.2755 	EXP 	P2a: autoDraw = False
+208.2755 	EXP 	P3b: autoDraw = False
+208.2755 	EXP 	P3a: autoDraw = False
+208.2755 	EXP 	P3b: autoDraw = False
+208.2755 	EXP 	P4a: autoDraw = False
+208.2755 	EXP 	P4b: autoDraw = False
+208.2755 	EXP 	P5a: autoDraw = False
+208.2755 	EXP 	P5b: autoDraw = False
+208.2755 	EXP 	P6a: autoDraw = False
+208.2755 	EXP 	P6b: autoDraw = False
+208.2755 	EXP 	P7a: autoDraw = False
+208.2755 	EXP 	P7b: autoDraw = False
+208.2755 	EXP 	P8a: autoDraw = False
+208.2755 	EXP 	P8b: autoDraw = False
+208.2755 	EXP 	instr_14: autoDraw = False
+208.2755 	EXP 	instr_15: autoDraw = False
+208.2755 	EXP 	P1a: autoDraw = True
+208.2755 	EXP 	P1b: autoDraw = True
+208.2755 	EXP 	P2a: autoDraw = True
+208.2755 	EXP 	P3b: autoDraw = True
+208.2755 	EXP 	P3a: autoDraw = True
+208.2755 	EXP 	P3b: autoDraw = True
+208.2755 	EXP 	P4a: autoDraw = True
+208.2755 	EXP 	P4b: autoDraw = True
+208.2755 	EXP 	P5a: autoDraw = True
+208.2755 	EXP 	P5b: autoDraw = True
+208.2755 	EXP 	P6a: autoDraw = True
+208.2755 	EXP 	P6b: autoDraw = True
+208.2755 	EXP 	P7a: autoDraw = True
+208.2755 	EXP 	P7b: autoDraw = True
+208.2755 	EXP 	P8a: autoDraw = True
+208.2755 	EXP 	P8b: autoDraw = True
+208.2755 	EXP 	instr_16: autoDraw = True
+208.2755 	EXP 	instr_17: autoDraw = True
+209.9691 	DATA 	Mouse: Left button down, pos=(483,815)
+209.9692 	DATA 	RatingScale P1b: (mouse single-click) rating=Ocasionalmente
+209.9692 	DATA 	RatingScale P1b: rating RT=1.713
+209.9692 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Ocasionalmente', 1.713)]
+210.0355 	DATA 	Mouse:  Left button up, pos=(483,815)
+212.1332 	DATA 	Mouse: Left button down, pos=(663,655)
+212.1340 	DATA 	RatingScale P3b: (mouse single-click) rating=Frecuentemente
+212.1340 	DATA 	RatingScale P3b: rating RT=3.873
+212.1340 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Frecuentemente', 3.873)]
+212.2005 	DATA 	Mouse:  Left button up, pos=(663,655)
+215.8968 	DATA 	Mouse: Left button down, pos=(500,497)
+215.8987 	DATA 	RatingScale P5b: (mouse single-click) rating=Ocasionalmente
+215.8987 	DATA 	RatingScale P5b: rating RT=7.633
+215.8987 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Ocasionalmente', 7.633)]
+215.9794 	DATA 	Mouse:  Left button up, pos=(500,497)
+217.5618 	DATA 	Mouse: Left button down, pos=(640,331)
+217.5648 	DATA 	RatingScale P7b: (mouse single-click) rating=Frecuentemente
+217.5648 	DATA 	RatingScale P7b: rating RT=9.295
+217.5648 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Frecuentemente', 9.295)]
+217.6618 	DATA 	Mouse:  Left button up, pos=(640,331)
+220.6255 	DATA 	Mouse: Left button down, pos=(1463,816)
+220.6256 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+220.6256 	DATA 	RatingScale P3b: rating RT=12.367
+220.6256 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 12.367)]
+220.7612 	DATA 	Mouse:  Left button up, pos=(1463,816)
+222.2945 	DATA 	Mouse: Left button down, pos=(1436,654)
+222.2946 	DATA 	RatingScale P4b: (mouse single-click) rating=Ocasionalmente
+222.2946 	DATA 	RatingScale P4b: rating RT=14.031
+222.2947 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Ocasionalmente', 14.031)]
+222.3598 	DATA 	Mouse:  Left button up, pos=(1436,654)
+224.3914 	DATA 	Mouse: Left button down, pos=(1602,502)
+224.3915 	DATA 	RatingScale P6b: (mouse single-click) rating=Frecuentemente
+224.3915 	DATA 	RatingScale P6b: rating RT=16.123
+224.3915 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Frecuentemente', 16.123)]
+224.4411 	DATA 	Mouse:  Left button up, pos=(1602,502)
+226.1238 	DATA 	Mouse: Left button down, pos=(1599,335)
+226.1239 	DATA 	RatingScale P8b: (mouse single-click) rating=Frecuentemente
+226.1239 	DATA 	RatingScale P8b: rating RT=17.852
+226.1239 	DATA 	RatingScale P8b: history=[(None, 0.0), ('Frecuentemente', 17.852)]
+226.1912 	DATA 	Mouse:  Left button up, pos=(1599,335)
+226.7197 	EXP 	RatingScale P1b: reset()
+226.7204 	EXP 	RatingScale P3b: reset()
+226.7301 	DATA 	Keypress: space
+226.7496 	EXP 	P1a: autoDraw = False
+226.7496 	EXP 	P1b: autoDraw = False
+226.7496 	EXP 	P2a: autoDraw = False
+226.7496 	EXP 	P3b: autoDraw = False
+226.7496 	EXP 	P3a: autoDraw = False
+226.7496 	EXP 	P3b: autoDraw = False
+226.7496 	EXP 	P4a: autoDraw = False
+226.7496 	EXP 	P4b: autoDraw = False
+226.7496 	EXP 	P5a: autoDraw = False
+226.7496 	EXP 	P5b: autoDraw = False
+226.7496 	EXP 	P6a: autoDraw = False
+226.7496 	EXP 	P6b: autoDraw = False
+226.7496 	EXP 	P7a: autoDraw = False
+226.7496 	EXP 	P7b: autoDraw = False
+226.7496 	EXP 	P8a: autoDraw = False
+226.7496 	EXP 	P8b: autoDraw = False
+226.7496 	EXP 	instr_16: autoDraw = False
+226.7496 	EXP 	instr_17: autoDraw = False
+226.7496 	EXP 	P1a: autoDraw = True
+226.7496 	EXP 	P1b: autoDraw = True
+226.7496 	EXP 	P2a: autoDraw = True
+226.7496 	EXP 	P3b: autoDraw = True
+226.7496 	EXP 	P3a: autoDraw = True
+226.7496 	EXP 	P3b: autoDraw = True
+226.7496 	EXP 	P4a: autoDraw = True
+226.7496 	EXP 	P4b: autoDraw = True
+226.7496 	EXP 	P5a: autoDraw = True
+226.7496 	EXP 	P5b: autoDraw = True
+226.7496 	EXP 	P6a: autoDraw = True
+226.7496 	EXP 	P6b: autoDraw = True
+226.7496 	EXP 	P7a: autoDraw = True
+226.7496 	EXP 	P7b: autoDraw = True
+226.7496 	EXP 	instr_18: autoDraw = True
+226.7496 	EXP 	instr_19: autoDraw = True
+228.7212 	DATA 	Mouse: Left button down, pos=(644,823)
+228.7340 	DATA 	RatingScale P1b: (mouse single-click) rating=Frecuentemente
+228.7340 	DATA 	RatingScale P1b: rating RT=2.009
+228.7340 	DATA 	RatingScale P1b: history=[(None, 0.0), ('Frecuentemente', 2.009)]
+228.7847 	DATA 	Mouse:  Left button up, pos=(644,823)
+230.3328 	DATA 	Mouse: Left button down, pos=(667,660)
+230.3339 	DATA 	RatingScale P3b: (mouse single-click) rating=Frecuentemente
+230.3339 	DATA 	RatingScale P3b: rating RT=3.598
+230.3339 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Frecuentemente', 3.598)]
+230.4006 	DATA 	Mouse:  Left button up, pos=(666,659)
+233.3649 	DATA 	Mouse: Left button down, pos=(322,496)
+233.3672 	DATA 	RatingScale P5b: (mouse single-click) rating=Casi nunca (rara vez)
+233.3672 	DATA 	RatingScale P5b: rating RT=6.626
+233.3672 	DATA 	RatingScale P5b: history=[(None, 0.0), ('Casi nunca (rara vez)', 6.626)]
+233.4301 	DATA 	Mouse:  Left button up, pos=(322,496)
+236.8442 	DATA 	Mouse: Left button down, pos=(500,324)
+236.8476 	DATA 	RatingScale P7b: (mouse single-click) rating=Ocasionalmente
+236.8476 	DATA 	RatingScale P7b: rating RT=10.103
+236.8476 	DATA 	RatingScale P7b: history=[(None, 0.0), ('Ocasionalmente', 10.103)]
+236.9104 	DATA 	Mouse:  Left button up, pos=(499,324)
+240.5572 	DATA 	Mouse: Left button down, pos=(1451,824)
+240.5572 	DATA 	RatingScale P3b: (mouse single-click) rating=Ocasionalmente
+240.5572 	DATA 	RatingScale P3b: rating RT=13.825
+240.5573 	DATA 	RatingScale P3b: history=[(None, 0.0), ('Ocasionalmente', 13.825)]
+240.6077 	DATA 	Mouse:  Left button up, pos=(1451,824)
+243.0569 	DATA 	Mouse: Left button down, pos=(1113,655)
+243.0570 	DATA 	RatingScale P4b: (mouse single-click) rating=Nunca
+243.0570 	DATA 	RatingScale P4b: rating RT=16.319
+243.0570 	DATA 	RatingScale P4b: history=[(None, 0.0), ('Nunca', 16.319)]
+243.1235 	DATA 	Mouse:  Left button up, pos=(1113,655)
+246.2881 	DATA 	Mouse: Left button down, pos=(1441,499)
+246.2882 	DATA 	RatingScale P6b: (mouse single-click) rating=Ocasionalmente
+246.2882 	DATA 	RatingScale P6b: rating RT=19.545
+246.2882 	DATA 	RatingScale P6b: history=[(None, 0.0), ('Ocasionalmente', 19.545)]
+246.3397 	DATA 	Mouse:  Left button up, pos=(1441,499)
+246.9537 	DATA 	Keypress: space
+246.9616 	EXP 	P1a: autoDraw = False
+246.9616 	EXP 	P1b: autoDraw = False
+246.9616 	EXP 	P2a: autoDraw = False
+246.9616 	EXP 	P3b: autoDraw = False
+246.9616 	EXP 	P3a: autoDraw = False
+246.9616 	EXP 	P3b: autoDraw = False
+246.9616 	EXP 	P4a: autoDraw = False
+246.9616 	EXP 	P4b: autoDraw = False
+246.9616 	EXP 	P5a: autoDraw = False
+246.9616 	EXP 	P5b: autoDraw = False
+246.9616 	EXP 	P6a: autoDraw = False
+246.9616 	EXP 	P6b: autoDraw = False
+246.9616 	EXP 	P7a: autoDraw = False
+246.9616 	EXP 	P7b: autoDraw = False
+246.9616 	EXP 	instr_18: autoDraw = False
+246.9616 	EXP 	instr_19: autoDraw = False
+246.9616 	EXP 	gracias: autoDraw = True
+248.9816 	DATA 	Keypress: space
+248.9931 	EXP 	gracias: autoDraw = False
+249.1403 	EXP 	window1: mouseVisible = True
