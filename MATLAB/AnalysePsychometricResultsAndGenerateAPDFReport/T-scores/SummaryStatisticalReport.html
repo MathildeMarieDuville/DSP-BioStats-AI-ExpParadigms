@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,IE=9,chrome=1"><meta name="generator" content="MATLAB 2022a"><title>Untitled</title><style type="text/css">.rtcContent { padding: 30px; } .S0 { margin: 3px 10px 5px 4px; padding: 0px; line-height: 20px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 20px; font-weight: 700; text-align: left;  }
+.S1 { margin: 2px 10px 9px 4px; padding: 0px; line-height: 21px; min-height: 0px; white-space: pre-wrap; color: rgb(33, 33, 33); font-family: Helvetica, Arial, sans-serif; font-style: normal; font-size: 14px; font-weight: 400; text-align: left;  }
+.S2 { margin: 10px 0px 20px; padding-left: 0px; font-family: Helvetica, Arial, sans-serif; font-size: 14px;  }
+.S3 { margin-left: 56px; line-height: 21px; min-height: 0px; text-align: left; white-space: pre-wrap;  }
+.CodeBlock { background-color: #F5F5F5; margin: 10px 0 10px 0; }
+.S4 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 1px solid rgb(191, 191, 191); border-bottom: 0px none rgb(33, 33, 33); border-radius: 4px 4px 0px 0px; padding: 6px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S5 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 0px none rgb(33, 33, 33); border-bottom: 0px none rgb(33, 33, 33); border-radius: 0px; padding: 0px 45px 0px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S6 { border-left: 1px solid rgb(191, 191, 191); border-right: 1px solid rgb(191, 191, 191); border-top: 0px none rgb(33, 33, 33); border-bottom: 1px solid rgb(191, 191, 191); border-radius: 0px; padding: 0px 45px 4px 13px; line-height: 18.004px; min-height: 0px; white-space: nowrap; color: rgb(33, 33, 33); font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px;  }
+.S7 { color: rgb(33, 33, 33); padding: 10px 0px 6px 17px; background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box; font-family: Menlo, Monaco, Consolas, "Courier New", monospace; font-size: 14px; overflow-x: hidden; line-height: 17.234px;  }
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsErrorElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsErrorElement .diagnosticMessage-errorType {    overflow: auto;}
+.embeddedOutputsErrorElement.inlineElement {}
+.embeddedOutputsErrorElement.rightPaneElement {}
+/* Styling that is common to warnings and errors is in diagnosticOutput.css */.embeddedOutputsWarningElement {    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsWarningElement .diagnosticMessage-warningType {    overflow: auto;}
+.embeddedOutputsWarningElement.inlineElement {}
+.embeddedOutputsWarningElement.rightPaneElement {}
+/* Copyright 2015-2019 The MathWorks, Inc. *//* In this file, styles are not scoped to rtcContainer since they could be in the Dojo Tooltip */.diagnosticMessage-wrapper {    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;    font-size: 12px;}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType {    color: rgb(255,100,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-warningType a {    color: rgb(255,100,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType {    color: rgb(230,0,0);}
+.diagnosticMessage-wrapper.diagnosticMessage-errorType a {    color: rgb(230,0,0);    text-decoration: underline;}
+.diagnosticMessage-wrapper .diagnosticMessage-messagePart,.diagnosticMessage-wrapper .diagnosticMessage-causePart {    white-space: pre-wrap;}
+.diagnosticMessage-wrapper .diagnosticMessage-stackPart {    white-space: pre;}
+.embeddedOutputsTextElement,.embeddedOutputsVariableStringElement {    white-space: pre;    word-wrap:  initial;    min-height: 18px;    max-height: 550px;}
+.embeddedOutputsTextElement .textElement,.embeddedOutputsVariableStringElement .textElement {    overflow: auto;}
+.textElement,.rtcDataTipElement .textElement {    padding-top: 2px;}
+.embeddedOutputsTextElement.inlineElement,.embeddedOutputsVariableStringElement.inlineElement {}
+.inlineElement .textElement {}
+.embeddedOutputsTextElement.rightPaneElement,.embeddedOutputsVariableStringElement.rightPaneElement {    min-height: 16px;}
+.rightPaneElement .textElement {    padding-top: 2px;    padding-left: 9px;}</style></head><body><div class = rtcContent><h2  class = 'S0'><span>Generate Summary Statistical Reports of Psychmotric Responses</span></h2><div  class = 'S1'><span>Mathilde Marie Duville</span></div><div  class = 'S1'><span>Here, Standardized scores (T-scores) are computed from answers on the </span><span style=' font-weight: bold;'>Spanish</span><span> version of the full-length Autism Spectrum Rating Scales (ASRS; </span><span style=' font-style: italic;'>Goldstein S, Naglieri J. Autism Spectrum Rating Scales™ (ASRS®). North Tonawanda NY Multi-Health Syst. 2013</span><span>). </span></div><div  class = 'S1'><span>An Excel file (.xlsx) is generated with summary statistics for every scale.</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Notice01:</span><span> </span><span style=' font-weight: bold;'>please, see the Python code of PsychoPy Graphical User Interface to understand how the input Excel file with anwers to the ASRS was generated (</span><span style=' font-weight: bold; font-style: italic;'>Participant01_ASRS_2024_May_28_1600.csv</span><span style=' font-weight: bold;'>).</span></div><div  class = 'S1'><span style=' font-weight: bold;'>Notice02: please, refer to the following references to understand how T-scores are computed. You can also open the file named "t</span><span style=' font-weight: bold; font-style: italic;'>_scores.m</span><span style=' font-weight: bold;'>" that is the function that generates them.</span></div><ul  class = 'S2'><li  class = 'S3'><span>Duville, M. M., Alonso-Valerdi, L. M., &amp; Ibarra-Zarate, D. I. (2024). Improved emotion differentiation under reduced acoustic variability of speech in autism. </span><span style=' font-style: italic;'>BMC Medicine</span><span>, </span><span style=' font-style: italic;'>22</span><span>(1), 121. </span><a href = "https://doi.org/10.1186/s12916-024-03341-y"><span>https://doi.org/10.1186/s12916-024-03341-y</span></a></li><li  class = 'S3'><span>Duville, M. M., Corona-González, C. E., Romo De León, R., Rodríguez Vera, A., Flores-Jimenez, M. S., Ibarra-Zarate, D. I., &amp; Alonso-Valerdi, L. M. (2023). Perception of task-irrelevant affective prosody by typically developed and diagnosed children with Autism Spectrum Disorder under attentional loads: Electroencephalographic and behavioural data. </span><span style=' font-style: italic;'>Data in Brief</span><span>, </span><span style=' font-style: italic;'>48</span><span>, 109057. </span><a href = "https://doi.org/10.1016/j.dib.2023.109057"><span>https://doi.org/10.1016/j.dib.2023.109057</span></a></li><li  class = 'S3'><span>Duville, M. M., Ibarra-Zarate, D. I., &amp; Alonso-Valerdi, L. M. (2023). Autistic traits shape neuronal oscillations during emotion perception under attentional load modulation. </span><span style=' font-style: italic;'>Scientific Reports</span><span>, </span><span style=' font-style: italic;'>13</span><span>(1), 8178. https://doi.org/10.1038/s41598-023-35013-x</span></li></ul><div  class = 'S1'><span style=' font-weight: bold;'>Notice03: T-scores are adapted to the level of oral language of the patient (case A: no speech or limited speech, case B: fluent speech). </span></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">%% Confidence Interval (CI) = 90%</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >clc; clear; close </span><span style="color: rgb(167, 9, 245);">all</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >MainPath = pwd; folder = MainPath; </span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >fileList = dir(fullfile(folder, </span><span style="color: rgb(167, 9, 245);">'*.csv'</span><span >)); L = []; L=length(fileList);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >n = cell(1,L); i = [];</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = 1:1:L</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   disp([</span><span style="color: rgb(167, 9, 245);">'PARTICIPANT ' </span><span >num2str(i)] )</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   [filepath,name,ext] = fileparts([MainPath,</span><span style="color: rgb(167, 9, 245);">'\'</span><span >,fileList(i).name]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   n{1,i} = [name];</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   data = []; data = readtable([name </span><span style="color: rgb(167, 9, 245);">'.csv'</span><span >]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   ratings = data;  CI = 90; file = name;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   </span><span style="color: rgb(0, 128, 19);">% 1 for no speech or limited speech, 0 for fluent speech</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   language = input(</span><span style="color: rgb(167, 9, 245);">"1 for no speech or limited speech, 0 for fluent speech: "</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   </span><span style="color: rgb(0, 128, 19);">%language = 0;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   t_scores(ratings,CI,file, language, name) </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="AD70C414" data-scroll-top="null" data-scroll-left="null" prevent-scroll="true" data-testid="output_0" style="width: 835px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-width="805" data-height="16" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">PARTICIPANT 1</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsWarningElement" uid="6BB733D9" data-scroll-top="null" data-scroll-left="null" prevent-scroll="true" data-testid="output_1" style="width: 835px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="diagnosticMessage-wrapper diagnosticMessage-warningType eoOutputContent" data-width="805" data-height="44" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: normal; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;"><div class="diagnosticMessage-messagePart" style="white-space: pre-wrap; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;">Warning: Column headers from the file were modified to make them valid MATLAB identifiers before creating variable names for the table. The original column headers are saved in the VariableDescriptions property.<br style="white-space: pre-wrap; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;">Set 'PreserveVariableNames' to true to use the original column headers as table variable names.</div><div class="diagnosticMessage-stackPart" style="white-space: pre; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;"></div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="F8DAE5E5" data-scroll-top="null" data-scroll-left="null" prevent-scroll="true" data-testid="output_2" style="width: 835px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-width="805" data-height="571" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">Social/Communication: prorated score for limited speech
+Unusual Behaviours: prorated score for limited speech
+Self Regulation: prorated score for limited speech
+DSM-5: prorated score for limited speech
+Peer Socialization: prorated score for limited speech
+Adult Socialization: prorated score for limited speech
+Social/Emotional Reprocitivity: prorated score for limited speech
+Atypical Language: speech too limited to quantify
+Stereotypy: no omitted response
+Behavioural Rigidity: no omitted response
+Sensory Sensitivity: no omitted response
+Attention: no omitted response
+6-11 years
+Social Communication: Very Elevated
+Unusual Behaviour: Very Elevated
+Self-Regulation: Slightly Elevated
+Total Score: Very Elevated
+DSM-5: Very Elevated
+Peer Socialization: Very Elevated
+Adult Socialization: Average
+Social/Emotional Reciprocity: Slightly Elevated
+Atypical Language: speech too limited
+Stereotypy: Elevated
+Behavioural Rigidity: Very Elevated
+Sensory Sensitivity: Very Elevated
+Attention: Slightly Elevated
+Social Communication: T-score CI is 70 to 77
+Unusual Behaviour: T-score CI is 68 to 75
+Self-Regulation: T-score CI is 56 to 65
+Total Score: T-score CI is 71 to 76
+DSM-5: T-score CI is 68 to 74
+Peer Socialization: T-score CI is 66 to 76
+Adult Socialization: T-score CI is 49 to 63
+Social/Emotional Reciprocity: T-score CI is 58 to 68
+Atypical Language: speech too limited
+Stereotypy: T-score CI is 58 to 71
+Behavioural Rigidity: T-score CI is 66 to 76
+Sensory Sensitivity: T-score CI is 66 to 79
+Attention: T-score CI is 55 to 65
+Could not compute Atypical Language Scale</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="13722E8F" data-scroll-top="null" data-scroll-left="null" prevent-scroll="true" data-testid="output_3" style="width: 835px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-width="805" data-height="670" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">6-11 years
+Mejorar la capacidad de buscar a otros niños para socializar.
+Mejorar las relaciones sociales con compañeros.
+Aumentar el tiempo de juego con compañeros.
+Mejorar la habilidad de entender y responder adecuadamente al humor.
+Mejorar el juego interactivo con compañeros.
+Mejorar la calidad de las interacciones con compañeros.
+Mejorar la habilidad de responder adecuadamente al hablar con compañeros.
+6-11 years
+Mejorar las relaciones sociales con adultos.
+6-11 years
+Mejorar la habilidad de compartir experiencias agradables con otros.
+Mejorar la habilidad de mirar a los demás al conversar con ellos.
+Mejorar la habilidad de mirar a los demás cuando le hablan.
+Mejorar la habilidad de apreciar y entender la opinión de los demás.
+Mejorar la habilidad de entender los sentimientos y las emociones de los demás.
+Mejorar la habilidad de reconocer adecuadamente señales sociales.
+Desarrollar la habilidad de responder adecuadamente a las ideas y sentimientos de los demás.
+Mejorar la habilidad de compartir y expresar placer al interactuar con los demás.
+Mejorar la habilidad de sonreir apropiadamente en situaciones sociales.
+Mejorar la habilidad de sonreir apropiadamente en situaciones sociales.
+6-11 years
+6-11 years
+Reducir las conductas autoestimulantes (por ejemplo aletear las manos).
+Adquirir flexibilidad para el cambio y no obsesionarse con un mismo tema.
+Reducir el uso inapropiado de objetos.
+6-11 years
+Mejorar la habilidad de considar perspectivas generales y enfocarse menos en detalles.
+Aumentar flexibilidad y reducir rigidez para poder participar a actividades diversas.
+Desarrollar la habilidad de apreciar y entender perspectivas amplias en situaciones problemáticas.
+Mejorar la habilidad de lidiar con cambios inesperados.
+Reducir la rigidez y la falta de flexibilidad para aceptar cambios de rutina.
+Desarrollar la habilidad de manejar con flexibilidad cambios de rutina.
+Reducir la necesitad de siempre tener consigo objetos específicos.
+6-11 years
+Aumentar respuestas apropiadas a estimulaciones táctiles.
+Reducir la pica (ingestión de objetos no comestibles).
+Mejorar la habilidad de lidiar con olores comunes.
+Mejorar la habilidad de tolerar el tacto y contactos físicos normales.
+Mejorar la habilidad de reponder adecuadamente a sonidos fuertes.
+6-11 years
+Desarrollar hablidades de organización más eficientes.
+Mejorar la habilidad de escuchar cuando le hablan.
+Mejorar la habilidad de mantener la atención durante actividades agradables.
+6-11 years
+Desarrollar habilidades para resolver conflictos para reducir peleas y conflictos con otros niños.
+6-11 years</div></div></div></div></div><div class="CodeBlock"><div class="inlineWrapper"><div  class = 'S4'><span style="white-space: pre"><span style="color: rgb(0, 128, 19);">%% Confidence Interval (CI) = 95%</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >clc; clear; close </span><span style="color: rgb(167, 9, 245);">all</span><span >;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >MainPath = pwd; folder = MainPath; </span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >fileList = dir(fullfile(folder, </span><span style="color: rgb(167, 9, 245);">'*.csv'</span><span >)); L = []; L=length(fileList);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >n = cell(1,L); i = [];</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">for </span><span >i = 1:1:L</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   disp([</span><span style="color: rgb(167, 9, 245);">'PARTICIPANT ' </span><span >num2str(i)] )</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   [filepath,name,ext] = fileparts([MainPath,</span><span style="color: rgb(167, 9, 245);">'\'</span><span >,fileList(i).name]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   n{1,i} = [name];</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   data = []; data = readtable([name </span><span style="color: rgb(167, 9, 245);">'.csv'</span><span >]);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   ratings = data;  CI = 95; file = name;</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   </span><span style="color: rgb(0, 128, 19);">% 1 for no speech or limited speech, 0 for fluent speech</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   language = input(</span><span style="color: rgb(167, 9, 245);">"1 for no speech or limited speech, 0 for fluent speech: "</span><span >);</span></span></div></div><div class="inlineWrapper"><div  class = 'S5'><span style="white-space: pre"><span >   t_scores(ratings,CI,file, language, name) </span></span></div></div><div class="inlineWrapper outputs"><div  class = 'S6'><span style="white-space: pre"><span style="color: rgb(14, 0, 255);">end</span></span></div><div  class = 'S7'><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement" uid="5D889F72" data-scroll-top="null" data-scroll-left="null" prevent-scroll="true" data-testid="output_4" style="width: 835px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-width="805" data-height="16" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">PARTICIPANT 1</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsWarningElement" uid="C54B0695" data-scroll-top="null" data-scroll-left="null" prevent-scroll="true" data-testid="output_5" style="width: 835px; white-space: normal; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="diagnosticMessage-wrapper diagnosticMessage-warningType eoOutputContent" data-width="805" data-height="44" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: normal; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;"><div class="diagnosticMessage-messagePart" style="white-space: pre-wrap; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;">Warning: Column headers from the file were modified to make them valid MATLAB identifiers before creating variable names for the table. The original column headers are saved in the VariableDescriptions property.<br style="white-space: pre-wrap; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;">Set 'PreserveVariableNames' to true to use the original column headers as table variable names.</div><div class="diagnosticMessage-stackPart" style="white-space: pre; font-style: normal; color: rgb(255, 100, 0); font-size: 12px;"></div></div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="4096F2B1" data-scroll-top="319.1111145019531" data-scroll-left="0" prevent-scroll="true" data-testid="output_6" style="width: 835px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-width="805" data-height="571" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">Social/Communication: prorated score for limited speech
+Unusual Behaviours: prorated score for limited speech
+Self Regulation: prorated score for limited speech
+DSM-5: prorated score for limited speech
+Peer Socialization: prorated score for limited speech
+Adult Socialization: prorated score for limited speech
+Social/Emotional Reprocitivity: prorated score for limited speech
+Atypical Language: speech too limited to quantify
+Stereotypy: no omitted response
+Behavioural Rigidity: no omitted response
+Sensory Sensitivity: no omitted response
+Attention: no omitted response
+6-11 years
+Social Communication: Very Elevated
+Unusual Behaviour: Very Elevated
+Self-Regulation: Slightly Elevated
+Total Score: Very Elevated
+DSM-5: Very Elevated
+Peer Socialization: Very Elevated
+Adult Socialization: Average
+Social/Emotional Reciprocity: Slightly Elevated
+Atypical Language: speech too limited
+Stereotypy: Elevated
+Behavioural Rigidity: Very Elevated
+Sensory Sensitivity: Very Elevated
+Attention: Slightly Elevated
+Social Communication: T-score CI is 69 to 78
+Unusual Behaviour: T-score CI is 68 to 76
+Self-Regulation: T-score CI is 55 to 65
+Total Score: T-score CI is 70 to 77
+DSM-5: T-score CI is 67 to 75
+Peer Socialization: T-score CI is 65 to 78
+Adult Socialization: T-score CI is 48 to 64
+Social/Emotional Reciprocity: T-score CI is 57 to 69
+Atypical Language: speech too limited
+Stereotypy: T-score CI is 56 to 72
+Behavioural Rigidity: T-score CI is 65 to 77
+Sensory Sensitivity: T-score CI is 65 to 80
+Attention: T-score CI is 54 to 66
+Could not compute Atypical Language Scale</div></div><div class="inlineElement eoOutputWrapper embeddedOutputsTextElement scrollableOutput" uid="438A1F9B" data-scroll-top="418.6666564941406" data-scroll-left="0" prevent-scroll="true" data-testid="output_7" style="width: 835px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;"><div class="textElement eoOutputContent" data-width="805" data-height="670" data-hashorizontaloverflow="false" style="max-height: 261px; white-space: pre; font-style: normal; color: rgb(33, 33, 33); font-size: 12px;">6-11 years
+Mejorar la capacidad de buscar a otros niños para socializar.
+Mejorar las relaciones sociales con compañeros.
+Aumentar el tiempo de juego con compañeros.
+Mejorar la habilidad de entender y responder adecuadamente al humor.
+Mejorar el juego interactivo con compañeros.
+Mejorar la calidad de las interacciones con compañeros.
+Mejorar la habilidad de responder adecuadamente al hablar con compañeros.
+6-11 years
+Mejorar las relaciones sociales con adultos.
+6-11 years
+Mejorar la habilidad de compartir experiencias agradables con otros.
+Mejorar la habilidad de mirar a los demás al conversar con ellos.
+Mejorar la habilidad de mirar a los demás cuando le hablan.
+Mejorar la habilidad de apreciar y entender la opinión de los demás.
+Mejorar la habilidad de entender los sentimientos y las emociones de los demás.
+Mejorar la habilidad de reconocer adecuadamente señales sociales.
+Desarrollar la habilidad de responder adecuadamente a las ideas y sentimientos de los demás.
+Mejorar la habilidad de compartir y expresar placer al interactuar con los demás.
+Mejorar la habilidad de sonreir apropiadamente en situaciones sociales.
+Mejorar la habilidad de sonreir apropiadamente en situaciones sociales.
+6-11 years
+6-11 years
+Reducir las conductas autoestimulantes (por ejemplo aletear las manos).
+Adquirir flexibilidad para el cambio y no obsesionarse con un mismo tema.
+Reducir el uso inapropiado de objetos.
+6-11 years
+Mejorar la habilidad de considar perspectivas generales y enfocarse menos en detalles.
+Aumentar flexibilidad y reducir rigidez para poder participar a actividades diversas.
+Desarrollar la habilidad de apreciar y entender perspectivas amplias en situaciones problemáticas.
+Mejorar la habilidad de lidiar con cambios inesperados.
+Reducir la rigidez y la falta de flexibilidad para aceptar cambios de rutina.
+Desarrollar la habilidad de manejar con flexibilidad cambios de rutina.
+Reducir la necesitad de siempre tener consigo objetos específicos.
+6-11 years
+Aumentar respuestas apropiadas a estimulaciones táctiles.
+Reducir la pica (ingestión de objetos no comestibles).
+Mejorar la habilidad de lidiar con olores comunes.
+Mejorar la habilidad de tolerar el tacto y contactos físicos normales.
+Mejorar la habilidad de reponder adecuadamente a sonidos fuertes.
+6-11 years
+Desarrollar hablidades de organización más eficientes.
+Mejorar la habilidad de escuchar cuando le hablan.
+Mejorar la habilidad de mantener la atención durante actividades agradables.
+6-11 years
+Desarrollar habilidades para resolver conflictos para reducir peleas y conflictos con otros niños.
+6-11 years</div></div></div></div></div>
+<br>
+<!-- 
+##### SOURCE BEGIN #####
+%% Generate Summary Statistical Reports of Psychmotric Responses
+% Mathilde Marie Duville
+% 
+% Here, Standardized scores (T-scores) are computed from answers on the *Spanish* 
+% version of the full-length Autism Spectrum Rating Scales (ASRS; _Goldstein S, 
+% Naglieri J. Autism Spectrum Rating Scales™ (ASRS®). North Tonawanda NY Multi-Health 
+% Syst. 2013_). 
+% 
+% An Excel file (.xlsx) is generated with summary statistics for every scale.
+% 
+% *Notice01:* *please, see the Python code of PsychoPy Graphical User Interface 
+% to understand how the input Excel file with anwers to the ASRS was generated 
+% (_Participant01_ASRS_2024_May_28_1600.csv_).*
+% 
+% *Notice02: please, refer to the following references to understand how T-scores 
+% are computed. You can also open the file named "t__scores.m_" that is the function 
+% that generates them.*
+%% 
+% * Duville, M. M., Alonso-Valerdi, L. M., & Ibarra-Zarate, D. I. (2024). Improved 
+% emotion differentiation under reduced acoustic variability of speech in autism. 
+% _BMC Medicine_, _22_(1), 121. <https://doi.org/10.1186/s12916-024-03341-y https://doi.org/10.1186/s12916-024-03341-y>
+% * Duville, M. M., Corona-González, C. E., Romo De León, R., Rodríguez Vera, 
+% A., Flores-Jimenez, M. S., Ibarra-Zarate, D. I., & Alonso-Valerdi, L. M. (2023). 
+% Perception of task-irrelevant affective prosody by typically developed and diagnosed 
+% children with Autism Spectrum Disorder under attentional loads: Electroencephalographic 
+% and behavioural data. _Data in Brief_, _48_, 109057. <https://doi.org/10.1016/j.dib.2023.109057 
+% https://doi.org/10.1016/j.dib.2023.109057>
+% * Duville, M. M., Ibarra-Zarate, D. I., & Alonso-Valerdi, L. M. (2023). Autistic 
+% traits shape neuronal oscillations during emotion perception under attentional 
+% load modulation. _Scientific Reports_, _13_(1), 8178. https://doi.org/10.1038/s41598-023-35013-x
+%% 
+% *Notice03: T-scores are adapted to the level of oral language of the patient 
+% (case A: no speech or limited speech, case B: fluent speech).* 
+
+%% Confidence Interval (CI) = 90%
+clc; clear; close all;
+MainPath = pwd; folder = MainPath; 
+fileList = dir(fullfile(folder, '*.csv')); L = []; L=length(fileList);
+n = cell(1,L); i = [];
+for i = 1:1:L
+   disp(['PARTICIPANT ' num2str(i)] )
+   [filepath,name,ext] = fileparts([MainPath,'\',fileList(i).name]);
+   n{1,i} = [name];
+   data = []; data = readtable([name '.csv']);
+   ratings = data;  CI = 90; file = name;
+   % 1 for no speech or limited speech, 0 for fluent speech
+   language = input("1 for no speech or limited speech, 0 for fluent speech: ");
+   %language = 0;
+   t_scores(ratings,CI,file, language, name) 
+end
+%%
+%% Confidence Interval (CI) = 95%
+clc; clear; close all;
+MainPath = pwd; folder = MainPath; 
+fileList = dir(fullfile(folder, '*.csv')); L = []; L=length(fileList);
+n = cell(1,L); i = [];
+for i = 1:1:L
+   disp(['PARTICIPANT ' num2str(i)] )
+   [filepath,name,ext] = fileparts([MainPath,'\',fileList(i).name]);
+   n{1,i} = [name];
+   data = []; data = readtable([name '.csv']);
+   ratings = data;  CI = 95; file = name;
+   % 1 for no speech or limited speech, 0 for fluent speech
+   language = input("1 for no speech or limited speech, 0 for fluent speech: ");
+   t_scores(ratings,CI,file, language, name) 
+end
+##### SOURCE END #####
+-->
+</div></body></html>
