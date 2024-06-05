@@ -1,0 +1,342 @@
+13.2080 	EXP 	Created window1 = Window(allowGUI=True, allowStencil=False, args=UNKNOWN, autoLog=True, bitsMode=UNKNOWN, blendMode='avg', color=array([-1., -1., -1.]), colorSpace='rgb', fullscr=<method-wrapper '__getattribute__' of attributeSetter object at 0x0000029D0AF1C8D0>, gamma=None, gammaErrorPolicy='raise', kwargs=UNKNOWN, lms=UNKNOWN, monitor=<psychopy.monitors.calibTools.Monitor object at 0x0000029D0AEAE0B8>, multiSample=False, name='window1', numSamples=2, pos=[0.0, 0.0], screen=0, size=array([1920, 1080]), stereo=False, units='height', useFBO=True, useRetina=False, viewOri=0.0, viewPos=None, viewScale=None, waitBlanking=True, winType='pyglet')
+13.2081 	EXP 	window1: recordFrameIntervals = False
+13.3693 	EXP 	window1: recordFrameIntervals = True
+13.5525 	EXP 	window1: recordFrameIntervals = False
+13.7741 	EXP 	Created instr = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='instr', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+13.7847 	EXP 	Created cruz = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cruz', opacity=1.0, ori=0.0, pos=array([0., 0.]), size=array([0.6, 0.4]), texRes=128, units='height', win=Window(...))
+13.7913 	EXP 	Created text = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.03, italic=False, languageStyle='LTR', name='text', opacity=1.0, ori=0, pos=array([ 0. , -0.4]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+13.7943 	EXP 	Created robot = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='robot', opacity=1.0, ori=0.0, pos=array([0.2 , 0.05]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.7966 	EXP 	Created cyborg = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-1.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='cyborg', opacity=1.0, ori=0.0, pos=array([0.44, 0.05]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8001 	EXP 	Created human = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-2.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='human', opacity=1.0, ori=0.0, pos=array([0.68, 0.05]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8065 	EXP 	Created naturalidad = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-3.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='naturalidad', opacity=1.0, ori=0, pos=array([0.45, 0.15]), rgb=array([255., 255., 255.]), text='naturalidad', units='height', win=Window(...), wrapWidth=1)
+13.8534 	EXP 	Created nat = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=False, depth=0, disappear=False, flipVert=False, high=5, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=1, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='nat', noMouse=False, pos=[0.5, -0.05], precision=1, respKeys=['1', '2', '3', '4', '5'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.54, skipKeys=['tab'], stretch=1.0, textColor='LightGray', textFont='Helvetica Bold', textSize=0.10800000000000001, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+13.8561 	EXP 	Created tick = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-5.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='tick', opacity=1.0, ori=0.0, pos=array([-0.2 ,  0.05]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8582 	EXP 	Created int2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-6.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='int2', opacity=1.0, ori=0.0, pos=array([-0.44,  0.05]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8611 	EXP 	Created int1 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-7.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='int1', opacity=1.0, ori=0.0, pos=array([-0.68,  0.05]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8647 	EXP 	Created inteligibilidad = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-8.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='inteligibilidad', opacity=1.0, ori=0, pos=array([-0.44,  0.15]), rgb=array([255., 255., 255.]), text='inteligibilidad', units='height', win=Window(...), wrapWidth=1)
+13.8696 	EXP 	Created int = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=False, depth=0, disappear=False, flipVert=False, high=5, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=1, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='int', noMouse=False, pos=[-0.5, -0.05], precision=1, respKeys=['1', '2', '3', '4', '5'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.54, skipKeys=['tab'], stretch=1.0, textColor='LightGray', textFont='Helvetica Bold', textSize=0.10800000000000001, tickHeight=1.0, tickMarks=4.0, win=Window(...))
+13.8723 	EXP 	Created valencia = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-10.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='valencia', opacity=1.0, ori=0, pos=array([0.44, 0.45]), rgb=array([255., 255., 255.]), text='valencia', units='height', win=Window(...), wrapWidth=1)
+13.8781 	EXP 	Created val = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=False, depth=0, disappear=False, flipVert=False, high=9, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=1, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='val', noMouse=False, pos=[0.5, 0.55], precision=1, respKeys=['1', '2', '3', '4', '5', '6', '7', '8', '9'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.54, skipKeys=['tab'], stretch=1.0, textColor='LightGray', textFont='Helvetica Bold', textSize=0.10800000000000001, tickHeight=1.0, tickMarks=8.0, win=Window(...))
+13.8798 	EXP 	Created val1 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-12.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='val1', opacity=1.0, ori=0.0, pos=array([0.68, 0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8812 	EXP 	Created val2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-20.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='val2', opacity=1.0, ori=0.0, pos=array([0.56, 0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8826 	EXP 	Created val3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-14.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='val3', opacity=1.0, ori=0.0, pos=array([0.44, 0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8841 	EXP 	Created val4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-15.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='val4', opacity=1.0, ori=0.0, pos=array([0.32, 0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8856 	EXP 	Created val5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-16.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='val5', opacity=1.0, ori=0.0, pos=array([0.2 , 0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8872 	EXP 	Created alerta = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-17.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='alerta', opacity=1.0, ori=0, pos=array([-0.44,  0.45]), rgb=array([255., 255., 255.]), text='alerta', units='height', win=Window(...), wrapWidth=1)
+13.8940 	EXP 	Created alert = RatingScale(__class__=type(...), acceptKeys=['return'], acceptPreText=UNKNOWN, acceptSize=UNKNOWN, acceptText=UNKNOWN, autoLog=True, choices=False, depth=0, disappear=False, flipVert=False, high=9, kwargs=UNKNOWN, labels=list(...), leftKeys=['left'], lineColor='White', low=1, marker=ShapeStim(...), markerColor='DarkBlue', markerExpansion=UNKNOWN, markerStart=None, maxTime=0.0, minTime=0.4, mouseOnly=False, name='alert', noMouse=False, pos=[-0.5, 0.55], precision=1, respKeys=['1', '2', '3', '4', '5', '6', '7', '8', '9'], rightKeys=['right'], scale='', self=UNKNOWN, showAccept=False, showValue=True, singleClick=True, size=0.54, skipKeys=['tab'], stretch=1.0, textColor='LightGray', textFont='Helvetica Bold', textSize=0.10800000000000001, tickHeight=1.0, tickMarks=8.0, win=Window(...))
+13.8956 	EXP 	Created alert1 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-19.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='alert1', opacity=1.0, ori=0.0, pos=array([-0.2 ,  0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8971 	EXP 	Created alert2 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-20.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='alert2', opacity=1.0, ori=0.0, pos=array([-0.32,  0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.8989 	EXP 	Created alert3 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-21.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='alert3', opacity=1.0, ori=0.0, pos=array([-0.44,  0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.9002 	EXP 	Created alert4 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-22.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='alert4', opacity=1.0, ori=0.0, pos=array([-0.56,  0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.9019 	EXP 	Created alert5 = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-23.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='alert5', opacity=1.0, ori=0.0, pos=array([-0.68,  0.35]), size=array([0.07, 0.07]), texRes=128, units='height', win=Window(...))
+13.9087 	EXP 	Created enojo = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-27.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1, name='enojo', opacity=1.0, ori=array(0.), pos=array([-0.33, -0.32]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+13.9108 	EXP 	Created anger = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-28.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='anger', opacity=1.0, ori=0.0, pos=array([-0.33, -0.23]), size=array([0.08, 0.08]), texRes=128, units='height', win=Window(...))
+13.9143 	EXP 	Created colère = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-29.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='colère', opacity=1.0, ori=0, pos=array([-0.33, -0.38]), rgb=array([255., 255., 255.]), text='enojo', units='height', win=Window(...), wrapWidth=1)
+13.9148 	EXP 	Created disgusto = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-39.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1, name='disgusto', opacity=1.0, ori=array(0.), pos=array([ 0.55, -0.32]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+13.9162 	EXP 	Created happiness = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-40.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='happiness', opacity=1.0, ori=0.0, pos=array([ 0.55, -0.23]), size=array([0.08, 0.08]), texRes=128, units='height', win=Window(...))
+13.9188 	EXP 	Created dégoût = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-41.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='dégoût', opacity=1.0, ori=0, pos=array([ 0.55, -0.38]), rgb=array([255., 255., 255.]), text='disgusto', units='height', win=Window(...), wrapWidth=1)
+13.9194 	EXP 	Created miedo = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-33.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1, name='miedo', opacity=1.0, ori=array(0.), pos=array([ 0.11, -0.32]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+13.9210 	EXP 	Created fear = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-34.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='fear', opacity=1.0, ori=0.0, pos=array([ 0.11, -0.23]), size=array([0.08, 0.08]), texRes=128, units='height', win=Window(...))
+13.9233 	EXP 	Created peur = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-35.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='peur', opacity=1.0, ori=0, pos=array([ 0.11, -0.38]), rgb=array([255., 255., 255.]), text='miedo', units='height', win=Window(...), wrapWidth=1)
+13.9239 	EXP 	Created felicidad = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-36.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1, name='felicidad', opacity=1.0, ori=array(0.), pos=array([ 0.33, -0.32]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+13.9255 	EXP 	Created happiness = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-37.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='happiness', opacity=1.0, ori=0.0, pos=array([ 0.33, -0.23]), size=array([0.08, 0.08]), texRes=128, units='height', win=Window(...))
+13.9280 	EXP 	Created joie = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-38.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='joie', opacity=1.0, ori=0, pos=array([ 0.33, -0.38]), rgb=array([255., 255., 255.]), text='felicidad', units='height', win=Window(...), wrapWidth=1)
+13.9285 	EXP 	Created tristeza = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-30.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1, name='tristeza', opacity=1.0, ori=array(0.), pos=array([-0.11, -0.32]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+13.9298 	EXP 	Created sadness = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-31.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='sadness', opacity=1.0, ori=0.0, pos=array([-0.11, -0.23]), size=array([0.08, 0.08]), texRes=128, units='height', win=Window(...))
+13.9323 	EXP 	Created tristesse = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-32.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='tristesse', opacity=1.0, ori=0, pos=array([-0.11, -0.38]), rgb=array([255., 255., 255.]), text='tristeza', units='height', win=Window(...), wrapWidth=1)
+13.9328 	EXP 	Created neutro = Rect(__class__=<class 'psychopy.visual.rect.Rect'>, autoDraw=False, autoLog=True, closeShape=True, color=method-wrapper(...), colorSpace=None, contrast=1.0, depth=-24.0, fillColor=array([0., 0., 0.]), fillColorSpace='rgb', fillRGB=array([0., 0., 0.]), interpolate=True, lineColor=array([0., 0., 0.]), lineColorSpace='rgb', lineRGB=array([0., 0., 0.]), lineWidth=1, name='neutro', opacity=1.0, ori=array(0.), pos=array([-0.55, -0.32]), size=array([1., 1.]), units='height', vertices=ndarray(...), win=Window(...))
+13.9345 	EXP 	Created neutro = ImageStim(__class__=<class 'psychopy.visual.image.ImageStim'>, autoLog=True, color=array([1., 1., 1.]), colorSpace='rgb', contrast=1.0, depth=-25.0, flipHoriz=False, flipVert=False, image=str(...), interpolate=True, mask=None, maskParams=None, name='neutro', opacity=1.0, ori=0.0, pos=array([-0.55, -0.23]), size=array([0.08, 0.08]), texRes=128, units='height', win=Window(...))
+13.9359 	EXP 	Created neutre = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=-26.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.04, italic=False, languageStyle='LTR', name='neutre', opacity=1.0, ori=0, pos=array([-0.55, -0.38]), rgb=array([255., 255., 255.]), text='neutro', units='height', win=Window(...), wrapWidth=1)
+13.9554 	EXP 	Created gracias = TextStim(__class__=<class 'psychopy.visual.text.TextStim'>, alignHoriz='center', alignVert='center', antialias=True, autoLog=True, bold=False, color='white', colorSpace='named', contrast=1.0, depth=0.0, flipHoriz=False, flipVert=False, font='Arial', fontFiles=[], height=0.05, italic=False, languageStyle='LTR', name='gracias', opacity=1.0, ori=0, pos=array([0., 0.]), rgb=array([255., 255., 255.]), text=str(...), units='height', win=Window(...), wrapWidth=1)
+13.9834 	EXP 	nat: flipVert = False
+13.9834 	EXP 	nat: autoLog = True
+13.9834 	EXP 	int: flipVert = False
+13.9834 	EXP 	int: autoLog = True
+13.9834 	EXP 	val: flipVert = False
+13.9834 	EXP 	val: autoLog = True
+13.9834 	EXP 	alert: flipVert = False
+13.9834 	EXP 	alert: autoLog = True
+13.9834 	EXP 	instr: autoDraw = True
+15.2079 	EXP 	Created sequence: random, trialTypes=1, nReps=2, seed=None
+15.2085 	EXP 	New trial (rep=0, index=0): None
+15.2304 	DATA 	Keypress: space
+15.2322 	EXP 	instr: autoDraw = False
+15.2322 	EXP 	cruz: autoDraw = True
+15.2322 	EXP 	text: autoDraw = True
+17.7858 	EXP 	RatingScale nat: reset()
+17.7861 	EXP 	RatingScale int: reset()
+17.7864 	EXP 	RatingScale val: reset()
+17.7867 	EXP 	RatingScale alert: reset()
+17.7880 	DATA 	Keypress: space
+17.8063 	EXP 	cruz: autoDraw = False
+17.8063 	EXP 	text: autoDraw = False
+17.8063 	EXP 	robot: autoDraw = True
+17.8063 	EXP 	cyborg: autoDraw = True
+17.8063 	EXP 	human: autoDraw = True
+17.8063 	EXP 	naturalidad: autoDraw = True
+17.8063 	EXP 	nat: autoDraw = True
+17.8063 	EXP 	tick: autoDraw = True
+17.8063 	EXP 	int2: autoDraw = True
+17.8063 	EXP 	int1: autoDraw = True
+17.8063 	EXP 	inteligibilidad: autoDraw = True
+17.8063 	EXP 	int: autoDraw = True
+17.8063 	EXP 	valencia: autoDraw = True
+17.8063 	EXP 	val: autoDraw = True
+17.8063 	EXP 	val1: autoDraw = True
+17.8063 	EXP 	val2: autoDraw = True
+17.8063 	EXP 	val3: autoDraw = True
+17.8063 	EXP 	val4: autoDraw = True
+17.8063 	EXP 	val5: autoDraw = True
+17.8063 	EXP 	alerta: autoDraw = True
+17.8063 	EXP 	alert: autoDraw = True
+17.8063 	EXP 	alert1: autoDraw = True
+17.8063 	EXP 	alert2: autoDraw = True
+17.8063 	EXP 	alert3: autoDraw = True
+17.8063 	EXP 	alert4: autoDraw = True
+17.8063 	EXP 	alert5: autoDraw = True
+17.8063 	EXP 	enojo: autoDraw = True
+17.8063 	EXP 	anger: autoDraw = True
+17.8063 	EXP 	colère: autoDraw = True
+17.8063 	EXP 	disgusto: autoDraw = True
+17.8063 	EXP 	happiness: autoDraw = True
+17.8063 	EXP 	dégoût: autoDraw = True
+17.8063 	EXP 	miedo: autoDraw = True
+17.8063 	EXP 	fear: autoDraw = True
+17.8063 	EXP 	peur: autoDraw = True
+17.8063 	EXP 	felicidad: autoDraw = True
+17.8063 	EXP 	happiness: autoDraw = True
+17.8063 	EXP 	joie: autoDraw = True
+17.8063 	EXP 	tristeza: autoDraw = True
+17.8063 	EXP 	sadness: autoDraw = True
+17.8063 	EXP 	tristesse: autoDraw = True
+17.8063 	EXP 	neutro: autoDraw = True
+17.8063 	EXP 	neutro: autoDraw = True
+17.8063 	EXP 	neutre: autoDraw = True
+20.4323 	DATA 	Mouse: Left button down, pos=(741,837)
+20.4338 	DATA 	RatingScale alert: (mouse single-click) rating=9
+20.4338 	DATA 	RatingScale alert: rating RT=2.638
+20.4339 	DATA 	RatingScale alert: history=[(None, 0.0), (9, 2.638)]
+20.5293 	DATA 	Mouse:  Left button up, pos=(741,837)
+22.3778 	DATA 	Mouse: Left button down, pos=(1714,855)
+22.3824 	DATA 	RatingScale val: (mouse single-click) rating=9
+22.3824 	DATA 	RatingScale val: rating RT=4.587
+22.3824 	DATA 	RatingScale val: history=[(None, 0.0), (9, 4.587)]
+22.4642 	DATA 	Mouse:  Left button up, pos=(1714,855)
+24.1295 	DATA 	Mouse: Left button down, pos=(597,517)
+24.1295 	DATA 	RatingScale int: (mouse single-click) rating=4
+24.1295 	DATA 	RatingScale int: rating RT=6.335
+24.1296 	DATA 	RatingScale int: history=[(None, 0.0), (4, 6.335)]
+24.2131 	DATA 	Mouse:  Left button up, pos=(597,517)
+26.7263 	DATA 	Mouse: Left button down, pos=(1196,519)
+26.7264 	DATA 	RatingScale nat: (mouse single-click) rating=1
+26.7264 	DATA 	RatingScale nat: rating RT=8.934
+26.7264 	DATA 	RatingScale nat: history=[(None, 0.0), (1, 8.934)]
+26.8145 	DATA 	Mouse:  Left button up, pos=(1196,519)
+29.4938 	DATA 	Mouse: Left button down, pos=(1353,189)
+29.5600 	DATA 	Mouse:  Left button up, pos=(1353,189)
+29.8173 	DATA 	Mouse: Left button down, pos=(1323,187)
+29.8401 	EXP 	felicidad: fillColor = 'yellow'
+29.8401 	EXP 	felicidad: lineColor = 'yellow'
+29.8401 	EXP 	felicidad: color = 'yellow'
+29.8791 	DATA 	Mouse:  Left button up, pos=(1323,187)
+37.7977 	EXP 	New trial (rep=1, index=0): None
+37.8128 	EXP 	robot: autoDraw = False
+37.8128 	EXP 	cyborg: autoDraw = False
+37.8128 	EXP 	human: autoDraw = False
+37.8128 	EXP 	naturalidad: autoDraw = False
+37.8128 	EXP 	nat: autoDraw = False
+37.8128 	EXP 	tick: autoDraw = False
+37.8128 	EXP 	int2: autoDraw = False
+37.8128 	EXP 	int1: autoDraw = False
+37.8128 	EXP 	inteligibilidad: autoDraw = False
+37.8128 	EXP 	int: autoDraw = False
+37.8128 	EXP 	valencia: autoDraw = False
+37.8128 	EXP 	val: autoDraw = False
+37.8128 	EXP 	val1: autoDraw = False
+37.8128 	EXP 	val2: autoDraw = False
+37.8128 	EXP 	val3: autoDraw = False
+37.8128 	EXP 	val4: autoDraw = False
+37.8128 	EXP 	val5: autoDraw = False
+37.8128 	EXP 	alerta: autoDraw = False
+37.8128 	EXP 	alert: autoDraw = False
+37.8128 	EXP 	alert1: autoDraw = False
+37.8128 	EXP 	alert2: autoDraw = False
+37.8128 	EXP 	alert3: autoDraw = False
+37.8128 	EXP 	alert4: autoDraw = False
+37.8128 	EXP 	alert5: autoDraw = False
+37.8128 	EXP 	enojo: autoDraw = False
+37.8128 	EXP 	anger: autoDraw = False
+37.8128 	EXP 	colère: autoDraw = False
+37.8128 	EXP 	disgusto: autoDraw = False
+37.8128 	EXP 	happiness: autoDraw = False
+37.8128 	EXP 	dégoût: autoDraw = False
+37.8128 	EXP 	miedo: autoDraw = False
+37.8128 	EXP 	fear: autoDraw = False
+37.8128 	EXP 	peur: autoDraw = False
+37.8128 	EXP 	felicidad: autoDraw = False
+37.8128 	EXP 	happiness: autoDraw = False
+37.8128 	EXP 	joie: autoDraw = False
+37.8128 	EXP 	tristeza: autoDraw = False
+37.8128 	EXP 	sadness: autoDraw = False
+37.8128 	EXP 	tristesse: autoDraw = False
+37.8128 	EXP 	neutro: autoDraw = False
+37.8128 	EXP 	neutro: autoDraw = False
+37.8128 	EXP 	neutre: autoDraw = False
+37.8128 	EXP 	enojo: fillColor = 'grey'
+37.8128 	EXP 	enojo: lineColor = 'grey'
+37.8128 	EXP 	enojo: color = 'grey'
+37.8128 	EXP 	disgusto: fillColor = 'grey'
+37.8128 	EXP 	disgusto: lineColor = 'grey'
+37.8128 	EXP 	disgusto: color = 'grey'
+37.8128 	EXP 	miedo: fillColor = 'grey'
+37.8128 	EXP 	miedo: lineColor = 'grey'
+37.8128 	EXP 	miedo: color = 'grey'
+37.8128 	EXP 	felicidad: fillColor = 'grey'
+37.8128 	EXP 	felicidad: lineColor = 'grey'
+37.8128 	EXP 	felicidad: color = 'grey'
+37.8128 	EXP 	tristeza: fillColor = 'grey'
+37.8128 	EXP 	tristeza: lineColor = 'grey'
+37.8128 	EXP 	tristeza: color = 'grey'
+37.8128 	EXP 	neutro: fillColor = 'grey'
+37.8128 	EXP 	neutro: lineColor = 'grey'
+37.8128 	EXP 	neutro: color = 'grey'
+37.8128 	EXP 	cruz: autoDraw = True
+37.8128 	EXP 	text: autoDraw = True
+39.4660 	EXP 	RatingScale nat: reset()
+39.4666 	EXP 	RatingScale int: reset()
+39.4672 	EXP 	RatingScale val: reset()
+39.4677 	EXP 	RatingScale alert: reset()
+39.4696 	DATA 	Keypress: space
+39.4793 	EXP 	cruz: autoDraw = False
+39.4793 	EXP 	text: autoDraw = False
+39.4793 	EXP 	robot: autoDraw = True
+39.4793 	EXP 	cyborg: autoDraw = True
+39.4793 	EXP 	human: autoDraw = True
+39.4793 	EXP 	naturalidad: autoDraw = True
+39.4793 	EXP 	nat: autoDraw = True
+39.4793 	EXP 	tick: autoDraw = True
+39.4793 	EXP 	int2: autoDraw = True
+39.4793 	EXP 	int1: autoDraw = True
+39.4793 	EXP 	inteligibilidad: autoDraw = True
+39.4793 	EXP 	int: autoDraw = True
+39.4793 	EXP 	valencia: autoDraw = True
+39.4793 	EXP 	val: autoDraw = True
+39.4793 	EXP 	val1: autoDraw = True
+39.4793 	EXP 	val2: autoDraw = True
+39.4793 	EXP 	val3: autoDraw = True
+39.4793 	EXP 	val4: autoDraw = True
+39.4793 	EXP 	val5: autoDraw = True
+39.4793 	EXP 	alerta: autoDraw = True
+39.4793 	EXP 	alert: autoDraw = True
+39.4793 	EXP 	alert1: autoDraw = True
+39.4793 	EXP 	alert2: autoDraw = True
+39.4793 	EXP 	alert3: autoDraw = True
+39.4793 	EXP 	alert4: autoDraw = True
+39.4793 	EXP 	alert5: autoDraw = True
+39.4793 	EXP 	enojo: autoDraw = True
+39.4793 	EXP 	anger: autoDraw = True
+39.4793 	EXP 	colère: autoDraw = True
+39.4793 	EXP 	disgusto: autoDraw = True
+39.4793 	EXP 	happiness: autoDraw = True
+39.4793 	EXP 	dégoût: autoDraw = True
+39.4793 	EXP 	miedo: autoDraw = True
+39.4793 	EXP 	fear: autoDraw = True
+39.4793 	EXP 	peur: autoDraw = True
+39.4793 	EXP 	felicidad: autoDraw = True
+39.4793 	EXP 	happiness: autoDraw = True
+39.4793 	EXP 	joie: autoDraw = True
+39.4793 	EXP 	tristeza: autoDraw = True
+39.4793 	EXP 	sadness: autoDraw = True
+39.4793 	EXP 	tristesse: autoDraw = True
+39.4793 	EXP 	neutro: autoDraw = True
+39.4793 	EXP 	neutro: autoDraw = True
+39.4793 	EXP 	neutre: autoDraw = True
+43.8242 	DATA 	Mouse: Left button down, pos=(344,849)
+43.8282 	DATA 	RatingScale alert: (mouse single-click) rating=3
+43.8282 	DATA 	RatingScale alert: rating RT=4.353
+43.8282 	DATA 	RatingScale alert: history=[(None, 0.0), (3, 4.353)]
+43.8936 	DATA 	Mouse:  Left button up, pos=(344,849)
+46.2887 	DATA 	Mouse: Left button down, pos=(1194,854)
+46.2926 	DATA 	RatingScale val: (mouse single-click) rating=1
+46.2926 	DATA 	RatingScale val: rating RT=6.818
+46.2926 	DATA 	RatingScale val: history=[(None, 0.0), (1, 6.818)]
+46.3617 	DATA 	Mouse:  Left button up, pos=(1194,854)
+47.4705 	DATA 	Mouse: Left button down, pos=(744,527)
+47.4738 	DATA 	RatingScale int: (mouse single-click) rating=5
+47.4738 	DATA 	RatingScale int: rating RT=8.000
+47.4738 	DATA 	RatingScale int: history=[(None, 0.0), (5, 8.0)]
+47.5233 	DATA 	Mouse:  Left button up, pos=(744,527)
+48.9945 	DATA 	Mouse: Left button down, pos=(1689,527)
+49.0063 	DATA 	RatingScale nat: (mouse single-click) rating=5
+49.0063 	DATA 	RatingScale nat: rating RT=9.534
+49.0063 	DATA 	RatingScale nat: history=[(None, 0.0), (5, 9.534)]
+49.0764 	DATA 	Mouse:  Left button up, pos=(1689,527)
+50.5683 	DATA 	Mouse: Left button down, pos=(849,194)
+50.5839 	EXP 	tristeza: fillColor = 'yellow'
+50.5839 	EXP 	tristeza: lineColor = 'yellow'
+50.5839 	EXP 	tristeza: color = 'yellow'
+50.6349 	DATA 	Mouse:  Left button up, pos=(848,194)
+59.4928 	EXP 	robot: autoDraw = False
+59.4928 	EXP 	cyborg: autoDraw = False
+59.4928 	EXP 	human: autoDraw = False
+59.4928 	EXP 	naturalidad: autoDraw = False
+59.4928 	EXP 	nat: autoDraw = False
+59.4928 	EXP 	tick: autoDraw = False
+59.4928 	EXP 	int2: autoDraw = False
+59.4928 	EXP 	int1: autoDraw = False
+59.4928 	EXP 	inteligibilidad: autoDraw = False
+59.4928 	EXP 	int: autoDraw = False
+59.4928 	EXP 	valencia: autoDraw = False
+59.4928 	EXP 	val: autoDraw = False
+59.4928 	EXP 	val1: autoDraw = False
+59.4928 	EXP 	val2: autoDraw = False
+59.4928 	EXP 	val3: autoDraw = False
+59.4928 	EXP 	val4: autoDraw = False
+59.4928 	EXP 	val5: autoDraw = False
+59.4928 	EXP 	alerta: autoDraw = False
+59.4928 	EXP 	alert: autoDraw = False
+59.4928 	EXP 	alert1: autoDraw = False
+59.4928 	EXP 	alert2: autoDraw = False
+59.4928 	EXP 	alert3: autoDraw = False
+59.4928 	EXP 	alert4: autoDraw = False
+59.4928 	EXP 	alert5: autoDraw = False
+59.4928 	EXP 	enojo: autoDraw = False
+59.4928 	EXP 	anger: autoDraw = False
+59.4928 	EXP 	colère: autoDraw = False
+59.4928 	EXP 	disgusto: autoDraw = False
+59.4928 	EXP 	happiness: autoDraw = False
+59.4928 	EXP 	dégoût: autoDraw = False
+59.4928 	EXP 	miedo: autoDraw = False
+59.4928 	EXP 	fear: autoDraw = False
+59.4928 	EXP 	peur: autoDraw = False
+59.4928 	EXP 	felicidad: autoDraw = False
+59.4928 	EXP 	happiness: autoDraw = False
+59.4928 	EXP 	joie: autoDraw = False
+59.4928 	EXP 	tristeza: autoDraw = False
+59.4928 	EXP 	sadness: autoDraw = False
+59.4928 	EXP 	tristesse: autoDraw = False
+59.4928 	EXP 	neutro: autoDraw = False
+59.4928 	EXP 	neutro: autoDraw = False
+59.4928 	EXP 	neutre: autoDraw = False
+59.4928 	EXP 	enojo: fillColor = 'grey'
+59.4928 	EXP 	enojo: lineColor = 'grey'
+59.4928 	EXP 	enojo: color = 'grey'
+59.4928 	EXP 	disgusto: fillColor = 'grey'
+59.4928 	EXP 	disgusto: lineColor = 'grey'
+59.4928 	EXP 	disgusto: color = 'grey'
+59.4928 	EXP 	miedo: fillColor = 'grey'
+59.4928 	EXP 	miedo: lineColor = 'grey'
+59.4928 	EXP 	miedo: color = 'grey'
+59.4928 	EXP 	felicidad: fillColor = 'grey'
+59.4928 	EXP 	felicidad: lineColor = 'grey'
+59.4928 	EXP 	felicidad: color = 'grey'
+59.4928 	EXP 	tristeza: fillColor = 'grey'
+59.4928 	EXP 	tristeza: lineColor = 'grey'
+59.4928 	EXP 	tristeza: color = 'grey'
+59.4928 	EXP 	neutro: fillColor = 'grey'
+59.4928 	EXP 	neutro: lineColor = 'grey'
+59.4928 	EXP 	neutro: color = 'grey'
+59.4928 	EXP 	gracias: autoDraw = True
+61.8293 	DATA 	Keypress: space
+61.8402 	EXP 	gracias: autoDraw = False
+61.9340 	EXP 	window1: mouseVisible = True
