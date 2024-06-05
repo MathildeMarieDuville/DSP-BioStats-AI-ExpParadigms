@@ -1,7 +1,7 @@
 # DSP-BioStats-AI-ExpParadigms
 A repository of useful codes for digital signal processing, statistical modelling, machine and deep learning, and experimental paradigms designing is shared. 
 
-Theoretical explanations are given along the scripts to promote the understanding. Also, two PowePoint files are available, that complete the annotation within the scripts with more robust demonstrations and with visual representations.
+Theoretical explanations are given along the scripts to promote the understanding. Also, two PowerPoint files are available, that complete the annotation within the scripts with more robust demonstrations and with visual representations.
 
 Every file is available in its original extension (e.g., .mlx for Matlab scripts) and in its HTML version, to be read with the browser of you choice in case you do not have the software installed in your computer. 
 
